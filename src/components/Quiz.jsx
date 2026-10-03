@@ -82,9 +82,9 @@ const QUESTIONS = [
 
 function tierLine(total) {
   if (total === 0) return 'Your week is already lean. The full audit will double-check the corners.'
-  if (total <= 5) return 'That is a half-day a week back in founder hands.'
-  if (total <= 10) return 'That is a full workday every week, given back to you.'
-  return 'That is a full-time salary paid in your hours. Time to hire it back.'
+  if (total <= 5) return 'That is a half-day every week back in your hands.'
+  if (total <= 10) return 'That is a full workday every week, spent on assistant work.'
+  return 'That is a whole extra workweek every month, done by you.'
 }
 
 export default function Quiz({ onDone }) {
@@ -170,11 +170,17 @@ export default function Quiz({ onDone }) {
               )
             })}
           </ul>
-          <p className="quiz-math">
-            At Pareto's $200/hr founder rate, that is about{' '}
-            <b>${Math.round(total * 4.3 * 200).toLocaleString('en-US')}/month</b> of
-            founder time stuck in an assistant job.
-          </p>
+          {total > 0 && (
+            <>
+              <p className="quiz-math">
+                That is about <b>{Math.max(1, Math.round((total * 4.3) / 8))} full workdays</b> every month spent on assistant work.
+              </p>
+              <p className="quiz-math">
+                Pareto prices a founder's hour at $200 when it goes to sales, product, and growth.
+                At {total} hours a week, that is <b>about ${Math.round(total * 4.3 * 200).toLocaleString('en-US')} a month</b> of CEO work that never happens.
+              </p>
+            </>
+          )}
           <a className="btn btn-primary" href="#get-audit">Book a call →</a>
           <p className="quiz-note">Booking starts with a short check so the call is worth your time. The full audit arrives by email either way.</p>
         </div>
