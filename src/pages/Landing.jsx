@@ -236,16 +236,16 @@ export default function Landing() {
       <section className="section" id="get-audit">
         <div className="container">
           <div className="center">
-            <span className="eyebrow">Get the audit</span>
-            <h2 className="section-title">Get your full audit by email</h2>
-            <p className="section-sub">Answer the questions below and the Founder Delegation Audit lands in your inbox, with your quiz result attached.</p>
+            <span className="eyebrow">Book a call</span>
+            <h2 className="section-title">First, a quick check so the call is worth your time</h2>
+            <p className="section-sub">Six questions qualify you: founders we can help get the calendar on the next screen, and the full Founder Delegation Audit lands in your inbox either way.</p>
           </div>
           <div className="form-box">
             {quizResult && (
               <div className="quiz-summary" id="quiz-summary">
                 <span>Your test: <b>{quizResult.total} hours a week</b> recoverable</span>
-                {quizResult.who && <span>· runs today: <b>{quizResult.who.replace(/-/g, ' ')}</b></span>}
-                <span>· these answers pass to GoHighLevel with your form</span>
+                {quizResult.whoText && <span>· today: <b>{quizResult.whoText.toLowerCase()}</b></span>}
+                <span>· your answers pass to GoHighLevel with this form</span>
               </div>
             )}
             {/* ============================================================

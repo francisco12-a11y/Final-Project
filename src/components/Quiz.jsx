@@ -9,7 +9,8 @@ const QUESTIONS = [
   {
     id: 'q_email',
     label: 'Email & scheduling',
-    help: 'Triage, replies, booking meetings, chasing confirmations',
+    q: 'How many hours a week do you spend on email and scheduling?',
+    help: 'Reading, replying, booking meetings, chasing confirmations',
     options: [
       { t: 'Under 2 hrs', h: 0 },
       { t: '3–5 hrs', h: 3 },
@@ -20,7 +21,8 @@ const QUESTIONS = [
   {
     id: 'q_crm',
     label: 'CRM & follow-ups',
-    help: 'Updating deals, chasing leads, customer check-ins',
+    q: 'How many hours a week do you spend on your CRM and follow-ups?',
+    help: 'Updating deals, chasing leads, checking in with customers',
     options: [
       { t: 'Under 2 hrs', h: 0 },
       { t: '2–4 hrs', h: 2 },
@@ -30,8 +32,9 @@ const QUESTIONS = [
   },
   {
     id: 'q_admin',
-    label: 'Invoicing, data entry & reports',
-    help: 'Billing, spreadsheets, copy-paste between tools',
+    label: 'Admin & reports',
+    q: 'How much time goes to invoices, data entry and reports?',
+    help: 'Billing, spreadsheets, copy-pasting between tools',
     options: [
       { t: 'Under 2 hrs', h: 0 },
       { t: '2–4 hrs', h: 2 },
@@ -41,7 +44,8 @@ const QUESTIONS = [
   },
   {
     id: 'q_support',
-    label: 'Customer support & order issues',
+    label: 'Customer support',
+    q: 'How much time do you lose to customer support every week?',
     help: 'Tickets, refunds, tracking numbers, "quick questions"',
     options: [
       { t: 'Under 2 hrs', h: 0 },
@@ -52,8 +56,9 @@ const QUESTIONS = [
   },
   {
     id: 'q_hiring',
-    label: 'Recruiting & team admin',
-    help: 'Screening, onboarding, timesheets, payroll prep',
+    label: 'Hiring & team admin',
+    q: 'How many hours a week go to hiring and team admin?',
+    help: 'Screening candidates, onboarding, timesheets, payroll prep',
     options: [
       { t: 'Under 2 hrs', h: 0 },
       { t: '2–4 hrs', h: 2 },
@@ -64,6 +69,7 @@ const QUESTIONS = [
   {
     id: 'q_who',
     label: 'Who runs these tasks today?',
+    q: 'Who does these tasks today?',
     help: 'Be honest, this routes your next step',
     options: [
       { t: 'Me, during work hours', ghl: 'me-work-hours' },
@@ -104,6 +110,7 @@ export default function Quiz({ onDone }) {
           h: next[question.id] !== undefined ? question.options[next[question.id]].h : 0,
         })),
         who: whoOpt ? whoOpt.ghl : null,
+        whoText: whoOpt ? whoOpt.t : null,
         ts: new Date().toISOString(),
       })
     }
@@ -125,7 +132,7 @@ export default function Quiz({ onDone }) {
       {!done ? (
         <div className="quiz-q" key={step}>
           <p className="quiz-step">Question {progress + 1} of {QUESTIONS.length}</p>
-          <h3 className="quiz-label">{QUESTIONS[step].label}</h3>
+          <h3 className="quiz-label">{QUESTIONS[step].q}</h3>
           <p className="quiz-help">{QUESTIONS[step].help}</p>
           <div className="quiz-options">
             {QUESTIONS[step].options.map((opt, i) => (
@@ -168,8 +175,8 @@ export default function Quiz({ onDone }) {
             <b>${Math.round(total * 4.3 * 200).toLocaleString('en-US')}/month</b> of
             founder time stuck in an assistant job.
           </p>
-          <a className="btn btn-primary" href="#get-audit">Get the full audit by email →</a>
-          <p className="quiz-note">Two minutes, six questions, zero email required to see your number.</p>
+          <a className="btn btn-primary" href="#get-audit">Book a call →</a>
+          <p className="quiz-note">Booking starts with a short check so the call is worth your time. The full audit arrives by email either way.</p>
         </div>
       )}
     </div>
