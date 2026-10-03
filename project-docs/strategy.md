@@ -3,11 +3,12 @@ Final project — Pareto Talent Lead Magnet. Deadline: Oct 7, 2026.
 
 ## Lead magnet
 **Title (MAGIC formula):** *The Founder Delegation Audit: Find the 15 Hours a Week You're Doing a $10/Hour Job*
+**Site hero (Fran-approved frame):** *"You're the CEO and your own assistant. Hand off the assistant job."*
 
-- **Format:** PDF worksheet + scoring guide (delivered by email instantly after opt-in).
-- **Promise (one specific problem):** A founder can't see which tasks to hand off first. In 20 minutes, the audit produces a ranked list of tasks to delegate, the hours recoverable per week, and a script for the first handoff conversation.
-- **MAGIC check:** Measurable (hour + dollar value per task), Actionable (ranked handoff list + script), Goal-driven (buy back 10–15 hrs/wk), Interested audience (founders drowning in ops), Credible (uses Pareto's own 4.3x ROI math and pain-point research).
-- **Value Equation:** High certainty (a worksheet, not theory — you finish it with an answer), high value (15 hrs/wk ≈ their hiring fee pays back in weeks), low time investment (20 min), low effort (checklist + math done for them).
+- **Format:** interactive **quiz on the landing page** (6 plain-language questions, instant recoverable-hours result, $/month at Pareto's $200/hr founder rate) **plus the full PDF worksheet delivered by email**. Quiz answers pass to GoHighLevel (fields `q_email`, `q_crm`, `q_admin`, `q_support`, `q_hiring`, `q_who`) for tagging/routing; the result button says **Book a call** and drops into the GHL qualifying form.
+- **Promise (one specific problem):** A founder can't see which tasks to hand off first. The quiz gives the number in 2 minutes; the audit ranks every task, totals the recoverable week, and scripts the first handoff conversation.
+- **MAGIC check:** Measurable (hours + dollars on the spot), Actionable (ranked handoff list + script), Goal-driven (buy back 10–15 hrs/wk), Interested audience (founders drowning in ops), Credible (uses Pareto's own 4.3x ROI math and $200/hr founder rate).
+- **Value Equation:** High certainty (instant result, and the worksheet finishes with an answer), high value (15 hrs/wk ≈ their hiring fee pays back in weeks), low time investment (2-minute quiz), low effort (six taps).
 
 ## Qualification criteria
 A lead is **qualified** when ALL are true:
