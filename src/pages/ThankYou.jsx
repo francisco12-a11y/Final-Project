@@ -16,7 +16,7 @@ export default function ThankYou() {
           </div>
           <span className="eyebrow">Check your inbox</span>
           <h1>Your Founder Delegation Audit is on its way</h1>
-          <p className="section-sub">It should land within a minute or two. If you don't see it, check promotions and spam — then drag it to your primary inbox so nothing gets lost.</p>
+          <p className="section-sub">It should land within a minute or two. If you don't see it, check promotions and spam, then drag it to your primary inbox.</p>
           <div className="hero-cta-row" style={{ justifyContent: 'center' }}>
             <a className="btn btn-primary" href="#while-you-wait">What to do while it arrives</a>
           </div>
@@ -26,13 +26,13 @@ export default function ThankYou() {
       <section className="section section-surface" style={{ paddingTop: 64 }}>
         <div className="container">
           <span className="eyebrow">Straight talk</span>
-          <h2 className="section-title" style={{ fontSize: 'clamp(24px, 3.4vw, 34px)' }}>Here's why there's no booking link for you yet</h2>
+          <h2 className="section-title" style={{ fontSize: 'clamp(24px, 3.4vw, 34px)' }}>You didn't get a booking link. That's on purpose.</h2>
           <p className="section-sub" style={{ marginBottom: 0 }}>
-            The Right Hand Program is built for founders who are already scaling — real revenue,
-            real ops load, hiring on your plate. Based on your answers, that's not where you are
-            today. We'd rather tell you that than put you on a call that wastes 20 minutes of your
-            life. The audit doesn't care what stage you're at: run it now, and you'll know exactly
-            what to hand off the moment growth makes it necessary.
+            The Right Hand Program is built for founders who are already scaling: real
+            revenue, real ops load, hiring on your plate. Based on your answers, that's not
+            where you are today. We'd rather tell you that than put you on a call that
+            wastes 20 minutes of your life. Run the audit at any stage. You'll know
+            exactly what to hand off when growth makes it necessary.
           </p>
         </div>
       </section>
@@ -48,7 +48,7 @@ export default function ThankYou() {
                 </svg>
               </div>
               <h3>Run the audit this week</h3>
-              <p>Block 20 minutes, list the week honestly, and score every task. The number at the end — your recoverable hours — is the one most founders screenshot.</p>
+              <p>Block 20 minutes, list the week honestly, and score every task. The number at the end, your recoverable hours, is the one most founders screenshot.</p>
             </div>
             <div className="check-card">
               <div className="ic">
@@ -67,11 +67,11 @@ export default function ThankYou() {
                 </svg>
               </div>
               <h3>Watch for three short emails</h3>
-              <p>Over the next week we'll send the delegation rules that separate founders who scale from founders who stall. Every one has a one-click unsubscribe.</p>
+              <p>Over the next week we'll send three short emails on how to delegate. Every one has a one-click unsubscribe.</p>
             </div>
           </div>
           <div className="callout center">
-            When the audit finds 10+ recoverable hours and revenue clears $10k/month, <b>the Matching Call will be here waiting.</b> Most founders get there faster than they think.
+            When the audit finds 10+ recoverable hours and revenue clears $10k/month, <b>book the Matching Call.</b> Most founders get there sooner than they planned.
           </div>
         </div>
       </section>

@@ -25,7 +25,7 @@ export default function Qualified() {
           </div>
           <span className="eyebrow">You qualified</span>
           <h1>Founders like you get those hours back.<br />Let's meet your Right Hand.</h1>
-          <p className="section-sub">Based on your answers, you're exactly who the Right Hand Program was built for. Book your Matching Call below — it's 20 minutes, and it's the last step before you meet your candidates.</p>
+          <p className="section-sub">Based on your answers, you're exactly who we built the Right Hand Program for. Book your Matching Call below. It's 20 minutes, and it's the last step before you meet your candidates.</p>
         </div>
       </header>
 
@@ -63,7 +63,7 @@ export default function Qualified() {
           </div>
 
           <div className="callout">
-            <b>Bring your completed Founder Delegation Audit to the call.</b> Your shortlist — every task you scored 4 to 6 — is your first job description. Founders who show up with it finished get matched in days, not weeks. <em>(Check your inbox if you haven't filled it in yet.)</em>
+            <b>Bring your completed Founder Delegation Audit to the call.</b> Your shortlist, every task you scored 4 to 6, is your first job description. Founders who bring it finished usually match within days. <em>(Check your inbox if you haven't filled it in yet.)</em>
           </div>
         </div>
       </section>

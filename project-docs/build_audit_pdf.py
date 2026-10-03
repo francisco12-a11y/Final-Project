@@ -130,13 +130,12 @@ def on_first_page(c, doc):
     c.setFillColor(HexColor("#9FB3C8"))
     c.setFont("Lib", 10.5)
     c.drawString(MARGIN, PAGE_H - 57 * mm,
-                 "A 20-minute worksheet that ranks what to hand off first, "
-                 "counts what it costs you to keep it,")
+                 "A 20-minute worksheet that ranks what to hand off first and scripts")
     c.drawString(MARGIN, PAGE_H - 62 * mm,
-                 "and scripts the handoff conversation you've been avoiding.")
+                 "the handoff conversation you've been avoiding.")
 
     # meta chips
-    chips = ["20 MINUTES", "3 STEPS", "ONE UNCOMFORTABLE NUMBER"]
+    chips = ["20 MINUTES", "3 STEPS", "YOUR RECOVERABLE WEEK"]
     x = MARGIN
     c.setFont("Lib-B", 8.5)
     for label in chips:
@@ -289,7 +288,7 @@ def rank_table():
 def steps_row():
     cells = [
         [P("<b>1 · LOG</b>", "stepT"),
-         P("List every recurring task you did this week. Recurring only — "
+         P("List every recurring task you did this week. Recurring only; "
            "one-off fires don't count.", "stepB")],
         [P("<b>2 · SCORE</b>", "stepT"),
          P("Rate each task on two questions: what it costs to hire out, "
@@ -313,17 +312,16 @@ def steps_row():
 def closing_band():
     inner = [
         Spacer(1, 4),
-        P("The bottleneck isn't your team. It's the handoff.", "darkT"),
+        P("You found the hours. Now put a person on them.", "darkT"),
         Spacer(1, 6),
-        P("If your audit found 10+ recoverable hours, the constraint is no "
-          "longer <i>what</i> to delegate — it's finding a person you trust "
-          "to take it. That's the part Pareto Talent does: hand-picked, "
-          "AI-trained Right Hand candidates matched to your audit within "
-          "24 hours, backed by the Freedom 40 guarantee (reclaim 40 hours "
-          "in your first 30 days or the next month is free) and lifetime "
-          "replacement.", "darkB"),
+        P("If your audit found 10+ recoverable hours, the next problem is "
+          "finding the person who takes those tasks. Pareto Talent does that "
+          "part: hand-picked, AI-trained Right Hand candidates matched to "
+          "your audit within 24 hours, backed by the Freedom 40 guarantee "
+          "(reclaim 40 hours in your first 30 days or the next month is "
+          "free) and lifetime replacement.", "darkB"),
         Spacer(1, 10),
-        P("<b>Book your Matching Call at paretotalent.com — bring this "
+        P("<b>Book your Matching Call at paretotalent.com and bring this "
           "audit. Your shortlist is your first job description.</b>", "darkB"),
     ]
     t = Table([[inner]], colWidths=[CONTENT_W])
@@ -368,8 +366,8 @@ def make_story():
         "You became a founder to do founder work. Somewhere along the way, "
         "your week filled up with inbox triage, scheduling, CRM updates and "
         "follow-ups — $10/hour work inside a $100/hour brain. This audit "
-        "makes the trade visible: what each task is really costing you, and "
-        "what to hand off first. Do it honestly. The math is uncomfortable "
+        "makes the trade visible: what each task costs you and what to hand "
+        "off first. Do it honestly. The math is uncomfortable "
         "on purpose."))
     story.append(Spacer(1, 10))
     story.append(steps_row())
@@ -400,7 +398,7 @@ def make_story():
     story.append(Spacer(1, 8))
     story.append(question_table(
         "Q2 — You vs. anyone",
-        "Does this task need <i>you</i>, or just need <i>doing</i>?",
+        "Does this task need <i>you</i>, or does it need <i>doing</i>?",
         [("A", "Anyone trained could do it", "3"),
          ("B", "Needs judgment, but not my judgment", "2"),
          ("C", "Genuinely needs me — vision, key relationships", "0")]))
@@ -419,7 +417,7 @@ def make_story():
         "STEP 3", "Rank and recover",
         "Sort your tasks by Delegation Score, highest first. Everything "
         "scoring <b>4–6</b> goes on your Delegation Shortlist. Add up the "
-        "hours — that's your recoverable week.")
+        "hours; that's your recoverable week.")
     story.append(Spacer(1, 8))
     story.append(rank_table())
     story.append(Spacer(1, 10))
@@ -431,7 +429,7 @@ def make_story():
         Spacer(1, 3),
         P("Recoverable hours × 50 weeks × your effective hourly rate "
           "(last year's profit ÷ hours worked). Founders who run this audit "
-          "typically find <b>10–15 hours a week</b> — over 600 hours a year "
+          "typically find <b>10–15 hours a week</b>, over 600 hours a year "
           "of founder-level work stuck in assistant-level tasks.", "cell"),
     ]))
     story.append(Spacer(1, 14))
@@ -441,8 +439,8 @@ def make_story():
         P("<b>YOUR FIRST HANDOFF CONVERSATION</b>", "h2kick"),
         Spacer(1, 2),
         P("The script nobody gives you", "h2"),
-        P("Most delegation fails at the handoff, not the hiring. When you're "
-          "ready — with a Right Hand or with your current team — use this:", 
+        P("Most delegation fails at the handoff. Use this when you're "
+          "ready, with a Right Hand or with your current team:",
           "body"),
         Spacer(1, 6),
         boxed([
@@ -456,7 +454,7 @@ def make_story():
         Spacer(1, 8),
         P("<b>The three rules that make it stick</b>", "h3"),
         P("• Hand off the <b>outcome</b>, not the method. If you script "
-          "their steps, you've built a $10/hour puppet — and you're still "
+          "their steps, you've built a $10/hour puppet, and you're still "
           "the operator.", "body"),
         P("• Delegate one <b>decision authority</b> with every task. That's "
           "what makes it permanent.", "body"),

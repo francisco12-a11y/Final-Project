@@ -160,7 +160,7 @@ def build():
         "two paths (qualified → booking page with the Pareto calendar; everyone "
         "else → thank-you page + nurture), and the automation behind it. Everything "
         "is built with Pareto's real branding (their logo, fonts, palette) and in "
-        "Pareto's voice — we simulate running this campaign as a Pareto team member."))
+        "Pareto's voice; we simulate running this campaign as a Pareto team member."))
     story.append(Spacer(1, 6))
     story.append(boxed([
         P("Non-negotiables", "boxB"),
@@ -187,8 +187,8 @@ def build():
 
     story.append(P("What only Fran can do (accounts + face)", "h2"))
     story.append(checklist([
-        P("<b>GHL — form (L8):</b> build the qualifying form, paste the embed into the landing slot ZCode leaves ready, set conditional redirects (qualified → …/qualified.html, unqualified → …/thank-you.html), and run both tests.", "item"),
-        P("<b>GHL — pipeline + 4 workflows (L11, L12):</b> opt-in (deliver + tag + opportunity + notify), qualified follow-up (2 emails), unqualified nurture (3 emails), booking (confirmation + reminder). Screenshot everything into the two Drive folders.", "item"),
+        P("<b>GHL form (L8):</b> build the qualifying form, paste the embed into the landing slot ZCode leaves ready, set conditional redirects (qualified → …/qualified.html, unqualified → …/thank-you.html), and run both tests.", "item"),
+        P("<b>GHL pipeline + 4 workflows (L11, L12):</b> opt-in (deliver + tag + opportunity + notify), qualified follow-up (2 emails), unqualified nurture (3 emails), booking (confirmation + reminder). Screenshot everything into the two Drive folders.", "item"),
         P("<b>Drive:</b> create the folders with exact FP naming, upload audit PDF + ads + imagery + screenshots, set all to 'Anyone with the link can view'.", "item"),
         P("<b>ClickUp (L4):</b> build the board from ZCode's milestone structure.", "item"),
         P("<b>Second Brain (L1):</b> drop the Pareto frameworks/sources in (ZCode gives the structure).", "item"),
