@@ -9,14 +9,18 @@ Lead magnet + funnel for Pareto Talent's Right Hand Program. Deadline: **October
 
 ## Repo structure
 
+React (Vite, multi-page) → GitHub Pages via Actions. Branding is Pareto Talent's real one: their live logo, their `:root` design tokens (`#050a0e` dark, emerald `#10b981`), Plus Jakarta Sans + DM Sans.
+
 | Path | What it is |
 |------|------------|
-| `index.html` | Lead magnet landing page (L7) |
-| `qualified.html` | Booking page for qualified founders (L9) |
-| `thank-you.html` | Thank-you page + nurture entry for unqualified leads (L10) |
-| `lead-magnet/` | The Founder Delegation Audit PDF (L6) |
-| `project-docs/` | Strategy, research, SOP, Business Map, ClickUp structure, email + ad copy, Loom script |
-| `site-assets/` | Images, icons, fonts used by the pages |
+| `index.html` + `src/pages/Landing.jsx` | Lead magnet landing page (L7) with persona-matched heroes (`?p=dan\|vanessa\|chris\|sofia`) and the GHL form slot |
+| `qualified.html` + `src/pages/Qualified.jsx` | Booking page for qualified founders (L9), real GHL calendar embed |
+| `thank-you.html` + `src/pages/ThankYou.jsx` | Thank-you page + nurture entry for unqualified leads (L10) |
+| `src/styles.css` | Pareto's real design tokens (edit the `:root` block to rebrand everything) |
+| `public/` | Real Pareto logo + favicon, and the audit PDF served at `/lead-magnet/` |
+| `lead-magnet/` | Audit PDF source copy — regenerate with `python3 project-docs/build_audit_pdf.py`, then copy into `public/lead-magnet/` |
+| `project-docs/` | Strategy, research, SOP, Business Map, ClickUp structure, email + ad copy, Loom script, PDF build scripts |
+| `.github/workflows/deploy.yml` | Builds and deploys to Pages on every push to main |
 
 ## Deliverable tracker
 
