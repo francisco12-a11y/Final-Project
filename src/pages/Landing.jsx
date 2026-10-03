@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Nav from '../components/Nav.jsx'
 import Footer from '../components/Footer.jsx'
+import Quiz from '../components/Quiz.jsx'
 
 const HEROES = {
   dan: {
@@ -37,6 +38,7 @@ function AuditPreview() {
 
 export default function Landing() {
   const [hero, setHero] = useState(null)
+  const [quizResult, setQuizResult] = useState(null)
 
   useEffect(() => {
     // Persona-matched heroes: ads link here with ?p=dan|vanessa|chris|sofia
@@ -46,7 +48,7 @@ export default function Landing() {
 
   return (
     <>
-      <Nav />
+      <Nav cta="#quiz" ctaLabel="Take the 2-minute quiz" />
 
       {/* HERO */}
       <header className="hero">
@@ -56,18 +58,18 @@ export default function Landing() {
               <span className="stars">★★★★★</span>
               <span className="txt"><b>4.9</b> · Trusted by 100+ founders</span>
             </div>
-            <span className="eyebrow">Free 20-minute worksheet</span>
+            <span className="eyebrow">Free 2-minute test</span>
             <h1>
-              {hero ? hero.h1 : <>You're the CEO and <span className="accent">your own assistant</span>. Hand off the second job.</>}
+              {hero ? hero.h1 : <>You're the CEO and <span className="accent">your own assistant</span>. Hand off the assistant job.</>}
             </h1>
             <p className="hero-sub">
               {hero ? hero.sub
-                : "The Founder Delegation Audit finds the 15 hours a week keeping you in the assistant job, and the Matching Call hands them to someone trained to run them."}
+                : "Take the test and see how many hours a week you could get back from the assistant job, then get the full Founder Delegation Audit by email."}
             </p>
             <div className="hero-cta-row">
-              <a className="btn btn-primary btn-lg" href="#get-audit">Get the Free Audit →</a>
+              <a className="btn btn-primary btn-lg" href="#quiz">Take the 2-minute quiz →</a>
             </div>
-            <p className="hero-micro">Instant email delivery · No credit card · 20 minutes to finish</p>
+            <p className="hero-micro">Instant result · No email needed to see your number · Full audit delivered after</p>
             <div className="stat-chips">
               <span className="chip">10–15 hrs/week recoverable</span>
               <span className="chip">4.3x ROI on a Right Hand</span>
@@ -104,9 +106,9 @@ export default function Landing() {
       {/* WHAT'S INSIDE */}
       <section className="section" id="how">
         <div className="container">
-          <span className="eyebrow">The audit</span>
-          <h2 className="section-title">Three steps and 20 minutes to your recoverable week</h2>
-          <p className="section-sub">Do it honestly. The math is uncomfortable on purpose.</p>
+          <span className="eyebrow">The full audit</span>
+          <h2 className="section-title">The quiz gives you the number. The audit gives you the plan.</h2>
+          <p className="section-sub">Delivered by email the moment you opt in, the full Founder Delegation Audit walks your whole week and ends with a script.</p>
           <div className="steps-grid">
             <div className="step-card">
               <div className="step-num">1</div>
@@ -218,15 +220,34 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* QUIZ */}
+      <section className="section section-surface" id="quiz">
+        <div className="container">
+          <div className="center">
+            <span className="eyebrow">The 2-minute test</span>
+            <h2 className="section-title">Test how much time you can get back</h2>
+            <p className="section-sub">Answer six questions about your week. You'll see your recoverable hours on the spot, and your answers pre-fill the form so the next step routes you honestly.</p>
+          </div>
+          <Quiz onDone={setQuizResult} />
+        </div>
+      </section>
+
       {/* FORM */}
       <section className="section" id="get-audit">
         <div className="container">
           <div className="center">
             <span className="eyebrow">Get the audit</span>
-            <h2 className="section-title">Find your 15 hours</h2>
-            <p className="section-sub">Answer the questions below and the Founder Delegation Audit lands in your inbox instantly.</p>
+            <h2 className="section-title">Get your full audit by email</h2>
+            <p className="section-sub">Answer the questions below and the Founder Delegation Audit lands in your inbox, with your quiz result attached.</p>
           </div>
           <div className="form-box">
+            {quizResult && (
+              <div className="quiz-summary" id="quiz-summary">
+                <span>Your test: <b>{quizResult.total} hours a week</b> recoverable</span>
+                {quizResult.who && <span>· runs today: <b>{quizResult.who.replace(/-/g, ' ')}</b></span>}
+                <span>· these answers pass to GoHighLevel with your form</span>
+              </div>
+            )}
             {/* ============================================================
                 GHL FORM EMBED — paste the GoHighLevel qualifying form embed
                 code on the next line, replacing the placeholder div below.
