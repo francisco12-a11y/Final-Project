@@ -24,7 +24,7 @@ export default function Qualified() {
             </svg>
           </div>
           <span className="eyebrow">You qualified</span>
-          <h1>Founders like you get those hours back.<br />Let's meet your Right Hand.</h1>
+          <h1>The assistant job ends here.</h1>
           <p className="section-sub">Based on your answers, you're exactly who we built the Right Hand Program for. Book your Matching Call below. It's 20 minutes, and it's the last step before you meet your candidates.</p>
         </div>
       </header>

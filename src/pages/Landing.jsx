@@ -58,11 +58,11 @@ export default function Landing() {
             </div>
             <span className="eyebrow">Free 20-minute worksheet</span>
             <h1>
-              {hero ? hero.h1 : <>Find the <span className="accent">15 hours a week</span> you're doing a $10/hour job</>}
+              {hero ? hero.h1 : <>You're the CEO and <span className="accent">your own assistant</span>. Hand off the second job.</>}
             </h1>
             <p className="hero-sub">
               {hero ? hero.sub
-                : "The Founder Delegation Audit scores every task on your plate, ranks what to hand off first, and hands you the script for the handoff conversation you've been avoiding."}
+                : "The Founder Delegation Audit finds the 15 hours a week keeping you in the assistant job, and the Matching Call hands them to someone trained to run them."}
             </p>
             <div className="hero-cta-row">
               <a className="btn btn-primary btn-lg" href="#get-audit">Get the Free Audit →</a>
@@ -170,7 +170,7 @@ export default function Landing() {
       <section className="section">
         <div className="container">
           <span className="eyebrow">After you opt in</span>
-          <h2 className="section-title">The audit is step one. Here's step two.</h2>
+          <h2 className="section-title">The audit is step one. Step two is a call.</h2>
           <p className="section-sub">After you grab the worksheet, we ask six quick questions. Your answers pick which of two paths you get.</p>
           <div className="paths-grid">
             <div className="path-card win">
