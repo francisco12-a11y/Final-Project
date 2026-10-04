@@ -190,7 +190,7 @@ export default function Quiz({ onDone }) {
                     .filter((x) => x.h > 0)
                     .sort((a, b) => b.h - a.h)
                     .slice(0, 2)
-                    .map((x) => x.label.toLowerCase())
+                    .map((x) => x.label)
                     .join(' and ')}
                 </b>. The kit, delivered by email, plans the rest of the month.
               </p>
