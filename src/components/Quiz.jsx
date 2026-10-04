@@ -81,7 +81,7 @@ const QUESTIONS = [
 ]
 
 function tierLine(total) {
-  if (total === 0) return 'Your week is already lean. The full audit will double-check the corners.'
+  if (total === 0) return 'Your week is already lean. The kit\'s systems will keep it that way.'
   if (total <= 5) return 'That is a half-day every week back in your hands.'
   if (total <= 10) return 'That is a full workday every week, spent on assistant work.'
   return 'That is a whole extra workweek every month, done by you.'
@@ -179,10 +179,25 @@ export default function Quiz({ onDone }) {
                 Pareto prices a founder's hour at $200 when it goes to sales, product, and growth.
                 At {total} hours a week, that is <b>about ${Math.round(total * 4.3 * 200).toLocaleString('en-US')} a month</b> of CEO work that never happens.
               </p>
+              <p className="quiz-week1">
+                Your Week 1 in the kit starts with{' '}
+                <b>
+                  {QUESTIONS.slice(0, 5)
+                    .map((question) => ({
+                      label: question.label,
+                      h: answers[question.id] !== undefined ? question.options[answers[question.id]].h : 0,
+                    }))
+                    .filter((x) => x.h > 0)
+                    .sort((a, b) => b.h - a.h)
+                    .slice(0, 2)
+                    .map((x) => x.label.toLowerCase())
+                    .join(' and ')}
+                </b>. The kit, delivered by email, plans the rest of the month.
+              </p>
             </>
           )}
           <a className="btn btn-primary" href="#get-audit">Book a call →</a>
-          <p className="quiz-note">Booking starts with a short check so the call is worth your time. The full audit arrives by email either way.</p>
+          <p className="quiz-note">Booking starts with a short check so the call is worth your time. The kit arrives by email either way.</p>
         </div>
       )}
     </div>

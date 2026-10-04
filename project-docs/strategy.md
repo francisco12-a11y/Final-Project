@@ -2,13 +2,14 @@
 Final project — Pareto Talent Lead Magnet. Deadline: Oct 7, 2026.
 
 ## Lead magnet
-**Title (MAGIC formula):** *The Founder Delegation Audit: Find the 15 Hours a Week You're Doing a $10/Hour Job*
+**Lead magnet:** *The Right Hand Starter Kit — the systems, scripts, and 30-day plan our operators run in week one* (email-delivered PDF; absorbing the old Founder Delegation Audit worksheet, whose handoff script and scoring live inside it).
 **Site hero (Fran-approved frame):** *"You're the CEO and your own assistant. Hand off the assistant job."*
+**Front door:** the 2-minute test (6 questions → instant recoverable-hours result) personalizes the kit: your Week 1 handoffs on the result screen and page 1 of the kit come from your two biggest categories.
 
-- **Format:** interactive **quiz on the landing page** (6 plain-language questions, instant recoverable-hours result, $/month at Pareto's $200/hr founder rate) **plus the full PDF worksheet delivered by email**. Quiz answers pass to GoHighLevel (fields `q_email`, `q_crm`, `q_admin`, `q_support`, `q_hiring`, `q_who`) for tagging/routing; the result button says **Book a call** and drops into the GHL qualifying form.
-- **Promise (one specific problem):** A founder can't see which tasks to hand off first. The quiz gives the number in 2 minutes; the audit ranks every task, totals the recoverable week, and scripts the first handoff conversation.
-- **MAGIC check:** Measurable (hours + dollars on the spot), Actionable (ranked handoff list + script), Goal-driven (buy back 10–15 hrs/wk), Interested audience (founders drowning in ops), Credible (uses Pareto's own 4.3x ROI math and $200/hr founder rate).
-- **Value Equation:** High certainty (instant result, and the worksheet finishes with an answer), high value (15 hrs/wk ≈ their hiring fee pays back in weeks), low time investment (2-minute quiz), low effort (six taps).
+- **Format:** interactive **test on the landing page** (instant result + personalized Week 1) **plus the Starter Kit PDF delivered by email**. Test answers pass to GoHighLevel (fields `q_email`, `q_crm`, `q_admin`, `q_support`, `q_hiring`, `q_who`) for tagging/routing; the result button says **Book a call** and drops into the GHL qualifying form.
+- **Promise (one specific problem):** Founders don't know what to hand off first or how to make it stick. The test gives the number in 2 minutes; the kit gives the systems, the script, and the 30-day sequence to hand off the assistant job.
+- **MAGIC check:** Measurable (hours + dollars on the spot), Actionable (fill-in Week 1, script, four run-ready systems), Goal-driven (10–15 hrs/wk back in 30 days), Interested audience (founders drowning in ops), Credible (Pareto's own math and guarantees; the kit IS what operators run).
+- **Value Equation:** High certainty (instant result, fill-in-the-blank tools), high value (systems Pareto charges for, given away; 10 hrs/wk ≈ $8,600/mo at their $200/hr), low time investment (2-minute test), low effort (six taps, then copy the words).
 
 ## Qualification criteria
 A lead is **qualified** when ALL are true:

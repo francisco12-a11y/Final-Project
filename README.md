@@ -3,7 +3,7 @@
 **FP | Francisco Buiras | Final Project**
 Lead magnet + funnel for Pareto Talent's Right Hand Program. Deadline: **October 7, 2026** (end of day).
 
-- **Lead magnet:** interactive **Delegation Quiz** on the landing page (instant recoverable-hours result, answers feed GHL) + *The Founder Delegation Audit* PDF delivered by email
+- **Lead magnet:** *The Right Hand Starter Kit* PDF (systems + scripts + 30-day plan), delivered by email — personalized by the **2-minute test** on the landing (instant recoverable-hours result, answers feed GHL)
 - **Funnel tool:** GoHighLevel (form with conditional redirects) + GitHub Pages (public pages)
 - **Branding:** Pareto Talent real branding — emerald `#10B981`, Jakarta Sans
 

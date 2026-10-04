@@ -4,7 +4,7 @@ import Footer from '../components/Footer.jsx'
 export default function ThankYou() {
   return (
     <>
-      <Nav right={<a className="nav-cta" href="index.html">Back to the audit</a>} />
+      <Nav right={<a className="nav-cta" href="index.html">Back to the test</a>} />
 
       <header className="status-hero">
         <div className="container">
@@ -15,7 +15,7 @@ export default function ThankYou() {
             </svg>
           </div>
           <span className="eyebrow">Check your inbox</span>
-          <h1>Your Founder Delegation Audit is on its way</h1>
+          <h1>Your Right Hand Starter Kit is on its way</h1>
           <p className="section-sub">It should land within a minute or two. If you don't see it, check promotions and spam, then drag it to your primary inbox.</p>
           <div className="hero-cta-row" style={{ justifyContent: 'center' }}>
             <a className="btn btn-primary" href="#while-you-wait">What to do while it arrives</a>
@@ -31,7 +31,7 @@ export default function ThankYou() {
             The Right Hand Program is built for founders who are already scaling: real
             revenue, real ops load, hiring on your plate. Based on your answers, that's not
             where you are today. We'd rather tell you that than put you on a call that
-            wastes 20 minutes of your life. Run the audit at any stage. You'll know
+            wastes 20 minutes of your life. Run the test at any stage. You'll know
             exactly what to hand off when growth makes it necessary.
           </p>
         </div>
@@ -47,8 +47,8 @@ export default function ThankYou() {
                   <path d="M4 6h16M4 12h16M4 18h10" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
               </div>
-              <h3>Run the audit this week</h3>
-              <p>Block 20 minutes, list the week honestly, and score every task. The number at the end, your recoverable hours, is the one most founders screenshot.</p>
+              <h3>Start your Week 1 this week</h3>
+              <p>Open the kit, write your two biggest handoffs on page one, and run the script on the first one. Hold the line for seven days.</p>
             </div>
             <div className="check-card">
               <div className="ic">
@@ -56,8 +56,8 @@ export default function ThankYou() {
                   <path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#10b981" />
                 </svg>
               </div>
-              <h3>Use the handoff script on one task</h3>
-              <p>You don't need to hire anyone to delegate better. Pick your highest-scoring task and run the script with a current teammate — outcome, not method.</p>
+              <h3>Steal the four systems now</h3>
+              <p>Inbox rules, calendar defaults, follow-up cadence, weekly check-in. Hand them to a teammate today; they work before anyone gets hired.</p>
             </div>
             <div className="check-card">
               <div className="ic">
@@ -71,7 +71,7 @@ export default function ThankYou() {
             </div>
           </div>
           <div className="callout center">
-            When the audit finds 10+ recoverable hours and revenue clears $10k/month, <b>book the Matching Call.</b> Most founders get there sooner than they planned.
+            When the test finds 10+ recoverable hours and revenue clears $10k/month, <b>book the Matching Call.</b> Most founders get there sooner than they planned.
           </div>
         </div>
       </section>

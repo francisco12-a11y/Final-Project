@@ -39,7 +39,7 @@ export default function Qualified() {
                 </svg>
               </div>
               <h3>What happens on the call</h3>
-              <p>We walk through your audit together, pressure-test your delegation shortlist, and map the first 30 days of handoffs.</p>
+              <p>We walk through your test result and kit together, pressure-test your Week 1 handoffs, and map the first 30 days.</p>
             </div>
             <div className="check-card">
               <div className="ic">
@@ -49,7 +49,7 @@ export default function Qualified() {
                 </svg>
               </div>
               <h3>Within 24 hours after</h3>
-              <p>You meet 3+ hand-picked, AI-trained Right Hand candidates matched to your audit. No contracts, no payment, unless you pick someone you're excited about.</p>
+              <p>You meet 3+ hand-picked, AI-trained Right Hand candidates matched to your task list. No contracts, no payment, unless you pick someone you're excited about.</p>
             </div>
             <div className="check-card">
               <div className="ic">
@@ -63,7 +63,7 @@ export default function Qualified() {
           </div>
 
           <div className="callout">
-            <b>Bring your completed Founder Delegation Audit to the call.</b> Your shortlist, every task you scored 4 to 6, is your first job description. Founders who bring it finished usually match within days. <em>(Check your inbox if you haven't filled it in yet.)</em>
+            <b>Bring your Right Hand Starter Kit to the call.</b> Your Week 1 handoffs, written on page one, are your first job description. Founders who arrive with week one already running usually match within days. <em>(Check your inbox if it hasn't landed yet.)</em>
           </div>
         </div>
       </section>
@@ -72,7 +72,7 @@ export default function Qualified() {
         <div className="container">
           <div className="calendar-wrap">
             <h2>Pick your Matching Call time</h2>
-            <p className="cal-sub">20 minutes · video call · brings your audit, leaves with your first 30-day handoff plan</p>
+            <p className="cal-sub">20 minutes · video call · bring your kit, leave with your first 30 days mapped</p>
             <div className="iframe-holder">
               {/* FP | Francisco Buiras | Booking Calendar (real GHL embed) */}
               <iframe src="https://api.leadconnectorhq.com/widget/booking/U022LAXFG51gcLgvcOCt" allow="payment" style={{ width: '100%', border: 'none', overflow: 'hidden' }} scrolling="no" id="U022LAXFG51gcLgvcOCt_1791031787734" title="Book your Matching Call"></iframe>

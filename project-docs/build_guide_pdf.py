@@ -114,7 +114,7 @@ def link_table():
         [P("L3", "cell"), P("Business Map", "cell"), P("ZCode drafts → Fran hosts")],
         [P("L4", "cell"), P("ClickUp board", "cell"), P("ZCode structure → Fran builds in ClickUp")],
         [P("L5", "cell"), P("SOP", "cell"), P("ZCode drafts → Fran hosts")],
-        [P("L6", "cell"), P("Lead magnet live (audit PDF)", "cell"), P("ZCode PDF → Fran uploads to Drive (public)")],
+        [P("L6", "cell"), P("Lead magnet live (Starter Kit PDF)", "cell"), P("ZCode PDF → Fran uploads to Drive (public)")],
         [P("L7", "cell"), P("Landing page", "cell"), P("ZCode (React, GitHub Pages)")],
         [P("L8", "cell"), P("Qualifying form", "cell"), P("Fran builds in GHL + sets redirects")],
         [P("L9", "cell"), P("Booking page (qualified)", "cell"), P("ZCode page + Fran's GHL calendar")],
@@ -176,7 +176,7 @@ def build():
     story.append(P("What ZCode builds (no accounts needed)", "h2"))
     story.append(checklist([
         P("<b>Site</b> — React app on GitHub Pages: landing (index), booking page for qualified (qualified.html, with your GHL calendar embed), thank-you page for unqualified. Pareto's real logo, fonts and palette. CTA above the fold, persona-matched heroes for the ads (?p=...).", "item"),
-        P("<b>Lead magnet</b> — the Founder Delegation Audit as a branded PDF, hosted on the site and ready to attach in GHL.", "item"),
+        P("<b>Lead magnet</b> — the Right Hand Starter Kit as a branded PDF (the 2-minute test on the landing personalizes it), hosted on the site and ready to attach in GHL.", "item"),
         P("<b>All email copy</b> — 1 delivery, 2 qualified follow-ups, 3 nurture, booking confirmation + reminder. Signed as the Pareto team.", "item"),
         P("<b>Ad copy ×5</b> — one per persona/angle, each with a matching landing hero.", "item"),
         P("<b>Imagery prompts</b> — on-brand prompt pack for you to generate.", "item"),
@@ -189,7 +189,7 @@ def build():
     story.append(checklist([
         P("<b>GHL form (L8):</b> build the qualifying form, paste the embed into the landing slot ZCode leaves ready, set conditional redirects (qualified → …/qualified.html, unqualified → …/thank-you.html), and run both tests.", "item"),
         P("<b>GHL pipeline + 4 workflows (L11, L12):</b> opt-in (deliver + tag + opportunity + notify), qualified follow-up (2 emails), unqualified nurture (3 emails), booking (confirmation + reminder). Screenshot everything into the two Drive folders.", "item"),
-        P("<b>Drive:</b> create the folders with exact FP naming, upload audit PDF + ads + imagery + screenshots, set all to 'Anyone with the link can view'.", "item"),
+        P("<b>Drive:</b> create the folders with exact FP naming, upload the kit PDF + ads + imagery + screenshots, set all to 'Anyone with the link can view'.", "item"),
         P("<b>ClickUp (L4):</b> build the board from ZCode's milestone structure.", "item"),
         P("<b>Second Brain (L1):</b> drop the Pareto frameworks/sources in (ZCode gives the structure).", "item"),
         P("<b>Loom (L15):</b> record the 2-minute walkthrough from ZCode's script.", "item"),
@@ -207,7 +207,7 @@ def build():
         "1. Open every link incognito — if anything asks to log in, fix the sharing. "
         "2. Test the form twice: once as qualified (must land on the booking page), "
         "once as unqualified (must land on the thank-you page). "
-        "3. Opt in with your own email and confirm the audit PDF arrives. "
+        "3. Opt in with your own email and confirm the kit PDF arrives. "
         "4. Check every label L1–L15 and H1–H9 exists in the index (dash if not built). "
         "5. File name exactly FP_FranciscoBuiras_ParetoBootcamp.pdf, exported from Google Docs."))
     story.append(Spacer(1, 6))
