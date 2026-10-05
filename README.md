@@ -26,8 +26,8 @@ React (Vite, multi-page) → GitHub Pages via Actions. Branding is Pareto Talent
 
 ### Strategy & planning
 - [ ] L1 · Second Brain — *Fran*
-- [ ] L2 · Research doc — competitor lead magnets + ICP research
-- [ ] L3 · Business Map
+- [~] L2 · Research doc — competitor lead magnets + ICP research
+- [~] L3 · Business Map — mermaid + link table in `project-docs/business-map.md` (paste into Notion, publish, add link)
 - [ ] L4 · ClickUp board — *Fran builds from our structure*
 - [ ] L5 · SOP
 
