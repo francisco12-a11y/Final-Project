@@ -230,6 +230,24 @@ story.append(boxed([
       "Test both paths incognito before anything else (section 8).", "muted"),
 ]))
 story.append(Spacer(1, 4))
+story.append(Spacer(1, 4))
+story.append(boxed([
+    P("<b>Styling the form to match the site (do this in the form builder)</b>", "cellB"),
+    Spacer(1, 3),
+    P("The form is a cross-origin iframe, so it must be styled inside GHL (Style panel of the form builder). "
+      "Enter these values and it becomes indistinguishable from the landing page:", "cell"),
+    Spacer(1, 3),
+    P("\u2022 Form background: #0B1119 (or transparent if the option exists)", "cell"),
+    P("\u2022 Question / label text: #F0F4F8", "cell"),
+    P("\u2022 Help text: #94A3B8", "cell"),
+    P("\u2022 Input background: #0F1923 \u2014 input border: #2A3B52 \u2014 input text: #F0F4F8", "cell"),
+    P("\u2022 Button background: #10B981 \u2014 button text: #050A0E \u2014 button radius: 12px", "cell"),
+    P("\u2022 Button label: Continue. Font: DM Sans (falls back fine to default sans).", "cell"),
+    P("\u2022 If your builder shows a Custom CSS box, paste:\u00A0"
+      "input,select{background:#0F1923!important;color:#F0F4F8!important;border:1px solid #2A3B52!important;border-radius:8px!important}"
+      " label{color:#F0F4F8!important} button{background:#10B981!important;color:#050A0E!important;border-radius:12px!important}", "cell"),
+]))
+story.append(Spacer(1, 4))
 story.append(P(
     "When the form works, send ZCode the embed code and the quiz answers start auto-filling fields 5's "
     "sibling custom fields (section 3). Paste the embed into the marked slot on the landing page and "

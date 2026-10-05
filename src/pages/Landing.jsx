@@ -308,7 +308,7 @@ export default function Landing() {
             <iframe
               key={quizResult ? 'form-with-params' : 'form-plain'}
               src={formUrl(quizResult)}
-              style={{ width: '100%', height: '700px', border: 'none', borderRadius: 8, background: '#fff' }}
+              style={{ width: '100%', height: '700px', border: 'none', borderRadius: 8 }}
               id="inline-RLyDEDAtpk2Voju4RLa0"
               data-layout="{'id':'INLINE'}"
               data-trigger-type="alwaysShow"
