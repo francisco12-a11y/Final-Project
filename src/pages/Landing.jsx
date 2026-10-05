@@ -308,7 +308,7 @@ export default function Landing() {
             <iframe
               key={formSrc}
               src={formSrc(quizResult)}
-              style={{ width: '100%', height: '934px', border: 'none', borderRadius: 8, background: '#fff' }}
+              style={{ width: '100%', height: '700px', border: 'none', borderRadius: 8, background: '#fff' }}
               id="inline-RLyDEDAtpk2Voju4RLa0"
               data-layout="{'id':'INLINE'}"
               data-trigger-type="alwaysShow"
@@ -318,7 +318,7 @@ export default function Landing() {
               data-deactivation-type="neverDeactivate"
               data-deactivation-value=""
               data-form-name="FB-Qualifying"
-              data-height="934"
+              data-height="700"
               data-layout-iframe-id="inline-RLyDEDAtpk2Voju4RLa0"
               data-form-id="RLyDEDAtpk2Voju4RLa0"
               data-cookie-consent="true"
