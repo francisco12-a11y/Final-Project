@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Nav from '../components/Nav.jsx'
 import Footer from '../components/Footer.jsx'
 import Quiz from '../components/Quiz.jsx'
@@ -84,14 +84,44 @@ export default function Landing() {
     return () => window.removeEventListener('message', onMessage)
   }, [quizResult])
 
-// GHL form embed script (auto-resizes the iframe)
+  // GHL form embed: built imperatively so React never touches the node
+  // (form_embed.js relocates iframes; removing a relocated node crashes React)
+  const formContainerRef = useRef(null)
+  const formFrameRef = useRef(null)
   useEffect(() => {
+    if (!formContainerRef.current) return
+    const f = document.createElement('iframe')
+    f.src = GHL_FORM_BASE
+    f.style.cssText = 'width:100%;height:700px;border:none;border-radius:8px'
+    f.id = 'inline-RLyDEDAtpk2Voju4RLa0'
+    f.setAttribute('data-layout', "{'id':'INLINE'}")
+    f.setAttribute('data-trigger-type', 'alwaysShow')
+    f.setAttribute('data-trigger-value', '')
+    f.setAttribute('data-activation-type', 'alwaysActivated')
+    f.setAttribute('data-activation-value', '')
+    f.setAttribute('data-deactivation-type', 'neverDeactivate')
+    f.setAttribute('data-deactivation-value', '')
+    f.setAttribute('data-form-name', 'FB-Qualifying')
+    f.setAttribute('data-height', '700')
+    f.setAttribute('data-layout-iframe-id', 'inline-RLyDEDAtpk2Voju4RLa0')
+    f.setAttribute('data-form-id', 'RLyDEDAtpk2Voju4RLa0')
+    f.setAttribute('data-cookie-consent', 'true')
+    f.setAttribute('data-cookie-consent-provider', 'auto')
+    f.title = 'FB-Qualifying'
+    formContainerRef.current.appendChild(f)
+    formFrameRef.current = f
     const s = document.createElement('script')
     s.src = 'https://link.msgsndr.com/js/form_embed.js'
     s.type = 'text/javascript'
     document.body.appendChild(s)
-    return () => { document.body.removeChild(s) }
   }, [])
+
+  // when the quiz completes, append its answers to the form URL (prefill)
+  useEffect(() => {
+    if (quizResult && formFrameRef.current) {
+      formFrameRef.current.src = formUrl(quizResult)
+    }
+  }, [quizResult])
 
   return (
     <>
@@ -319,29 +349,10 @@ export default function Landing() {
                 <span>· your answers pass to GoHighLevel with this form</span>
               </div>
             )}
-            {/* GHL FORM EMBED — FB-Qualifying. Styled in the GHL form builder
-                (Style panel). Quiz answers auto-append as params: q_email,
-                q_crm, q_admin, q_support, q_hiring, q_who, q_total. */}
-            <iframe
-              key={quizResult ? 'form-with-params' : 'form-plain'}
-              src={formUrl(quizResult)}
-              style={{ width: '100%', height: '700px', border: 'none', borderRadius: 8 }}
-              id="inline-RLyDEDAtpk2Voju4RLa0"
-              data-layout="{'id':'INLINE'}"
-              data-trigger-type="alwaysShow"
-              data-trigger-value=""
-              data-activation-type="alwaysActivated"
-              data-activation-value=""
-              data-deactivation-type="neverDeactivate"
-              data-deactivation-value=""
-              data-form-name="FB-Qualifying"
-              data-height="700"
-              data-layout-iframe-id="inline-RLyDEDAtpk2Voju4RLa0"
-              data-form-id="RLyDEDAtpk2Voju4RLa0"
-              data-cookie-consent="true"
-              data-cookie-consent-provider="auto"
-              title="FB-Qualifying"
-            />
+            {/* GHL FORM EMBED — FB-Qualifying. Mounted imperatively (React never
+                reconciles this node: GHL's form_embed.js relocates iframes in the
+                DOM and crashes React on re-render). Styled in the GHL builder. */}
+            <div ref={formContainerRef} />
             <p className="form-trust">We ask a few qualifying questions so we don't waste your time on a pitch that isn't for you. Your answers are never sold or shared.</p>
           </div>
         </div>
