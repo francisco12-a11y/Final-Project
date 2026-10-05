@@ -416,6 +416,121 @@ h2.section-title { font-size: clamp(28px, 4vw, 42px); margin-bottom: 14px; }
   .audit-card { max-width: 480px; }
 }
 
+/* ---------- image placeholders ---------- */
+.img-placeholder {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--green-subtle);
+  border: 1.5px dashed #10b98159;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  text-align: center;
+}
+.img-placeholder figcaption { display: flex; flex-direction: column; gap: 3px; }
+.img-placeholder .ph-label { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--green-bright); }
+.img-placeholder .ph-hint { font-size: 12px; color: var(--text-muted); }
+
+/* ---------- kit preview ---------- */
+.kit-preview {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 36px;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass-strong);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  box-shadow: 0 8px 40px #00000059;
+}
+.kit-preview img { border-radius: var(--radius-md); border: 1px solid var(--border-glass-strong); box-shadow: 0 12px 36px #00000080; }
+.kit-preview h3 { font-size: 20px; margin-bottom: 10px; }
+.kit-preview ul { list-style: none; }
+.kit-preview li { padding: 6px 0 6px 28px; position: relative; font-size: 15px; color: var(--text-secondary); }
+.kit-preview li::before { content: "✓"; position: absolute; left: 0; top: 6px; width: 20px; height: 20px; border-radius: 50%; background: var(--green-muted); color: var(--green-bright); border: 1px solid #10b98133; display: grid; place-items: center; font-size: 11px; font-weight: 800; }
+.kit-preview .kit-cta { margin-top: 16px; }
+
+@media (max-width: 900px) {
+  .kit-preview { grid-template-columns: 1fr; }
+  .kit-preview img { max-width: 280px; margin: 0 auto; }
+}
+
+/* ---------- form ---------- */
+.form-box { max-width: 740px; margin: 44px auto 0; background: var(--bg-card); border: 1px solid var(--border-glass-strong); border-radius: var(--radius-xl); padding: 40px; box-shadow: 0 8px 40px #00000059; }
+.form-slot-note {
+  border: 2px dashed #10b98166; border-radius: var(--radius-md);
+  background: var(--green-subtle); padding: 34px; text-align: center;
+  color: var(--green-bright); font-weight: 500;
+}
+.form-trust { text-align: center; font-size: 13.5px; color: var(--text-muted); margin-top: 16px; }
+
+/* ---------- FAQ ---------- */
+.faq { max-width: 760px; margin: 44px auto 0; }
+.faq details { background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: var(--radius-md); margin-bottom: 12px; padding: 20px 26px; }
+.faq details[open] { border-color: var(--border-glass-hover); }
+.faq summary { font-family: var(--font-head); font-weight: 700; color: var(--text-primary); cursor: pointer; font-size: 16.5px; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-size: 22px; color: var(--green-bright); flex: none; }
+.faq details[open] summary::after { content: "–"; }
+.faq details p { margin-top: 12px; color: var(--text-secondary); font-size: 15.5px; }
+
+/* ---------- status pages (booking + thank-you) ---------- */
+.status-hero { padding: 76px 0 52px; text-align: center; position: relative; }
+.status-hero::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(700px 340px at 50% -10%, #10b9811a, transparent 60%);
+  pointer-events: none;
+}
+.status-hero .container { position: relative; }
+.status-hero h1 { font-size: clamp(30px, 4.5vw, 48px); margin-bottom: 16px; }
+.status-hero .section-sub { margin: 0 auto 28px; }
+.badge-icon {
+  width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 24px;
+  display: grid; place-items: center;
+  background: var(--green-muted); border: 1px solid #10b98140;
+}
+
+.callout {
+  max-width: 780px; margin: 34px auto 0;
+  background: linear-gradient(135deg, #10b98114, #10b9810a);
+  border: 1px solid #10b98140; border-radius: var(--radius-lg);
+  padding: 24px 30px; text-align: left; color: var(--text-primary); font-size: 16.5px;
+}
+.callout b { color: var(--green-bright); }
+.callout.center { text-align: center; }
+
+.calendar-wrap { max-width: 920px; margin: 48px auto 0; background: var(--bg-card); border: 1px solid var(--border-glass-strong); border-radius: var(--radius-xl); padding: 28px; box-shadow: 0 8px 40px #00000059; }
+.calendar-wrap h2 { font-size: 22px; margin-bottom: 6px; text-align: center; }
+.calendar-wrap .cal-sub { text-align: center; color: var(--text-muted); font-size: 15px; margin-bottom: 20px; }
+.iframe-holder { border-radius: var(--radius-md); overflow: hidden; background: #fff; }
+
+.check-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 44px auto 0; text-align: left; }
+.check-card { background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: var(--radius-lg); padding: 26px; }
+.check-card .ic { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; background: var(--green-muted); border: 1px solid #10b98133; margin-bottom: 14px; }
+.check-card h3 { font-size: 16.5px; margin-bottom: 8px; }
+.check-card p { font-size: 14.5px; color: var(--text-secondary); }
+
+/* ---------- footer ---------- */
+.footer { border-top: 1px solid var(--border-glass); padding: 36px 0 44px; margin-top: 40px; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 13.5px; color: var(--text-muted); }
+.footer img { height: 20px; width: auto; opacity: .9; }
+.footer a { color: var(--text-muted); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 980px) {
+  .nav-links { display: none; }
+  .hero-grid, .paths-grid, .persona-grid { grid-template-columns: 1fr; }
+  .pain-grid, .steps-grid, .guarantee-grid, .check-grid { grid-template-columns: 1fr; }
+  .hero { padding: 60px 0 52px; }
+  .section { padding: 64px 0; }
+  .audit-card { max-width: 480px; }
+}
+
 /* ---------- native qualifying form ---------- */
 .qform { display: flex; flex-direction: column; gap: 18px; }
 .qform label {
