@@ -48,8 +48,8 @@ Pages is currently set to serve the `deploy` branch (legacy) for this reason. Wh
 ### Automation & creative
 - [ ] L11 · Pipeline screenshots folder — *Fran (GHL), Drive*
 - [ ] L12 · Workflow screenshots folder — *Fran (GHL), Drive*
-- [ ] L13 · Ads folder — 5 ads, persona-matched
-- [ ] L14 · Imagery folder
+- [x] L13 · Ads — copy final in `project-docs/ads.md` + PDF in Descargas (Fran exports creatives to Drive)
+- [~] L14 · Imagery — prompt pack in `project-docs/imagery-prompts.md` (Fran generates, then swap placeholders) folder
 - [ ] L15 · Loom presentation — *Fran records (2 min)*
 
 ### Homework, Days 1–9
