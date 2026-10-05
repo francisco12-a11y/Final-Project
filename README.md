@@ -22,6 +22,13 @@ React (Vite, multi-page) → GitHub Pages via Actions. Branding is Pareto Talent
 | `project-docs/` | Strategy, research, SOP, Business Map, ClickUp structure, email + ad copy, Loom script, PDF build scripts |
 | `.github/workflows/deploy.yml` | Builds and deploys to Pages on every push to main |
 
+**Deploy fallback (GitHub Actions outage, 2026-10-05):** if Actions runners are unavailable, deploy by hand:
+```
+npm run build && touch dist/.nojekyll
+cd dist && git init -q -b deploy && git remote add origin https://github.com/francisco12-a11y/Final-Project.git && git add -A && git commit -m "deploy" && git push origin deploy --force
+```
+Pages is currently set to serve the `deploy` branch (legacy) for this reason. When Actions recovers, switch Pages back to the workflow in repo Settings → Pages (or leave branch mode and re-push dist after each change).
+
 ## Deliverable tracker
 
 ### Strategy & planning
