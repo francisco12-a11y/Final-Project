@@ -3,6 +3,7 @@ import Nav from '../components/Nav.jsx'
 import Footer from '../components/Footer.jsx'
 import Quiz from '../components/Quiz.jsx'
 import ImgPlaceholder from '../components/ImgPlaceholder.jsx'
+import QualifyingForm from '../components/QualifyingForm.jsx'
 
 const HEROES = {
   dan: {
@@ -60,15 +61,6 @@ export default function Landing() {
     // Persona-matched heroes: ads link here with ?p=dan|vanessa|chris|sofia
     const p = new URLSearchParams(window.location.search).get('p')
     if (p && HEROES[p]) setHero(HEROES[p])
-  }, [])
-
-  // GHL form embed script (auto-resizes the iframe)
-  useEffect(() => {
-    const s = document.createElement('script')
-    s.src = 'https://link.msgsndr.com/js/form_embed.js'
-    s.type = 'text/javascript'
-    document.body.appendChild(s)
-    return () => { document.body.removeChild(s) }
   }, [])
 
   return (
@@ -297,34 +289,7 @@ export default function Landing() {
                 <span>· your answers pass to GoHighLevel with this form</span>
               </div>
             )}
-            {/* ============================================================
-                GHL FORM EMBED — live (FP | Francisco Buiras | Qualifying Form)
-                Form must redirect on submit (set in GHL form settings):
-                  qualified   ->  https://francisco12-a11y.github.io/Final-Project/qualified.html
-                  unqualified ->  https://francisco12-a11y.github.io/Final-Project/thank-you.html
-                Quiz answers auto-append as params: q_email, q_crm, q_admin,
-                q_support, q_hiring, q_who, q_total (see formUrl above).
-                ============================================================ */}
-            <iframe
-              key={quizResult ? 'form-with-params' : 'form-plain'}
-              src={formUrl(quizResult)}
-              style={{ width: '100%', height: '700px', border: 'none', borderRadius: 8 }}
-              id="inline-RLyDEDAtpk2Voju4RLa0"
-              data-layout="{'id':'INLINE'}"
-              data-trigger-type="alwaysShow"
-              data-trigger-value=""
-              data-activation-type="alwaysActivated"
-              data-activation-value=""
-              data-deactivation-type="neverDeactivate"
-              data-deactivation-value=""
-              data-form-name="FB-Qualifying"
-              data-height="700"
-              data-layout-iframe-id="inline-RLyDEDAtpk2Voju4RLa0"
-              data-form-id="RLyDEDAtpk2Voju4RLa0"
-              data-cookie-consent="true"
-              data-cookie-consent-provider="auto"
-              title="FB-Qualifying"
-            />
+            <QualifyingForm quizResult={quizResult} />
             <p className="form-trust">We ask a few qualifying questions so we don't waste your time on a pitch that isn't for you. Your answers are never sold or shared.</p>
           </div>
         </div>
