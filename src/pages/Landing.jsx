@@ -37,6 +37,21 @@ function AuditPreview() {
   )
 }
 
+const GHL_FORM_BASE = 'https://api.leadconnectorhq.com/widget/form/RLyDEDAtpk2Voju4RLa0'
+
+// Quiz answers ride to GoHighLevel as URL params on the form iframe.
+// In the GHL form builder, set each field's URL parameter to the matching
+// name below (q_email, q_crm, q_admin, q_support, q_hiring, q_who, q_total)
+// so they pre-fill the custom fields from the GHL Build Spec (section 3).
+function formUrl(result) {
+  if (!result) return GHL_FORM_BASE
+  const p = new URLSearchParams()
+  result.hours.forEach((h) => p.set(h.id, String(h.h)))
+  p.set('q_total', String(result.total))
+  if (result.who) p.set('q_who', result.who)
+  return `${GHL_FORM_BASE}?${p.toString()}`
+}
+
 export default function Landing() {
   const [hero, setHero] = useState(null)
   const [quizResult, setQuizResult] = useState(null)
@@ -45,6 +60,15 @@ export default function Landing() {
     // Persona-matched heroes: ads link here with ?p=dan|vanessa|chris|sofia
     const p = new URLSearchParams(window.location.search).get('p')
     if (p && HEROES[p]) setHero(HEROES[p])
+  }, [])
+
+  // GHL form embed script (auto-resizes the iframe)
+  useEffect(() => {
+    const s = document.createElement('script')
+    s.src = 'https://link.msgsndr.com/js/form_embed.js'
+    s.type = 'text/javascript'
+    document.body.appendChild(s)
+    return () => { document.body.removeChild(s) }
   }, [])
 
   return (
@@ -274,16 +298,33 @@ export default function Landing() {
               </div>
             )}
             {/* ============================================================
-                GHL FORM EMBED — paste the GoHighLevel qualifying form embed
-                code on the next line, replacing the placeholder div below.
-                Form must redirect on submit:
+                GHL FORM EMBED — live (FP | Francisco Buiras | Qualifying Form)
+                Form must redirect on submit (set in GHL form settings):
                   qualified   ->  https://francisco12-a11y.github.io/Final-Project/qualified.html
                   unqualified ->  https://francisco12-a11y.github.io/Final-Project/thank-you.html
+                Quiz answers auto-append as params: q_email, q_crm, q_admin,
+                q_support, q_hiring, q_who, q_total (see formUrl above).
                 ============================================================ */}
-            <div id="ghl-form-slot" className="form-slot-note">
-              [ GHL qualifying form embeds here: pending form build in GoHighLevel ]
-            </div>
-            {/* ==================== end GHL form embed ==================== */}
+            <iframe
+              key={formSrc}
+              src={formSrc(quizResult)}
+              style={{ width: '100%', height: '934px', border: 'none', borderRadius: 8, background: '#fff' }}
+              id="inline-RLyDEDAtpk2Voju4RLa0"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="FB-Qualifying"
+              data-height="934"
+              data-layout-iframe-id="inline-RLyDEDAtpk2Voju4RLa0"
+              data-form-id="RLyDEDAtpk2Voju4RLa0"
+              data-cookie-consent="true"
+              data-cookie-consent-provider="auto"
+              title="FB-Qualifying"
+            />
             <p className="form-trust">We ask a few qualifying questions so we don't waste your time on a pitch that isn't for you. Your answers are never sold or shared.</p>
           </div>
         </div>

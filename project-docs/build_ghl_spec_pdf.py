@@ -203,7 +203,7 @@ story.append(table([
     [P("<b>#</b>", "cellB"), P("<b>Question</b>", "cellB"), P("<b>Options</b>", "cellB"), P("<b>Qualifies when</b>", "cellB")],
     [P("1", "cell"), P("What's your monthly revenue today?", "cell"),
      P("Idea / pre-revenue · Under $10k · $10k–$50k · $50k+", "cell"), P("$10k or more", "cell")],
-    [P("2", "cell"), P("How many hours a week do you spend on admin and ops (inbox, calendar, CRM, follow-ups)?", "cell"),
+    [P("2", "cell"), P("How many hours a week does the assistant job take (inbox, calendar, CRM, follow-ups)?", "cell"),
      P("Under 5 · 5–14 · 15+", "cell"), P("15 or more", "cell")],
     [P("3", "cell"), P("Are you the owner or co-founder, and the hiring decision-maker?", "cell"),
      P("Yes · Not yet / other", "cell"), P("Yes", "cell")],
