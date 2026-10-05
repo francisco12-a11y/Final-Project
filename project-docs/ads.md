@@ -41,7 +41,7 @@ No email needed to see your number. The math takes two minutes and it's uncomfor
 **Primary text:**
 Most founders who work with us swore off hiring first.
 
-The story is always the same: hire cheap, no systems, three months managing instead of saving. The fix is boring — vetting, training, and a written handoff.
+The story is always the same: hire cheap, no systems, three months managing instead of saving. The fix is boring: vetting, training, and a written handoff.
 
 Take the 2-minute test and find out what to hand off, what to systemize, and whether you're ready for a Right Hand who arrives pre-vetted and trained 40+ hours on the AI stack.
 
@@ -81,7 +81,7 @@ The 2-minute test shows you which task to document first and hand off forever �
 - **Lands on:** `/?p=sofia` (hero: "You didn't leave your job to become your own assistant. Reclaim your 15 hours a week")
 
 **Primary text:**
-You protected margin by doing everything yourself. It worked — until the calendar filled with $10/hour work and growth stalled.
+You protected margin by doing everything yourself. It worked, until the calendar filled with $10/hour work and growth stalled.
 
 There's a number hiding in your week. The 2-minute test finds it: how many hours are really assistant work, what they cost you at founder rates, and which two to hand off first.
 
