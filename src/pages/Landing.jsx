@@ -306,8 +306,8 @@ export default function Landing() {
                 q_support, q_hiring, q_who, q_total (see formUrl above).
                 ============================================================ */}
             <iframe
-              key={formSrc}
-              src={formSrc(quizResult)}
+              key={quizResult ? 'form-with-params' : 'form-plain'}
+              src={formUrl(quizResult)}
               style={{ width: '100%', height: '700px', border: 'none', borderRadius: 8, background: '#fff' }}
               id="inline-RLyDEDAtpk2Voju4RLa0"
               data-layout="{'id':'INLINE'}"
