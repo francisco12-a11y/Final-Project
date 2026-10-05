@@ -1,0 +1,32 @@
+Name,Status,Priority,Due Date,Assignee,Description
+M1 · Strategy and offer locked,Done,High,2026-10-03,ZCode,ICP + personas + qualification criteria + MAGIC title. All locked Oct 3.
+T1 · Strategy doc: ICP, personas, qualification criteria,Done,High,2026-10-03,ZCode,"• ICP in client words, 4 personas by cause• Qualification rule: revenue $10k+ AND 15+ hrs/wk AND owner• MAGIC title + Value Equation check"
+T2 · Funnel pages live,Done,High,2026-10-03,ZCode,"• Landing page with persona-matched heroes (L7)• 2-minute test with instant result• Booking page with real Pareto calendar (L9)• Thank-you page (L10)"
+T3 · Real Pareto branding applied,Done,High,2026-10-03,ZCode,"• Logo + favicon from paretotalent.com• Exact design tokens + Plus Jakarta Sans / DM Sans"
+M2 · Lead magnet shipped,Done,High,2026-10-04,ZCode,Starter Kit PDF live + test personalizes it
+T4 · The Right Hand Starter Kit PDF,Done,High,2026-10-04,ZCode,"• Systems, script, 30-day plan written• Hosted on site + Drive + Descargas (L6)"
+T5 · Test personalizes the kit (Week 1),Done,Medium,2026-10-04,ZCode,Result screen shows your Week 1 from answers
+M3 · GoHighLevel build,To Do,High,2026-10-06,Fran,Pipeline + form + 4 workflows + 8 emails per the GHL Build Spec
+T6 · Pipeline + tags,To Do,High,2026-10-05,Fran,"• 6 stages• tags: qualified / nurture / kit-sent / booked (L11)"
+T7 · Qualifying form + conditional redirects,To Do,High,2026-10-05,Fran,"• 6 questions per Build Spec section 4• redirects: qualified -> qualified.html / else thank-you.html• test both paths incognito• send embed code to ZCode (L8)"
+T8 · Wire quiz answers into form fields,Waiting,High,2026-10-06,ZCode,Blocked by T7. URL params q_email..q_who into 6 custom fields
+T9 · Opt-in workflow + E1 kit email,To Do,High,2026-10-06,Fran,"• deliver kit attached• tag• opportunity• notify (L12)"
+T10 · Qualified follow-up + E2 E3,To Do,Medium,2026-10-06,Fran,Wait 1 day + booking check + 2 emails (days 1 and 3)
+T11 · Nurture + E4 E5 E6,To Do,Medium,2026-10-06,Fran,Teach-only emails days 2 / 5 / 8
+T12 · Booking workflow + E7 E8,To Do,Medium,2026-10-06,Fran,"Confirmation immediately (turn off calendar default) + reminder 24h before"
+M4 · Launch materials,To Do,High,2026-10-06,ZCode,Ads + imagery + Drive
+T13 · Five persona ads,In Progress,High,2026-10-06,ZCode,"• one per persona: Dan Vanessa Chris Sofia + generic• each lands on the landing with its ?p= tag (L13)"
+T14 · Imagery prompts + fill placeholders,To Do,High,2026-10-06,Fran,"• ZCode writes prompts• Fran generates: 4 persona portraits + wide operator shot + ad creatives (L14)"
+T15 · Drive folders naming sharing,To Do,High,2026-10-06,Fran,"FP_FranciscoBuiras_L11_Pipeline / L12_Workflows / L13_Ads / L14_Imagery — all: Anyone with the link can view"
+M5 · Docs complete,To Do,High,2026-10-07,Fran,Business Map + ClickUp shared + SOP + Second Brain + homework links
+T16 · Business Map in Notion,In Progress,High,2026-10-05,Fran,"• paste mermaid + link table from project-docs/business-map.md• publish to web (L3)"
+T17 · This ClickUp board shared,To Do,Medium,2026-10-05,Fran,Share list publicly view-only (L4)
+T18 · SOP written + hosted,In Progress,High,2026-10-05,ZCode,FP_FranciscoBuiras_L05_SOP.pdf -> Drive (L5)
+T19 · Second Brain updated with Pareto frameworks,To Do,Medium,2026-10-06,Fran,Sources + frameworks in (L1)
+T20 · Homework links H1 to H9 collected,To Do,Medium,2026-10-06,Fran,Collect the 9 homework links
+M6 · Verification,To Do,High,2026-10-07,Fran,End-to-end test + all-links check
+T21 · End-to-end test + screenshots,To Do,High,2026-10-07,Fran,"• the 7-step test from the GHL Build Spec• screenshots into L11/L12 folders"
+T22 · Incognito check of all 24 links,To Do,High,2026-10-07,Fran,One login wall or dead link disqualifies the project
+M7 · Submission,To Do,High,2026-10-07,Fran,Walkthrough PDF + submit before end of day
+T23 · Walkthrough written in Google Docs,To Do,High,2026-10-07,Fran,"ZCode drafts all 9 parts• Fran pastes + embeds screenshots"
+T24 · Export name submit,To Do,High,2026-10-07,Fran,"FP_FranciscoBuiras_ParetoBootcamp.pdf -> bootcamp.paretotalent.com/finalproject (aim 6 pm, deadline is EOD)"
