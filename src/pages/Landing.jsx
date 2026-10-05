@@ -92,7 +92,7 @@ export default function Landing() {
     if (!formContainerRef.current) return
     const f = document.createElement('iframe')
     f.src = GHL_FORM_BASE
-    f.style.cssText = 'width:100%;height:700px;border:none;border-radius:8px'
+    f.style.cssText = 'width:100%;height:711px;border:none;border-radius:8px'
     f.id = 'inline-RLyDEDAtpk2Voju4RLa0'
     f.setAttribute('data-layout', "{'id':'INLINE'}")
     f.setAttribute('data-trigger-type', 'alwaysShow')
@@ -102,7 +102,7 @@ export default function Landing() {
     f.setAttribute('data-deactivation-type', 'neverDeactivate')
     f.setAttribute('data-deactivation-value', '')
     f.setAttribute('data-form-name', 'FB-Qualifying')
-    f.setAttribute('data-height', '700')
+    f.setAttribute('data-height', '711')
     f.setAttribute('data-layout-iframe-id', 'inline-RLyDEDAtpk2Voju4RLa0')
     f.setAttribute('data-form-id', 'RLyDEDAtpk2Voju4RLa0')
     f.setAttribute('data-cookie-consent', 'true')
