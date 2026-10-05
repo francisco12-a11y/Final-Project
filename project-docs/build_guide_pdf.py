@@ -181,7 +181,7 @@ def build():
         P("<b>Ad copy ×5</b> — one per persona/angle, each with a matching landing hero.", "item"),
         P("<b>Imagery prompts</b> — on-brand prompt pack for you to generate.", "item"),
         P("<b>Docs</b> — research doc, Business Map, ClickUp board structure, SOP text, walkthrough draft for the submission PDF, Loom script.", "item"),
-        P("<b>Repo + deploys</b> — github.com/francisco12-a11y/pareto-final-project, auto-deploys on every push.", "item"),
+        P("<b>Repo + deploys</b> — github.com/francisco12-a11y/Final-Project, auto-deploys on every push.", "item"),
     ]))
     story.append(Spacer(1, 4))
 

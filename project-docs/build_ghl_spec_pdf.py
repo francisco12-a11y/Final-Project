@@ -221,9 +221,9 @@ story.append(boxed([
     Spacer(1, 3),
     P("Form Settings → After submit → conditional redirect:", "cell"),
     P("• IF revenue is '$10k–$50k' OR '$50k+' → AND hours is '15+' → AND owner is 'Yes' → "
-      "redirect to <b>https://francisco12-a11y.github.io/pareto-final-project/qualified.html</b>", "cell"),
+      "redirect to <b>https://francisco12-a11y.github.io/Final-Project/qualified.html</b>", "cell"),
     P("• EVERYONE ELSE → redirect to "
-      "<b>https://francisco12-a11y.github.io/pareto-final-project/thank-you.html</b>", "cell"),
+      "<b>https://francisco12-a11y.github.io/Final-Project/thank-you.html</b>", "cell"),
     Spacer(1, 3),
     P("If your GHL version won't do conditional redirects on a form, build two versions of the form "
       "(same questions, different redirect) and let workflow 1's branches send the right link. "

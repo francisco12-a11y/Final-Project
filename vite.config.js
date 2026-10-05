@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// GitHub Pages project site: /pareto-final-project/
+// GitHub Pages project site: /Final-Project/
 export default defineConfig({
-  base: '/pareto-final-project/',
+  base: '/Final-Project/',
   plugins: [react()],
   build: {
     rollupOptions: {

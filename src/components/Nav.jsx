@@ -3,7 +3,7 @@ export default function Nav({ cta = '#get-audit', ctaLabel = 'Get the Free Audit
     <nav className="nav">
       <div className="nav-inner">
         <a href="index.html" className="nav-logo" aria-label="Pareto Talent">
-          <img src="/pareto-final-project/logo-pareto-talent.png" alt="Pareto Talent" />
+          <img src="/Final-Project/logo-pareto-talent.png" alt="Pareto Talent" />
         </a>
         <div className="nav-links">
           <a className="nav-link" href="index.html#how">How it works</a>

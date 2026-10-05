@@ -133,7 +133,7 @@ export default function Landing() {
             </div>
           </div>
           <div className="kit-preview">
-            <img src="/pareto-final-project/site-assets/kit-cover.png" alt="The Right Hand Starter Kit — cover page" loading="lazy" />
+            <img src="/Final-Project/site-assets/kit-cover.png" alt="The Right Hand Starter Kit — cover page" loading="lazy" />
             <div>
               <h3>What lands in your inbox</h3>
               <ul>
@@ -277,8 +277,8 @@ export default function Landing() {
                 GHL FORM EMBED — paste the GoHighLevel qualifying form embed
                 code on the next line, replacing the placeholder div below.
                 Form must redirect on submit:
-                  qualified   ->  https://francisco12-a11y.github.io/pareto-final-project/qualified.html
-                  unqualified ->  https://francisco12-a11y.github.io/pareto-final-project/thank-you.html
+                  qualified   ->  https://francisco12-a11y.github.io/Final-Project/qualified.html
+                  unqualified ->  https://francisco12-a11y.github.io/Final-Project/thank-you.html
                 ============================================================ */}
             <div id="ghl-form-slot" className="form-slot-note">
               [ GHL qualifying form embeds here: pending form build in GoHighLevel ]
