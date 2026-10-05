@@ -78,6 +78,28 @@ const QUESTIONS = [
       { t: 'An assistant who needs managing', ghl: 'assistant-needs-managing' },
     ],
   },
+  {
+    id: 'q_revenue',
+    label: 'Monthly revenue',
+    q: "What's your monthly revenue today?",
+    help: 'This decides whether a Matching Call makes sense yet',
+    options: [
+      { t: 'Idea / pre-revenue', v: 'idea' },
+      { t: 'Under $10k/month', v: 'under-10' },
+      { t: '$10k\u2013$50k/month', v: '10-50' },
+      { t: '$50k+/month', v: '50+' },
+    ],
+  },
+  {
+    id: 'q_owner',
+    label: 'Hiring decision',
+    q: 'Are you the founder or co-founder, and the hiring decision-maker?',
+    help: 'Only owners can join the program today',
+    options: [
+      { t: 'Yes', v: 'yes' },
+      { t: 'Not yet / someone else decides', v: 'not-yet' },
+    ],
+  },
 ]
 
 function tierLine(total) {
@@ -111,6 +133,8 @@ export default function Quiz({ onDone }) {
         })),
         who: whoOpt ? whoOpt.ghl : null,
         whoText: whoOpt ? whoOpt.t : null,
+        q_revenue: next.q_revenue !== undefined ? QUESTIONS[6].options[next.q_revenue].v : null,
+        q_owner: next.q_owner !== undefined ? QUESTIONS[7].options[next.q_owner].v : null,
         ts: new Date().toISOString(),
       })
     }

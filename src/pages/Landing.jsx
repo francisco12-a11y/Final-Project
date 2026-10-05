@@ -62,7 +62,29 @@ export default function Landing() {
     if (p && HEROES[p]) setHero(HEROES[p])
   }, [])
 
-  // GHL form embed script (auto-resizes the iframe)
+    // Conditional routing: when the GHL form announces its submission, route by
+  // the quiz answers (revenue $10k+ AND owner AND 10+ recoverable hours).
+  useEffect(() => {
+    function qualified(r) {
+      if (!r) return false
+      return (r.q_revenue === '10-50' || r.q_revenue === '50+') &&
+             r.q_owner === 'yes' && r.total >= 10
+    }
+    function onMessage(e) {
+      const originOk = e.origin.includes('msgsndr.com') || e.origin.includes('leadconnectorhq.com')
+      let d = e.data
+      try { if (typeof d === 'string') d = JSON.parse(d) } catch (_) { /* plain string */ }
+      const submitted = d && (d.event === 'formSubmitted' || d.type === 'formSubmitted')
+      if (!originOk || !submitted) return
+      window.location.href = qualified(quizResult)
+        ? 'qualified.html'
+        : 'thank-you.html'
+    }
+    window.addEventListener('message', onMessage)
+    return () => window.removeEventListener('message', onMessage)
+  }, [quizResult])
+
+// GHL form embed script (auto-resizes the iframe)
   useEffect(() => {
     const s = document.createElement('script')
     s.src = 'https://link.msgsndr.com/js/form_embed.js'
