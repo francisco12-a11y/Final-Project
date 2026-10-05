@@ -301,6 +301,50 @@ h2.section-title { font-size: clamp(28px, 4vw, 42px); margin-bottom: 14px; }
   .quiz-result .quiz-number .n { font-size: 56px; }
 }
 
+/* ---------- image placeholders ---------- */
+.img-placeholder {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--green-subtle);
+  border: 1.5px dashed #10b98159;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  text-align: center;
+}
+.img-placeholder figcaption { display: flex; flex-direction: column; gap: 3px; }
+.img-placeholder .ph-label { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--green-bright); }
+.img-placeholder .ph-hint { font-size: 12px; color: var(--text-muted); }
+
+/* ---------- kit preview ---------- */
+.kit-preview {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 36px;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass-strong);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  box-shadow: 0 8px 40px #00000059;
+}
+.kit-preview img { border-radius: var(--radius-md); border: 1px solid var(--border-glass-strong); box-shadow: 0 12px 36px #00000080; }
+.kit-preview h3 { font-size: 20px; margin-bottom: 10px; }
+.kit-preview ul { list-style: none; }
+.kit-preview li { padding: 6px 0 6px 28px; position: relative; font-size: 15px; color: var(--text-secondary); }
+.kit-preview li::before { content: "✓"; position: absolute; left: 0; top: 6px; width: 20px; height: 20px; border-radius: 50%; background: var(--green-muted); color: var(--green-bright); border: 1px solid #10b98133; display: grid; place-items: center; font-size: 11px; font-weight: 800; }
+.kit-preview .kit-cta { margin-top: 16px; }
+
+@media (max-width: 900px) {
+  .kit-preview { grid-template-columns: 1fr; }
+  .kit-preview img { max-width: 280px; margin: 0 auto; }
+}
+
 /* ---------- form ---------- */
 .form-box { max-width: 740px; margin: 44px auto 0; background: var(--bg-card); border: 1px solid var(--border-glass-strong); border-radius: var(--radius-xl); padding: 40px; box-shadow: 0 8px 40px #00000059; }
 .form-slot-note {

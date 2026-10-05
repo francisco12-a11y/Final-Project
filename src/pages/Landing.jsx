@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Nav from '../components/Nav.jsx'
 import Footer from '../components/Footer.jsx'
 import Quiz from '../components/Quiz.jsx'
+import ImgPlaceholder from '../components/ImgPlaceholder.jsx'
 
 const HEROES = {
   dan: {
@@ -131,6 +132,19 @@ export default function Landing() {
               <p>Thirty minutes on decisions made, never tasks done. The meeting that replaces all the interruptions.</p>
             </div>
           </div>
+          <div className="kit-preview">
+            <img src="/pareto-final-project/site-assets/kit-cover.png" alt="The Right Hand Starter Kit — cover page" loading="lazy" />
+            <div>
+              <h3>What lands in your inbox</h3>
+              <ul>
+                <li>The 30-day handoff plan, with your Week 1 pre-filled from your test result</li>
+                <li>The handoff script and the three rules that make it stick</li>
+                <li>Inbox, calendar, follow-up, and check-in systems, written to run</li>
+                <li>One page to bring to your Matching Call: your first job description</li>
+              </ul>
+              <a className="btn btn-primary kit-cta" href="#get-audit">Get the kit by email →</a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -140,23 +154,29 @@ export default function Landing() {
           <span className="eyebrow">Who this is for</span>
           <h2 className="section-title">Built for founders who are the ceiling of their own company</h2>
           <div className="persona-grid">
+            {/* IMAGE: when the real photos are ready, replace each <ImgPlaceholder/>
+                with <img src="..." alt="..." style={{ borderRadius: 12 }} /> */}
             <div className="persona-card">
-              <span className="tag">The Drowning Operator</span>
+              <ImgPlaceholder label="Portrait · Dan" hint="founder buried in tabs at his desk · 4:3" ratio="4 / 3" />
+              <span className="tag" style={{ marginTop: 14 }}>The Drowning Operator</span>
               <p className="q">"I didn't build a company to become its assistant."</p>
               <p className="angle">Revenue grew, ops grew with it, and you became the ceiling. The test shows you which hours to buy back first and what keeping them costs.</p>
             </div>
             <div className="persona-card">
-              <span className="tag">Burned by a VA</span>
+              <ImgPlaceholder label="Portrait · Vanessa" hint="founder reviewing a stack of VA resumes, skeptical · 4:3" ratio="4 / 3" />
+              <span className="tag" style={{ marginTop: 14 }}>Burned by a VA</span>
               <p className="q">"I'm not paying someone to need managed."</p>
               <p className="angle">The first VA failed because nobody vetted or trained her. The test separates what to hand off from what to systemize, so your next hire starts clean.</p>
             </div>
             <div className="persona-card">
-              <span className="tag">Chaos at Scale</span>
+              <ImgPlaceholder label="Portrait · Chris" hint="founder surrounded by sticky notes and DMs · 4:3" ratio="4 / 3" />
+              <span className="tag" style={{ marginTop: 14 }}>Chaos at Scale</span>
               <p className="q">"It's faster if I do it myself."</p>
               <p className="angle">Everything runs through you because no process exists outside your head. The test forces the first cut: what to document once and hand off forever.</p>
             </div>
             <div className="persona-card">
-              <span className="tag">Solo Until Now</span>
+              <ImgPlaceholder label="Portrait · Sofia" hint="founder closing her laptop early, freed · 4:3" ratio="4 / 3" />
+              <span className="tag" style={{ marginTop: 14 }}>Solo Until Now</span>
               <p className="q">"I didn't leave my job to become my own assistant."</p>
               <p className="angle">You protected margin by doing everything. Now growth stalled and the calendar is full of $10/hour work. The test puts a dollar figure on that trade.</p>
             </div>
@@ -212,6 +232,15 @@ export default function Landing() {
               <h3>Lifetime Replacement</h3>
               <p>If your Right Hand ever stops performing, you get a free replacement with no waiting period, for as long as you work together.</p>
             </div>
+          </div>
+          <div style={{ marginTop: 44 }}>
+            {/* IMAGE: replace with <img src="..." alt="A Right Hand operator running the systems" /> */}
+            <ImgPlaceholder
+              wide
+              label="Wide shot · a Right Hand operator running the week"
+              hint="clean desk setup, dark tones, emerald screen accents · 21:9"
+              ratio="21 / 9"
+            />
           </div>
         </div>
       </section>
