@@ -215,7 +215,7 @@ export default function Landing() {
             {/* IMAGE: when the real photos are ready, replace each <ImgPlaceholder/>
                 with <img src="..." alt="..." style={{ borderRadius: 12 }} /> */}
             <div className="persona-card">
-              <ImgPlaceholder label="Portrait · Dan" hint="founder buried in tabs at his desk · 4:3" ratio="4 / 3" />
+              <img className="portrait portrait-43" src="/Final-Project/site-assets/dan.jpg" alt="Founder buried in tabs at his desk, late at night" loading="lazy" />
               <span className="tag" style={{ marginTop: 14 }}>The Drowning Operator</span>
               <p className="q">"I didn't build a company to become its assistant."</p>
               <p className="angle">Revenue grew, ops grew with it, and you became the ceiling. The test shows you which hours to buy back first and what keeping them costs.</p>
@@ -227,7 +227,7 @@ export default function Landing() {
               <p className="angle">The first VA failed because nobody vetted or trained her. The test separates what to hand off from what to systemize, so your next hire starts clean.</p>
             </div>
             <div className="persona-card">
-              <ImgPlaceholder label="Portrait · Chris" hint="founder surrounded by sticky notes and DMs · 4:3" ratio="4 / 3" />
+              <img className="portrait portrait-43" src="/Final-Project/site-assets/chris.jpg" alt="Founder surrounded by sticky notes and boxes" loading="lazy" />
               <span className="tag" style={{ marginTop: 14 }}>Chaos at Scale</span>
               <p className="q">"It's faster if I do it myself."</p>
               <p className="angle">Everything runs through you because no process exists outside your head. The test forces the first cut: what to document once and hand off forever.</p>
@@ -292,13 +292,7 @@ export default function Landing() {
             </div>
           </div>
           <div style={{ marginTop: 44 }}>
-            {/* IMAGE: replace with <img src="..." alt="A Right Hand operator running the systems" /> */}
-            <ImgPlaceholder
-              wide
-              label="Wide shot · a Right Hand operator running the week"
-              hint="clean desk setup, dark tones, emerald screen accents · 21:9"
-              ratio="21 / 9"
-            />
+            <img className="portrait portrait-219" src="/Final-Project/site-assets/operator-week.jpg" alt="A Right Hand operator running the week, dark office, teal screen" loading="lazy" />
           </div>
         </div>
       </section>

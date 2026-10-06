@@ -554,3 +554,8 @@ h2.section-title { font-size: clamp(28px, 4vw, 42px); margin-bottom: 14px; }
 .qform-submit:disabled { opacity: .7; cursor: wait; }
 .qform .form-trust { margin-top: 2px; }
 @media (max-width: 640px) { .qform-row { grid-template-columns: 1fr; } }
+
+/* ---------- real photography ---------- */
+.portrait { display: block; width: 100%; object-fit: cover; border-radius: var(--radius-lg); }
+.portrait-43 { aspect-ratio: 4 / 3; }
+.portrait-219 { aspect-ratio: 21 / 9; }
