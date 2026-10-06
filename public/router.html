@@ -32,6 +32,7 @@
     <span class="star">✦</span>
     <h1>Scoring your test…</h1>
     <p>One moment — taking you to your result.</p>
+    <p id="dbg" style="font-size:11px;color:#475569;margin-top:14px;max-width:520px;word-break:break-all;"></p>
   </div>
 
   <script>
@@ -83,13 +84,18 @@
       var qualified = revenueOK && hoursOK && ownerOK;
       var dest = new URL(qualified ? 'qualified.html' : 'thank-you.html', location.href).href;
 
+      // TEMP DEBUG: show what GHL actually sent, pause briefly so it's readable
+      document.getElementById('dbg').textContent = 'received: ' + (location.search || '(no data)');
+
       // GHL redirects the iframe it embeds the form in, not the browser. The router
       // runs on the same origin as the host page, so it can walk the navigation up
       // to the top window and take the whole page with it.
-      try {
-        if (window.self !== window.top) { window.top.location.replace(dest); return; }
-      } catch (e) { /* cross-origin host: fall through and navigate in place */ }
-      location.replace(dest);
+      setTimeout(function () {
+        try {
+          if (window.self !== window.top) { window.top.location.replace(dest); return; }
+        } catch (e) { /* cross-origin host: fall through and navigate in place */ }
+        location.replace(dest);
+      }, 2500);
     })();
   </script>
 </body>
