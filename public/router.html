@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Project · Processing…</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="/Final-Project/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      background: #050a0e;
+      color: #f0f4f8;
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .box { text-align: center; }
+    .star { color: #10b981; font-size: 34px; display: block; margin-bottom: 18px; animation: pulse 1.2s ease-in-out infinite; }
+    h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.02em; }
+    p { color: #94a3b8; margin-top: 10px; font-size: 15px; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <span class="star">✦</span>
+    <h1>Scoring your test…</h1>
+    <p>One moment — taking you to your result.</p>
+  </div>
+
+  <script>
+    // GHL form redirect target. Reads the form data GHL appends to the URL and
+    // routes: revenue $10K+ AND hours 15+ AND owner Yes -> qualified, else thank-you.
+    // Safe default when params are missing or unreadable: thank-you.html.
+    (function () {
+      var params = new URLSearchParams(location.search);
+      var pairs = [];
+      params.forEach(function (v, k) {
+        pairs.push([String(k).toLowerCase(), String(v)]);
+      });
+
+      // URLSearchParams turns a raw "+" into a space; normalize so "$50K+", "15+"
+      // and "15 " (plus-mangled) all read correctly.
+      function norm(s) { return s.replace(/\s+/g, ''); }
+
+      function findByKey(rx) {
+        for (var i = 0; i < pairs.length; i++) {
+          if (rx.test(pairs[i][0])) return norm(pairs[i][1]);
+        }
+        return null;
+      }
+      function scanValues(test) {
+        for (var i = 0; i < pairs.length; i++) {
+          if (test(norm(pairs[i][1]))) return true;
+        }
+        return false;
+      }
+
+      var revenue = findByKey(/revenue/i);
+      var hours   = findByKey(/hours/i);
+      var owner   = findByKey(/owner|founder/i);
+
+      var revenueOK = revenue !== null
+        ? /50k/i.test(revenue)                       // $10K-$50K or $50K+
+        : scanValues(function (v) { return /50k/i.test(v); });
+
+      var hoursOK = hours !== null
+        ? /^15\+?$/.test(hours)
+        : scanValues(function (v) { return /^15\+?$/.test(v); });
+
+      // Owner keyed first (the ads question also answers "Yes");
+      // fall back to value scan only if GHL sent no recognizable key.
+      var ownerOK = owner !== null
+        ? /^yes$/i.test(owner)
+        : scanValues(function (v) { return /^yes$/i.test(v); });
+
+      var qualified = revenueOK && hoursOK && ownerOK;
+      location.replace(new URL(qualified ? 'qualified.html' : 'thank-you.html', location.href).href);
+    })();
+  </script>
+</body>
+</html>
