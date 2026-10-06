@@ -340,7 +340,7 @@ story.append(email_card(
 story.append(P("8 · Workflow 4 — Booking (confirmation + reminder)", "h2"))
 story.append(workflow(
     "<b>FP | Francisco Buiras | Booking Workflow</b>",
-    ["Trigger: <b>Customer Booked Appointment</b> (calendar: your Matching Call calendar)",
+    ["Trigger: <b>Customer Booked Appointment</b>  + filters: <b>Calendar is [your Matching Call calendar]</b> and <b>Appointment Status is Confirmed</b>",
      "Action: <b>Add Tag</b> booked · move opportunity to stage Call Booked",
      "Action: <b>Send Email</b> E7 immediately (turn OFF the calendar's default confirmation so it doesn't double-send)",
      "Action: <b>Wait</b> → step type 'event/appointment', until 1 day before the appointment",
@@ -367,7 +367,7 @@ story.append(email_card(
 story.append(P("9 · Workflow 5 — Post-call (status + thank-you)", "h2"))
 story.append(workflow(
     "<b>FP | Francisco Buiras | Post-call Thank-you</b>",
-    ["Trigger: <b>Customer Booked Appointment</b> (same calendar)",
+    ["Trigger: <b>Customer Booked Appointment</b>  + filters: <b>Calendar is [your Matching Call calendar]</b> and <b>Appointment Status is Confirmed</b>",
      "Action: <b>Wait</b> → step type 'event/appointment', until 2 hours AFTER the appointment",
      "Action: <b>Update Opportunity</b> → move to stage <b>Call Done</b>",
      "Action: <b>Send Email</b> E9 (the thank-you below)"],
