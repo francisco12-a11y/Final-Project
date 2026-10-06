@@ -217,17 +217,15 @@ story.append(table([
 ], [14, 185, 185, CONTENT_W - 14 - 185 - 185]))
 story.append(Spacer(1, 4))
 story.append(boxed([
-    P("<b>Redirect rules (the whole funnel depends on this)</b>", "cellB"),
+    P("<b>On Submit — updated Oct 6 (routing moved to the landing page)</b>", "cellB"),
     Spacer(1, 3),
-    P("Form Settings → After submit → conditional redirect:", "cell"),
-    P("• IF revenue is '$10k–$50k' OR '$50k+' → AND hours is '15+' → AND owner is 'Yes' → "
-      "redirect to <b>https://francisco12-a11y.github.io/Final-Project/qualified.html</b>", "cell"),
-    P("• EVERYONE ELSE → redirect to "
-      "<b>https://francisco12-a11y.github.io/Final-Project/thank-you.html</b>", "cell"),
+    P("Choose <b>Show a message</b> (text: “Taking you to your next step\u2026”). Do NOT set a redirect here: "
+      "the landing page itself listens for the form's submission and routes it \u2014 the visitor's test answers "
+      "(revenue, hours, owner) decide between qualified.html and thank-you.html. Keeping the redirect off avoids "
+      "the two hops fighting each other.", "cell"),
     Spacer(1, 3),
-    P("If your GHL version won't do conditional redirects on a form, build two versions of the form "
-      "(same questions, different redirect) and let workflow 1's branches send the right link. "
-      "Test both paths incognito before anything else (section 8).", "muted"),
+    P("Optional prefill: in each field's settings, add URL parameters q_email, q_crm, q_admin, q_support, "
+      "q_hiring, q_who, q_total \u2014 the quiz answers arrive in the iframe URL and pre-fill the form.", "cell"),
 ]))
 story.append(Spacer(1, 4))
 story.append(Spacer(1, 4))
