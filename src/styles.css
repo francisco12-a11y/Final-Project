@@ -621,3 +621,4 @@ h2.section-title { font-size: clamp(28px, 4vw, 42px); margin-bottom: 14px; }
   .quote-text { font-size: 18px; }
   .founders-names { gap: 14px; }
 }
+img.quote-avatar { display: block; width: 46px; height: 46px; object-fit: cover; }

@@ -1,58 +1,69 @@
 import { useEffect, useState } from 'react'
 
-// FABRICATED PLACEHOLDER QUOTES — invented for the demo funnel. Before this
-// page runs real traffic or ads, swap these for real client quotes (Pareto's
-// own wall-of-love is the source to mine) and delete this comment.
+// FABRICATED PLACEHOLDER QUOTES — invented for the demo funnel, paired with
+// stock mockup portraits (randomuser.me). Before this page runs real traffic
+// or ads, swap both for real client quotes and photos (Pareto's own
+// wall-of-love is the source to mine) and delete this comment.
 const QUOTES = [
   {
     q: 'I got my first free Saturday in two years. The weekly check-in alone killed about forty interruptions a week.',
     name: 'Martín D.',
     role: 'E-commerce founder, 12-person team',
+    photo: '/Final-Project/site-assets/avatars/martin.jpg',
   },
   {
     q: 'My inbox went from 200 unread to under 20 in nine days. I stopped being the mailroom of my own company.',
-    name: 'Priya S.',
+    name: 'Mina K.',
     role: 'Marketing agency owner',
+    photo: '/Final-Project/site-assets/avatars/mina.jpg',
   },
   {
     q: 'She rebuilt my calendar in week one. Sales calls live on Tuesdays and Thursdays now, and nothing moves them.',
     name: 'Tomás R.',
     role: 'B2B SaaS founder',
+    photo: '/Final-Project/site-assets/avatars/tomas.jpg',
   },
   {
     q: "I didn't believe the 24-hour matching. Three candidates landed the next morning and one was a fit by Friday.",
     name: 'Daniel K.',
     role: 'Real estate investor',
+    photo: '/Final-Project/site-assets/avatars/daniel.jpg',
   },
   {
     q: 'Six months of my own delegating never stuck. The handoff script stuck in one week.',
     name: 'Rachel M.',
     role: 'Business coach',
+    photo: '/Final-Project/site-assets/avatars/rachel.jpg',
   },
   {
     q: "My first hire didn't work out. The replacement landed in four days with no waiting period. That guarantee is the whole product for me.",
     name: 'Ahmed B.',
     role: 'Dental clinic owner',
+    photo: '/Final-Project/site-assets/avatars/ahmed.jpg',
   },
   {
     q: "Four weeks in, invoicing, CRM updates and follow-ups are off my plate. That's 17 hours a week I got back.",
     name: 'Sofía G.',
     role: 'DTC brand founder',
+    photo: '/Final-Project/site-assets/avatars/sofia.jpg',
   },
   {
     q: 'Our Right Hand runs the AI stack better than I do, and I built the stack. I stopped chasing the team in week one.',
     name: 'James W.',
     role: 'Agency owner, 25 people',
+    photo: '/Final-Project/site-assets/avatars/james.jpg',
   },
   {
     q: 'The test said 15 hours. We got 12 back in month one and that was enough to end my night shifts.',
     name: 'Lucía F.',
     role: 'Consulting firm partner',
+    photo: '/Final-Project/site-assets/avatars/lucia.jpg',
   },
   {
     q: 'The candidate ran my week from day three because someone wrote the process down. Onboarding took one call.',
-    name: 'Nitin P.',
+    name: 'Marcus T.',
     role: 'Logistics startup founder',
+    photo: '/Final-Project/site-assets/avatars/marcus.jpg',
   },
 ]
 
@@ -87,7 +98,9 @@ export default function WallOfLove() {
                 <div className="quote-stars" aria-hidden="true">★★★★★</div>
                 <blockquote className="quote-text">“{item.q}”</blockquote>
                 <figcaption className="quote-person">
-                  <span className="quote-avatar" aria-hidden="true">{initials(item.name)}</span>
+                  {item.photo
+                    ? <img className="quote-avatar" src={item.photo} alt={item.name} width="46" height="46" loading="lazy" />
+                    : <span className="quote-avatar" aria-hidden="true">{initials(item.name)}</span>}
                   <span>
                     <span className="n">{item.name}</span>
                     <br />
