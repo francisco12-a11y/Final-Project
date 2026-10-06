@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 // own wall-of-love is the source to mine) and delete this comment.
 const QUOTES = [
   {
-    q: 'I got my first free Saturday in two years. The weekly check-in alone killed about forty interruptions.',
+    q: 'I got my first free Saturday in two years. The weekly check-in alone killed about forty interruptions a week.',
     name: 'Martín D.',
     role: 'E-commerce founder, 12-person team',
   },
@@ -20,27 +20,27 @@ const QUOTES = [
     role: 'B2B SaaS founder',
   },
   {
-    q: 'I did not believe the 24-hour matching. Three candidates landed the next morning and one was a fit by Friday.',
+    q: "I didn't believe the 24-hour matching. Three candidates landed the next morning and one was a fit by Friday.",
     name: 'Daniel K.',
     role: 'Real estate investor',
   },
   {
-    q: 'The handoff script did what six months of my own delegating never did. It stuck after the first week.',
+    q: 'Six months of my own delegating never stuck. The handoff script stuck in one week.',
     name: 'Rachel M.',
     role: 'Business coach',
   },
   {
-    q: 'My first hire did not work out. The replacement landed in four days with no waiting period. That guarantee is the whole product for me.',
+    q: "My first hire didn't work out. The replacement landed in four days with no waiting period. That guarantee is the whole product for me.",
     name: 'Ahmed B.',
     role: 'Dental clinic owner',
   },
   {
-    q: 'Four weeks in, invoicing, CRM updates and follow-ups are off my plate. That is 17 hours a week I got back.',
+    q: "Four weeks in, invoicing, CRM updates and follow-ups are off my plate. That's 17 hours a week I got back.",
     name: 'Sofía G.',
     role: 'DTC brand founder',
   },
   {
-    q: 'Our Right Hand runs the AI stack better than I do, and I built the stack. Operations move without me asking twice.',
+    q: 'Our Right Hand runs the AI stack better than I do, and I built the stack. I stopped chasing the team in week one.',
     name: 'James W.',
     role: 'Agency owner, 25 people',
   },
@@ -50,7 +50,7 @@ const QUOTES = [
     role: 'Consulting firm partner',
   },
   {
-    q: 'The candidate ran my week from day three because the process was finally written down. Onboarding took one call.',
+    q: 'The candidate ran my week from day three because someone wrote the process down. Onboarding took one call.',
     name: 'Nitin P.',
     role: 'Logistics startup founder',
   },

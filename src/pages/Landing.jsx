@@ -302,8 +302,8 @@ export default function Landing() {
         <div className="container">
           <div className="center">
             <span className="eyebrow">The founders</span>
-            <h2 className="section-title">His assistant became his CTO. Then they built Pareto.</h2>
-            <p className="section-sub">Kasim Aslam and Ivan Bunin ran the assistant problem from both sides before Pareto placed a single operator.</p>
+            <h2 className="section-title">Kasim hired an assistant in 2018. That assistant became his CTO, then his business partner.</h2>
+            <p className="section-sub">Ivan Bunin answered Kasim Aslam's assistant job ad. Pareto Talent is the company they built from it.</p>
           </div>
           <img
             className="founders-photo"
@@ -313,11 +313,10 @@ export default function Landing() {
           />
           <div className="founders-note">
             <p>
-              In 2018, Ivan took an executive assistant job at Kasim's six-person ad agency. He grew into
-              team lead, then CTO, and ran the diligence on the agency's eight-figure exit. Kasim scaled that
-              company to 80 people with overseas operators running the work he never touched. Pareto is the
-              hiring system they built from that run: hand-picked Latin American operators, trained 40+ hours
-              on the AI stack, matched to your task list within 24 hours.
+              The agency was Solutions 8, a Google Ads shop with six employees when Ivan joined and 80
+              when Kasim sold it for eight figures. Kasim never ran a Google Ads campaign himself; his
+              hires ran the ads and the operations. Ivan ran the diligence on the sale, then co-founded
+              Pareto with him.
             </p>
             <div className="founders-names">
               <span><b>Kasim Aslam</b> · Co-founder</span>
@@ -333,7 +332,7 @@ export default function Landing() {
           <div className="center">
             <span className="eyebrow">Wall of love</span>
             <h2 className="section-title">Founders who got their week back</h2>
-            <p className="section-sub">What the first 30 days with a Right Hand sounds like.</p>
+            <p className="section-sub">Ten founders on their first 30 days with a Right Hand.</p>
           </div>
           <WallOfLove />
         </div>
