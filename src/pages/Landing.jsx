@@ -62,27 +62,9 @@ export default function Landing() {
     if (p && HEROES[p]) setHero(HEROES[p])
   }, [])
 
-    // Conditional routing: when the GHL form announces its submission, route by
-  // the quiz answers (revenue $10k+ AND owner AND 10+ recoverable hours).
-  useEffect(() => {
-    function qualified(r) {
-      if (!r) return false
-      return (r.q_revenue === '10-50' || r.q_revenue === '50+') &&
-             r.q_owner === 'yes' && r.total >= 10
-    }
-    function onMessage(e) {
-      const originOk = e.origin.includes('msgsndr.com') || e.origin.includes('leadconnectorhq.com')
-      let d = e.data
-      try { if (typeof d === 'string') d = JSON.parse(d) } catch (_) { /* plain string */ }
-      const submitted = d && (d.event === 'formSubmitted' || d.type === 'formSubmitted')
-      if (!originOk || !submitted) return
-      window.location.href = qualified(quizResult)
-        ? 'qualified.html'
-        : 'thank-you.html'
-    }
-    window.addEventListener('message', onMessage)
-    return () => window.removeEventListener('message', onMessage)
-  }, [quizResult])
+  // Routing lives in the GHL form (conditional On Submit redirect to
+  // qualified.html / thank-you.html); the result pages break out of the
+  // embed iframe themselves. No client-side submit listener here.
 
   // GHL form embed: built imperatively so React never touches the node
   // (form_embed.js relocates iframes; removing a relocated node crashes React)
