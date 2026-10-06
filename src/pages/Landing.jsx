@@ -221,7 +221,7 @@ export default function Landing() {
               <p className="angle">Revenue grew, ops grew with it, and you became the ceiling. The test shows you which hours to buy back first and what keeping them costs.</p>
             </div>
             <div className="persona-card">
-              <ImgPlaceholder label="Portrait · Vanessa" hint="founder reviewing a stack of VA resumes, skeptical · 4:3" ratio="4 / 3" />
+              <img className="portrait portrait-43" src="/Final-Project/site-assets/vanessa.jpg" alt="Skeptical founder reviewing a stack of VA resumes" loading="lazy" />
               <span className="tag" style={{ marginTop: 14 }}>Burned by a VA</span>
               <p className="q">"I'm not paying someone to need managed."</p>
               <p className="angle">The first VA failed because nobody vetted or trained her. The test separates what to hand off from what to systemize, so your next hire starts clean.</p>
@@ -233,7 +233,7 @@ export default function Landing() {
               <p className="angle">Everything runs through you because no process exists outside your head. The test forces the first cut: what to document once and hand off forever.</p>
             </div>
             <div className="persona-card">
-              <ImgPlaceholder label="Portrait · Sofia" hint="founder closing her laptop early, freed · 4:3" ratio="4 / 3" />
+              <img className="portrait portrait-43" src="/Final-Project/site-assets/sofia.jpg" alt="Founder closing her laptop early, relieved" loading="lazy" />
               <span className="tag" style={{ marginTop: 14 }}>Solo Until Now</span>
               <p className="q">"I didn't leave my job to become my own assistant."</p>
               <p className="angle">You protected margin by doing everything. Now growth stalled and the calendar is full of $10/hour work. The test puts a dollar figure on that trade.</p>
