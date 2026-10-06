@@ -26,7 +26,7 @@ DARK = (5, 10, 14)
 ADS = [
     dict(key="ad1-dan", img=f"{BASE}/dan.jpg", bias=0.45,
          headline=[("$10/hr work. ", "w"), ("$100/hr job.", "e")],
-         sub="A Right Hand takes those hours back. Find yours in 2 minutes."),
+         sub="A Right Hand takes those hours back."),
     dict(key="ad2-vanessa", img=f"{BASE}/vanessa.jpg", bias=0.35,
          headline=[("Burned by a VA? ", "w"), ("Try a Right Hand.", "e")],
          sub="The 2-minute test tells you what to hand off first."),
