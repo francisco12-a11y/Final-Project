@@ -74,3 +74,23 @@ small Pareto spark logo bottom corner. Build in Canva with DM Sans bold.
 2. Open `src/pages/Landing.jsx`, find each `<ImgPlaceholder … />` (a comment above the persona grid shows the pattern), and replace it with:
    `<img src="/Final-Project/site-assets/FILENAME.jpg" alt="DESCRIPTION" style={{ borderRadius: 12 }} />`
 3. Commit and push — auto-deploy takes care of the rest.
+
+## Testimonial avatars (carousel) — AI headshot pass
+
+Ten fictional founders for the carousel. Generate at 1:1, save as
+`avatar-t1.jpg` … `avatar-t10.jpg` in `public/site-assets/` (the carousel
+falls back to initials until each file exists). Style suffix for all:
+`photorealistic corporate headshot, centered, shoulders up, soft studio lighting, subtle AI-enhanced polish, slightly desaturated, dark neutral background, 1:1`
+
+| File | Prompt |
+|------|--------|
+| `avatar-t1.jpg` | Corporate headshot of a confident man in his late 30s, short dark hair, light stubble, dark casual blazer over a t-shirt |
+| `avatar-t2.jpg` | Headshot of a woman in her mid 30s, shoulder-length brown hair, minimal jewelry, soft charcoal background |
+| `avatar-t3.jpg` | Headshot of a Latino man in his early 40s, short black hair, trimmed beard, navy shirt |
+| `avatar-t4.jpg` | Headshot of a South Asian woman in her late 30s, dark hair pulled back, structured blazer |
+| `avatar-t5.jpg` | Headshot of a Latina woman in her early 40s, warm professional expression, dark blouse |
+| `avatar-t6.jpg` | Headshot of a man in his mid 40s, weathered friendly face, flannel work-shirt |
+| `avatar-t7.jpg` | Headshot of a Korean-American woman in her early 30s, modern bob, dark turtleneck |
+| `avatar-t8.jpg` | Headshot of a Hispanic man in his late 40s, glasses, gray-flecked hair, button-down shirt |
+| `avatar-t9.jpg` | Headshot of a man in his early 30s, creative undercut, denim shirt |
+| `avatar-t10.jpg` | Headshot of a woman in her late 30s, ponytail, bright confident look, athletic wear collar |

@@ -671,6 +671,7 @@ img.quote-avatar { display: block; width: 46px; height: 46px; object-fit: cover;
   background: linear-gradient(135deg, var(--green), var(--teal));
   color: #050a0e; font-family: var(--font-head); font-weight: 800; font-size: 15px;
 }
+.tinit-photo { object-fit: cover; border: 1px solid var(--border-glass-strong); }
 .twho b { display: block; color: var(--text-primary); font-size: 15px; }
 .trole { display: block; font-size: 13px; color: var(--text-muted); }
 .tarrow {
