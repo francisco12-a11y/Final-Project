@@ -148,6 +148,8 @@ DONE_ITEMS = [
 MISSING_ITEMS = [
     ("Fran", "GHL form: On Submit = Show a message",
      "If it still redirects, it will fight the page's routing — 1 min in Settings"),
+    ("Fran", "Re-paste the updated Business Map block in Notion",
+     "The map still shows L8/L13 as gaps; the refreshed Mermaid block is in project-docs/business-map.md — same page, same public link"),
     ("Fran", "Two-path test + screenshots",
      "Submit as qualified and as not-qualified; screenshot both landings + the pipeline + all 5 workflows executing → L11/L12 Drive folders"),
     ("Fran", "Images: generate + send to ZCode + upload",
