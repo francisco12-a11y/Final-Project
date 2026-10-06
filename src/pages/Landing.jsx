@@ -113,10 +113,6 @@ export default function Landing() {
       <header className="hero">
         <div className="container hero-grid">
           <div>
-            <div className="trust-row">
-              <span className="stars">★★★★★</span>
-              <span className="txt"><b>4.9</b> · Trusted by 100+ founders</span>
-            </div>
             <span className="eyebrow">Free 2-minute test</span>
             <h1>
               {hero ? hero.h1 : <>You're the CEO and <span className="accent">your own assistant</span>. Hand off the assistant job.</>}
@@ -135,7 +131,19 @@ export default function Landing() {
               <span className="chip">3 matches within 24 hours</span>
             </div>
           </div>
-          <AuditPreview />
+          <div>
+            <AuditPreview />
+            <div className="trust-row under-card">
+              <span className="avatar-stack" aria-hidden="true">
+                <img src="/Final-Project/site-assets/avatar-1.svg" alt="" />
+                <img src="/Final-Project/site-assets/avatar-2.svg" alt="" />
+                <img src="/Final-Project/site-assets/avatar-3.svg" alt="" />
+                <span className="avatar-more">+</span>
+              </span>
+              <span className="stars">★★★★★</span>
+              <span className="txt"><b>4.9</b> · Trusted by 100+ founders</span>
+            </div>
+          </div>
         </div>
       </header>
 
