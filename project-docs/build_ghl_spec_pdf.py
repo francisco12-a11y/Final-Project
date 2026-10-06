@@ -378,10 +378,11 @@ story.append(Spacer(1, 4))
 story.append(email_card(
     "E9 · Thanks for joining — here's what happens now",
     "{{contact.first_name}}, thanks for joining today's call.\n\n"
-    "You brought the kit, we pressure-tested your Week 1 handoffs, and your delegation shortlist is now with the matching team.\n\n"
-    "Within the next 24 hours you'll meet 3+ hand-picked, AI-trained Right Hand candidates matched to your task list — "
-    "no contracts, no payment unless you pick someone you're excited about.\n\n"
-    "While you wait: reply to this email with anything you forgot to mention on the call. The matching team reads every reply.\n\n"
+    "You showed up with the kit filled in, we pressure-tested your Week 1 handoffs, and your shortlist is now with the matching team.\n\n"
+    "What happens next: within 24 hours you meet 3+ hand-picked, AI-trained Right Hand candidates matched to your task list. "
+    "No contracts and no payment unless you pick someone you want to work with.\n\n"
+    "One ask while you wait: reply to this email with anything you didn't get to say on the call. "
+    "The matching team reads every reply, and the small details are what make the match.\n\n"
     "Talk soon.\n\n— Pareto Talent",
     "Send 2 hours after the appointment · opportunity moves to Call Done at the same time"))
 
