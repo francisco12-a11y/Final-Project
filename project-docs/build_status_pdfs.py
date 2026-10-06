@@ -116,19 +116,21 @@ DONE_ITEMS = [
     ("Strategy + offer locked",
      "ICP, four personas, qualification rules, MAGIC title (Oct 3)"),
     ("Funnel pages live",
-     "Landing with persona heroes + 8-question test (L7) · booking page with live GHL calendar (L9) · thank-you page (L10)"),
+     "Landing with persona heroes + 2-minute test (L7) · booking page with live GHL calendar (L9) · thank-you page (L10)"),
     ("Real Pareto branding",
      "Their logo, exact design tokens, Plus Jakarta Sans + DM Sans — scraped from paretotalent.com"),
     ("Lead magnet live",
      "The Right Hand Starter Kit PDF hosted on the site (L6); the test personalizes your Week 1"),
-    ("Qualifying form embedded + styled",
-     "Your FB-Qualifying form, dark themed via Custom CSS, on the landing (L8)"),
+    ("Qualifying form embedded + styled + smart",
+     "FB-Qualifying form, dark themed, on the landing (L8) — conditional logic inside the form routes by revenue"),
     ("Routing verified",
-     "Qualified founders hop to the booking page, everyone else to the thank-you page — tested on production"),
-    ("GHL pipeline + 5 workflows + 9 emails",
-     "Opt-in, qualified follow-up, nurture, booking reminders, post-call thank-you — confirmed working by Fran (L11/L12 source)"),
+     "Pre-revenue / Under $10K → thank-you page · everything else → booking page with the calendar — tested through the landing"),
+    ("GHL pipeline + 6 workflows + 9 emails",
+     "Opt-in, qualified follow-up, nurture, booking reminders, post-call thank-you, no-show handler — confirmed working (L11/L12 source)"),
+    ("No-show automation",
+     "No-show Handler tags the contact; the post-call workflow re-queues them into the booking chase instead of a wrong thank-you email"),
     ("Business Map live",
-     "Notion page public with the Mermaid journey map (L3) — statuses updated, re-paste the latest block"),
+     "Notion page public with the Mermaid journey map (L3)"),
     ("Second Brain complete",
      "Hire book, BC7 days 1–9, competitor teardowns, ICP + personas in Obsidian (L1)"),
     ("Research doc",
@@ -137,39 +139,39 @@ DONE_ITEMS = [
      "FP_FranciscoBuiras_L05_SOP.pdf — the repeatable launch process (L5)"),
     ("Ads copy ×5",
      "Five different arguments, one per persona + the destination angle, each with its landing hero (L13 copy)"),
-    ("Imagery prompt pack",
-     "Every placeholder and ad creative has a ready prompt (L14 prompts)"),
+    ("Imagery done and wired",
+     "All six photos generated, optimized and live on the landing: 4 founder personas, the operator shot and the VA bench (L14)"),
     ("Loom script",
      "FP_FranciscoBuiras_L15_LoomScript.pdf — six timed beats, ~300 words (L15 prep)"),
     ("ClickUp structure + CSV",
      "7 milestones, 24 tasks ready to import (L4 prep)"),
+    ("Walkthrough draft",
+     "FP_FranciscoBuiras_Walkthrough_Draft.md — all 9 Parts written, ready to paste into Google Docs"),
 ]
 
 MISSING_ITEMS = [
-    ("Fran", "GHL form: On Submit = Show a message",
-     "If it still redirects, it will fight the page's routing — 1 min in Settings"),
-    ("Fran", "Re-paste the updated Business Map block in Notion",
-     "The map still shows L8/L13 as gaps; the refreshed Mermaid block is in project-docs/business-map.md — same page, same public link"),
-    ("Fran", "Two-path test + screenshots",
-     "Submit as qualified and as not-qualified; screenshot both landings + the pipeline + all 5 workflows executing → L11/L12 Drive folders"),
-    ("Fran", "Images: generate + send to ZCode + upload",
-     "From the prompt pack → L14 Drive folder; ZCode wires them into the landing placeholders the same day"),
-    ("Fran", "Ad creatives export",
-     "Portraits + overlays per the pack → FP_FranciscoBuiras_Ad1–5.png → L13 Drive folder"),
-    ("Fran", "ClickUp import",
-     "Create the list, Import → CSV (lead-magnet-launch.csv), share publicly → L4"),
-    ("Fran", "Drive folders + sharing",
-     "FP_FranciscoBuiras_L11–L15 folders, all set to Anyone with the link; upload the kit PDF, research doc, SOP"),
+    ("Fran", "Final test pass + screenshots → L11/L12",
+     "Incognito: qualified answers → booking page, Pre-revenue/Under $10K → thank-you; book a test call, mark it No Show, screenshot the no-show chain; export every workflow's execution log. Upload to the L11/L12 Drive folders"),
+    ("Fran", "Delete the test contacts",
+     "All the Router Test entries + your +1 480 555 7878 tests — the pipeline screenshots must be clean"),
+    ("Fran", "Renumber the duplicate E9",
+     "Two emails carry E9 (post-call thank-you and the no-show reschedule). Rename one to E10 in GHL so the index matches"),
+    ("Fran", "Kit PDF → Drive (L6)",
+     "Upload FP_FranciscoBuiras_L06_RightHandStarterKit.pdf to the L6 folder, share as Anyone with the link"),
+    ("Fran", "Ad creatives export → L13",
+     "Portraits + overlays per the imagery pack → FP_FranciscoBuiras_Ad1–Ad5 → L13 Drive folder"),
+    ("Fran", "Imagery folder → L14",
+     "The six finals already on the site — export the originals to the L14 Drive folder"),
+    ("Fran", "ClickUp import (L4)",
+     "Create the list, Import → CSV (lead-magnet-launch.csv), share publicly"),
     ("Fran", "Second Brain link (L1) + H1–H9 links",
      "Collect the public links for the index"),
     ("Fran", "Record the Loom (2 min)",
      "Script ready — rehearse the two page-jumps in beat 3"),
-    ("ZCode", "Swap landing placeholders for your images",
-     "Same-day once the files arrive"),
-    ("ZCode", "Walkthrough draft (9 parts)",
-     "Full text for the submission PDF — Fran pastes into Google Docs"),
+    ("Fran", "EXTRA: build the GHL funnel",
+     "2-step qualified-path funnel (steps in the Extra Mile section) — screenshot it for the walkthrough's extra-mile answer"),
     ("Fran", "Assemble + submit",
-     "Google Docs → export FP_FranciscoBuiras_ParetoBootcamp.pdf → submit at bootcamp.paretotalent.com/finalproject. Aim Oct 7, 6:00 pm"),
+     "Paste the walkthrough draft into Google Docs, add links + screenshots, export FP_FranciscoBuiras_ParetoBootcamp.pdf, submit at bootcamp.paretotalent.com/finalproject. Aim Oct 7, 6:00 pm"),
 ]
 
 
@@ -197,7 +199,7 @@ def build_done():
     frame = Frame(MARGIN, 16 * mm, CONTENT_W, PAGE_H - 32 * mm - 16 * mm, id="m")
     doc.addPageTemplates([PageTemplate(id="p", frames=[frame],
                           onPage=lambda c, d: (header(c, "What We Have Done",
-                          "FP | Francisco Buiras | 15 deliverables built and live — as of October 6", BRAND), None))])
+                          "FP | Francisco Buiras | 17 deliverables done · photography wired · as of October 6", BRAND), None))])
     doc.build(story)
     print("OK ->", OUT)
 
@@ -213,7 +215,35 @@ def build_missing():
             P("<b>The critical path:</b> two-path test → screenshots → walkthrough assembly → submit. "
               "Everything else flexes; that chain doesn't.", "cell"),
         ], bg=SOFT),
-        Spacer(1, 6),
+        Spacer(1, 10),
+        P("THE EXTRA MILE — what this project adds that was never asked for", "h2"),
+        Spacer(1, 4),
+        P("<b>1 · A second GHL funnel for the qualified path (the build-in-progress extra).</b> "
+          "Sites → Funnels → New Funnel, name it FP | Francisco Buiras | Qualified Path Funnel. "
+          "Step 1 (Opt-in): drag in the FB-Qualifying form element plus the kit hook copy. "
+          "Step 2 (Booking): blank page with the calendar element and the three guarantees. "
+          "In the form's conditional logic, point the qualified outcome at Step 2's URL; everything "
+          "else keeps going to the thank-you page. One hour of work, and it proves native GHL "
+          "funnel skills on top of the custom site.", "cell"),
+        Spacer(1, 4),
+        P("<b>2 · No-show re-engagement, automated.</b> A No-show Handler workflow tags missed "
+          "calls, and the post-call workflow re-queues them into the booking chase instead of "
+          "sending a thank-you to an empty chair.", "cell"),
+        Spacer(1, 4),
+        P("<b>3 · The post-call sequence.</b> The pipeline moves to Call Done by itself one day "
+          "after the appointment, and the founder gets the next-steps email while the matching "
+          "team starts.", "cell"),
+        Spacer(1, 4),
+        P("<b>4 · The kit travels to the call.</b> Qualified founders bring the completed Starter "
+          "Kit to the Matching Call — the lead magnet becomes Pareto's own sales tool.", "cell"),
+        Spacer(1, 4),
+        P("<b>5 · Persona-matched ad destinations.</b> Each of the five ads lands on a hero that "
+          "echoes its exact angle, not one generic homepage.", "cell"),
+        Spacer(1, 4),
+        P("<b>6 · An interactive test as the front door.</b> Instead of a static PDF gate, the "
+          "2-minute test computes the founder's own recoverable hours and personalizes the kit's "
+          "Week 1 before anyone gives an email.", "cell"),
+        Spacer(1, 10),
         boxed([
             P("<b>Index link map (paste into the submission PDF):</b>", "cellB"),
             Spacer(1, 3),
@@ -234,7 +264,7 @@ def build_missing():
     frame = Frame(MARGIN, 16 * mm, CONTENT_W, PAGE_H - 32 * mm - 16 * mm, id="m")
     doc.addPageTemplates([PageTemplate(id="p", frames=[frame],
                           onPage=lambda c, d: (header(c, "What's Missing",
-                          "FP | Francisco Buiras | 11 items left · deadline October 7, end of day", AMBER), None))])
+                          "FP | Francisco Buiras | 11 items left + the extra-mile funnel · deadline October 7, end of day", AMBER), None))])
     doc.build(story)
     print("OK ->", OUT)
 
