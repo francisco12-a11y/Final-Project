@@ -15,11 +15,11 @@ Gaps are marked honestly: 🚧 means built or specced but not live yet, nothing 
 
 ```mermaid
 flowchart TD
-    AD["AD · 5 persona ads, one per founder<br/>L13 · GAP: in production"]
+    AD["AD · 5 persona ads, one per founder<br/>L13 · copy DONE, creatives pending"]
     LP["LANDING PAGE · persona-matched hero<br/>L7 · LIVE"]
     TEST["2-MINUTE TEST · 6 questions<br/>instant recoverable-hours result"]
     RESULT["RESULT · hours + dollar value + your Week 1"]
-    FORM["GHL QUALIFYING FORM<br/>L8 · GAP: embed pending"]
+    FORM["GHL QUALIFYING FORM<br/>L8 · LIVE: embed + routing verified"]
     QUAL{"QUALIFIED?<br/>revenue $10k+ AND 15+ hrs/wk AND owner"}
     QPAGE["BOOKING PAGE · qualified<br/>L9 · LIVE"]
     CAL["PARETO CALENDAR · Matching Call<br/>live embed on the page"]
@@ -45,7 +45,7 @@ flowchart TD
     classDef gap fill:#0b1119,stroke:#e2b93b,stroke-width:2px,stroke-dasharray:6 4,color:#f0f4f8
     classDef decision fill:#10b981,stroke:#10b981,color:#050a0e,font-weight:bold
     class LP,QPAGE,CAL,TPAGE,TEST,RESULT,CALL,CAND live
-    class AD,FORM,E7E8,E1,E2E3,NUR gap
+    class E7E8,E1,E2E3,NUR gap
     class QUAL decision
 ```
 
@@ -53,16 +53,16 @@ flowchart TD
 
 | Step | Asset | Link | Status |
 |------|-------|------|--------|
-| 1. Ad (5 variants, one per persona) | Persona ad set, each links to the landing with its persona tag (`?p=dan` … `?p=sofia`) | GAP — in production this week | 🚧 Gap |
+| 1. Ad (5 variants, one per persona) | Persona ad set, each links to the landing with its persona tag (`?p=dan` … `?p=sofia`) | Copy done (project-docs/ads.md); creatives pending export | 🚧 Copy done |
 | 2. Landing page (persona-matched hero) | React app on GitHub Pages | https://francisco12-a11y.github.io/Final-Project/ | LIVE |
 | 3. 2-minute test (6 questions) | Built into the landing, section #quiz | https://francisco12-a11y.github.io/Final-Project/#quiz | LIVE |
 | 4. Test result (hours, dollars, Week 1) | Same page, instant, no email needed | same URL as step 3 | LIVE |
-| 5. Book a call → qualifying form | GHL form embed (spec: GHL Build Spec PDF, section 4) | GAP — Fran building in GHL | 🚧 Gap |
-| 6. Qualification screen | Form conditional redirect (revenue $10k+ AND 15+ hrs AND owner) | Rules in the GHL Build Spec PDF, section 4 | 🚧 Gap |
+| 5. Book a call → qualifying form | GHL form FB-Qualifying, embedded on the landing (dark styled via Custom CSS) | Same URL as step 2, section #get-audit | ✅ LIVE |
+| 6. Qualification screen | Routing runs on the page: quiz answers + the form's formSubmitted event decide the branch | Same URL as step 2 | ✅ LIVE |
 | 7a. Qualified → booking page | Booking page with the real Pareto calendar | https://francisco12-a11y.github.io/Final-Project/qualified.html | LIVE |
 | 7b. Not qualified → thank-you page | Thank-you page: kit delivered, no booking link | https://francisco12-a11y.github.io/Final-Project/thank-you.html | LIVE |
 | 8. Lead magnet | The Right Hand Starter Kit PDF | https://francisco12-a11y.github.io/Final-Project/lead-magnet/FP_FranciscoBuiras_L06_RightHandStarterKit.pdf | LIVE |
-| 9. Opt-in workflow (deliver, tag, opportunity, notify) | GHL workflow 1 + email E1 | Build spec PDF, section 5 | 🚧 Gap |
+| 9. Opt-in + pipeline + workflows | GHL workflows + pipeline (Fran: confirmed working Oct 6) | Build spec PDF, sections 2 and 5–8 | ✅ LIVE (per Fran) |
 | 10. Qualified follow-up (2 emails if no booking) | GHL workflow 2 + emails E2, E3 | Build spec PDF, section 6 | 🚧 Gap |
 | 11. Nurture (3 emails) | GHL workflow 3 + emails E4, E5, E6 | Build spec PDF, section 7 | 🚧 Gap |
 | 12. Booking confirmation + reminder | GHL workflow 4 + emails E7, E8 | Build spec PDF, section 8 | 🚧 Gap |
@@ -71,10 +71,9 @@ flowchart TD
 
 ## Honest gaps, in one list
 
-- **L13 Ads**: 5 persona ads in production (copy + imagery this week).
-- **L8 Form + workflows + emails in GHL**: fully specified in the GHL Build Spec PDF; build in progress.
-- **L11/L12 screenshots**: produced by the end-to-end test after the GHL build.
-- **L14 Imagery**: page placeholders live; generation prompts this week.
+- **L13 Ads**: copy done; creatives not exported yet.
+- **L11/L12 screenshots**: end-to-end test screenshots still to be captured into the Drive folders.
+- **L14 Imagery**: page placeholders live; generation in progress.
 - Everything marked LIVE above is clickable and opens without a login.
 
 ## Source of truth
