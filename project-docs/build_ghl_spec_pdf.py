@@ -72,7 +72,7 @@ def on_page(c, doc):
     c.setFillColor(HexColor("#9FB3C8"))
     c.setFont("Lib", 9)
     c.drawString(MARGIN, PAGE_H - 22.5 * mm,
-                 "FP | Francisco Buiras | Pipeline, form, workflows, and all 8 emails · build exactly this, in this order")
+                 "FP | Francisco Buiras | Pipeline, form, workflows, and all 9 emails · build exactly this, in this order")
     c.setStrokeColor(LINE); c.setLineWidth(0.6)
     c.line(MARGIN, 12 * mm, PAGE_W - MARGIN, 12 * mm)
     c.setFillColor(MUTED); c.setFont("Lib", 7.5)
@@ -363,8 +363,30 @@ story.append(email_card(
     "See you tomorrow.\n\n[Reschedule]\n\n— Pareto Talent",
     "Send 24 hours before the appointment (event-based wait)"))
 
+# ---------------------------------------------------------------- WF5
+story.append(P("9 · Workflow 5 — Post-call (status + thank-you)", "h2"))
+story.append(workflow(
+    "<b>FP | Francisco Buiras | Post-call Thank-you</b>",
+    ["Trigger: <b>Customer Booked Appointment</b> (same calendar)",
+     "Action: <b>Wait</b> → step type 'event/appointment', until 2 hours AFTER the appointment",
+     "Action: <b>Update Opportunity</b> → move to stage <b>Call Done</b>",
+     "Action: <b>Send Email</b> E9 (the thank-you below)"],
+    "For testing, set the wait to 5 minutes instead of 2 hours, book a slot, and watch the stage + email fire. "
+    "No-show branch (optional): an If/Else on appointment status = no-show can send a quick rebook email instead."))
+
+story.append(Spacer(1, 4))
+story.append(email_card(
+    "E9 · Thanks for joining — here's what happens now",
+    "{{contact.first_name}}, thanks for joining today's call.\n\n"
+    "You brought the kit, we pressure-tested your Week 1 handoffs, and your delegation shortlist is now with the matching team.\n\n"
+    "Within the next 24 hours you'll meet 3+ hand-picked, AI-trained Right Hand candidates matched to your task list — "
+    "no contracts, no payment unless you pick someone you're excited about.\n\n"
+    "While you wait: reply to this email with anything you forgot to mention on the call. The matching team reads every reply.\n\n"
+    "Talk soon.\n\n— Pareto Talent",
+    "Send 2 hours after the appointment · opportunity moves to Call Done at the same time"))
+
 # ---------------------------------------------------------------- tests
-story.append(P("9 · The end-to-end test (screenshot everything for L11 and L12)", "h2"))
+story.append(P("10 · The end-to-end test (screenshot everything for L11 and L12)", "h2"))
 story.append(P(
     "Run this once everything is built. Every step gets a screenshot into the two Drive folders: "
     "<b>FP_FranciscoBuiras_L11_Pipeline</b> and <b>FP_FranciscoBuiras_L12_Workflows</b>.", "body"))
@@ -377,6 +399,7 @@ tests = [
     "Check tags on the contact: qualified + kit-sent (or nurture + kit-sent). Screenshot.",
     "Book a call on the calendar. Confirm E7 arrives immediately and E8 arrives 24h before. Screenshot both.",
     "Screenshot each workflow's execution history showing steps fired in order (this is the 'tested end to end' proof for Part 7).",
+    "Post-call check: book a test slot with the wait shortened to 5 minutes, confirm the stage moves to Call Done and E9 arrives.",
 ]
 rows = [[P(f"<b>{i + 1}</b>", "cellB"), P(t, "cell")] for i, t in enumerate(tests)]
 tw = table(rows, [18, CONTENT_W - 18 - 12], header=False)
