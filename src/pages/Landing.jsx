@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import Nav from '../components/Nav.jsx'
 import Footer from '../components/Footer.jsx'
 import Quiz from '../components/Quiz.jsx'
-import ImgPlaceholder from '../components/ImgPlaceholder.jsx'
+import WallOfLove from '../components/WallOfLove.jsx'
 
 const HEROES = {
   dan: {
@@ -212,8 +212,6 @@ export default function Landing() {
           <span className="eyebrow">Who this is for</span>
           <h2 className="section-title">Built for founders who are the ceiling of their own company</h2>
           <div className="persona-grid">
-            {/* IMAGE: when the real photos are ready, replace each <ImgPlaceholder/>
-                with <img src="..." alt="..." style={{ borderRadius: 12 }} /> */}
             <div className="persona-card">
               <img className="portrait portrait-43" src="/Final-Project/site-assets/dan.jpg" alt="Founder buried in tabs at his desk, late at night" loading="lazy" />
               <span className="tag" style={{ marginTop: 14 }}>The Drowning Operator</span>
@@ -296,6 +294,48 @@ export default function Landing() {
 
           <img className="portrait portrait-219" src="/Final-Project/site-assets/va-bench.jpg" alt="A bench of Pareto Talent Right Hand operators at work" loading="lazy" style={{ marginTop: 24 }} />
           </div>
+        </div>
+      </section>
+
+      {/* FOUNDERS */}
+      <section className="section" id="founders">
+        <div className="container">
+          <div className="center">
+            <span className="eyebrow">The founders</span>
+            <h2 className="section-title">His assistant became his CTO. Then they built Pareto.</h2>
+            <p className="section-sub">Kasim Aslam and Ivan Bunin ran the assistant problem from both sides before Pareto placed a single operator.</p>
+          </div>
+          <img
+            className="founders-photo"
+            src="/Final-Project/site-assets/founders.jpg"
+            alt="Kasim Aslam and Ivan Bunin, founders of Pareto Talent"
+            loading="lazy"
+          />
+          <div className="founders-note">
+            <p>
+              In 2018, Ivan took an executive assistant job at Kasim's six-person ad agency. He grew into
+              team lead, then CTO, and ran the diligence on the agency's eight-figure exit. Kasim scaled that
+              company to 80 people with overseas operators running the work he never touched. Pareto is the
+              hiring system they built from that run: hand-picked Latin American operators, trained 40+ hours
+              on the AI stack, matched to your task list within 24 hours.
+            </p>
+            <div className="founders-names">
+              <span><b>Kasim Aslam</b> · Co-founder</span>
+              <span><b>Ivan Bunin</b> · Co-founder</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WALL OF LOVE */}
+      <section className="section section-surface" id="wall-of-love">
+        <div className="container">
+          <div className="center">
+            <span className="eyebrow">Wall of love</span>
+            <h2 className="section-title">Founders who got their week back</h2>
+            <p className="section-sub">What the first 30 days with a Right Hand sounds like.</p>
+          </div>
+          <WallOfLove />
         </div>
       </section>
 

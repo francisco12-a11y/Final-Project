@@ -8,6 +8,7 @@ export default function Nav({ cta = '#get-audit', ctaLabel = 'Get the Free Audit
         <div className="nav-links">
           <a className="nav-link" href="index.html#how">How it works</a>
           <a className="nav-link" href="index.html#inside">What's inside</a>
+          <a className="nav-link" href="index.html#founders">Founders</a>
           <a className="nav-link" href="index.html#faq">FAQ</a>
           {right || <a className="nav-cta" href={cta}>{ctaLabel}</a>}
         </div>
