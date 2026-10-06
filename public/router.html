@@ -81,7 +81,15 @@
         : scanValues(function (v) { return /^yes$/i.test(v); });
 
       var qualified = revenueOK && hoursOK && ownerOK;
-      location.replace(new URL(qualified ? 'qualified.html' : 'thank-you.html', location.href).href);
+      var dest = new URL(qualified ? 'qualified.html' : 'thank-you.html', location.href).href;
+
+      // GHL redirects the iframe it embeds the form in, not the browser. The router
+      // runs on the same origin as the host page, so it can walk the navigation up
+      // to the top window and take the whole page with it.
+      try {
+        if (window.self !== window.top) { window.top.location.replace(dest); return; }
+      } catch (e) { /* cross-origin host: fall through and navigate in place */ }
+      location.replace(dest);
     })();
   </script>
 </body>

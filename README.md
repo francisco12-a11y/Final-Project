@@ -50,7 +50,7 @@ Pages is currently set to serve the `deploy` branch (legacy) for this reason. Wh
 - [ ] L12 · Workflow screenshots folder — *Fran (GHL), Drive*
 - [x] L13 · Ads — copy final in `project-docs/ads.md` + PDF in Descargas (Fran exports creatives to Drive)
 - [~] L14 · Imagery — prompt pack in `project-docs/imagery-prompts.md` (Fran generates, then swap placeholders) folder
-- [ ] L15 · Loom presentation — *Fran records (2 min)*
+- [~] L15 · Loom — script ready: `FP_FranciscoBuiras_L15_LoomScript.pdf` (Descargas); Fran records
 
 ### Homework, Days 1–9
 - [ ] H1–H9 — *Fran collects the links from his homework submissions*
