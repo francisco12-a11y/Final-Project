@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import Nav from '../components/Nav.jsx'
 import Footer from '../components/Footer.jsx'
 import Quiz from '../components/Quiz.jsx'
+import Testimonials from '../components/Testimonials.jsx'
 import WallOfLove from '../components/WallOfLove.jsx'
 
 const HEROES = {
@@ -146,6 +147,9 @@ export default function Landing() {
           </div>
         </div>
       </header>
+
+      {/* SOCIAL PROOF CAROUSEL */}
+      <Testimonials />
 
       {/* PROBLEM */}
       <section className="section section-surface">

@@ -170,7 +170,7 @@ def photo_slide(img_path, headline, em, sub, bias=0.5, name="s.png", dur=3.0, x_
     d = ImageDraw.Draw(canvas)
     eyebrow(d)
     y = 190
-    y = draw_headline(d, headline, y, emerald_part=em)
+    y = draw_headline(d, headline, y, em=em)
     y = draw_sub(d, sub, y + 14)
     canvas.save(f"{SLIDES}/{name}")
     return canvas, f"{SLIDES}/{name}"
@@ -182,7 +182,7 @@ def card_slide(headline, em, sub, shot_path, card_w, name, dur=3.0):
     d.ellipse([84, 150, 116, 182], fill=EMERALD)
     eyebrow(d, y=210)
     y = 300
-    y = draw_headline(d, headline, y, size=84, emerald_part=em)
+    y = draw_headline(d, headline, y, size=84, em=em)
     y = draw_sub(d, sub, y + 10)
     shot = Image.open(shot_path).convert("RGB")
     sw = card_w
