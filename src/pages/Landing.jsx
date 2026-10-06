@@ -293,6 +293,8 @@ export default function Landing() {
           </div>
           <div style={{ marginTop: 44 }}>
             <img className="portrait portrait-219" src="/Final-Project/site-assets/operator-week.jpg" alt="A Right Hand operator running the week, dark office, teal screen" loading="lazy" />
+
+          <img className="portrait portrait-219" src="/Final-Project/site-assets/va-bench.jpg" alt="A bench of Pareto Talent Right Hand operators at work" loading="lazy" style={{ marginTop: 24 }} />
           </div>
         </div>
       </section>
