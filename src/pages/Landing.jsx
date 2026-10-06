@@ -215,7 +215,7 @@ export default function Landing() {
       </section>
 
       {/* WHO IT'S FOR */}
-      <section className="section section-surface">
+      <section className="section section-surface" id="founders">
         <div className="container">
           <span className="eyebrow">Who this is for</span>
           <h2 className="section-title">Built for founders who are the ceiling of their own company</h2>

@@ -50,12 +50,12 @@ def dmsans(size, weight=500):
     return font(f"{FONTS}/dmsans.ttf", size, axes=[14, weight])
 
 
-def cover(img, w, h, bias=0.5):
+def cover(img, w, h, bias=0.5, x_bias=0.5):
     iw, ih = img.size
     s = max(w / iw, h / ih)
     nw, nh = int(iw * s + 0.5), int(ih * s + 0.5)
     img = img.resize((nw, nh), Image.LANCZOS)
-    x = (nw - w) // 2
+    x = int((nw - w) * x_bias)
     y = int((nh - h) * bias)
     return img.crop((x, y, x + w, y + h))
 
@@ -85,22 +85,43 @@ def wrap(draw, text, fnt, maxw):
     return lines
 
 
-def draw_headline(d, text, y, size=88, maxw=912, emerald_part=None):
-    """White headline with an emerald tail. emerald_part = substring that renders emerald."""
+def draw_headline(d, text, y, size=88, maxw=912, em=None):
+    """Flowing headline: words before `em` white, `em` emerald, words after white again."""
     fh = jakarta(size, 800)
-    # split into white part + emerald part at the marker
-    if emerald_part and emerald_part in text:
-        white_txt = text[: text.index(emerald_part)].strip()
-        em_txt = emerald_part
+    segments = []
+    if em and em in text:
+        i = text.index(em)
+        before, after = text[:i].rstrip(), text[i + len(em):].strip()
+        if before:
+            segments.append((before, "w"))
+        segments.append((em, "e"))
+        if after:
+            segments.append((after, "w"))
     else:
-        white_txt, em_txt = text, None
-    wl = wrap(d, white_txt, fh, maxw) if white_txt else []
-    el = wrap(d, em_txt, fh, maxw) if em_txt else []
-    for ln in wl:
-        d.text((84, y), ln, font=fh, fill=WHITE)
-        y += int(size * 1.14)
-    for ln in el:
-        d.text((84, y), ln, font=fh, fill=EMERALD)
+        segments.append((text, "w"))
+    words = []
+    for t, c in segments:
+        for wd in t.split(" "):
+            if wd:
+                words.append((wd, c))
+    lines, cur, curw = [], [], 0.0
+    space = d.textlength(" ", font=fh)
+    for wd, c in words:
+        wl = d.textlength(wd, font=fh)
+        add = wl if not cur else wl + space
+        if cur and curw + add > maxw:
+            lines.append(cur)
+            cur, curw = [(wd, c)], wl
+        else:
+            cur.append((wd, c))
+            curw += add
+    if cur:
+        lines.append(cur)
+    for line in lines:
+        x = 84
+        for wd, c in line:
+            d.text((x, y), wd, font=fh, fill=EMERALD if c == "e" else WHITE)
+            x += d.textlength(wd + " ", font=fh)
         y += int(size * 1.14)
     return y
 
@@ -141,8 +162,8 @@ def cta_pill(label="Take the 2-Minute Test", fsize=40):
     return pill
 
 
-def photo_slide(img_path, headline, em, sub, bias=0.5, name="s.png", dur=3.0):
-    photo = cover(Image.open(img_path).convert("RGB"), W, H, bias=bias)
+def photo_slide(img_path, headline, em, sub, bias=0.5, name="s.png", dur=3.0, x_bias=0.5):
+    photo = cover(Image.open(img_path).convert("RGB"), W, H, bias=bias, x_bias=x_bias)
     canvas = Image.blend(photo, Image.new("RGB", (W, H), DARK), 0.15)
     dark, alpha = top_scrim(W, H)
     canvas.paste(dark, (0, 0), alpha)
@@ -212,7 +233,7 @@ s4, s4p = card_slide("37 hrs/wk = $31,820/mo.", "$31,820/mo.",
                      "Your real number, on the spot.",
                      "/tmp/slide_result.png", 860, "s4-number.png")
 s5, s5p = photo_slide(OPW, "A Right Hand takes the hours back.", "Right Hand",
-                      "Vetted · AI-trained · matched in 24 hours.", bias=0.5, name="s5-rh.png")
+                      "Vetted · AI-trained · matched in 24 hours.", bias=0.5, name="s5-rh.png", x_bias=0.62)
 s6, s6p = end_slide("s6-cta.png")
 
 SLIDE_DEFS = [
