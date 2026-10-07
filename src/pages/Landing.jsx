@@ -352,7 +352,7 @@ export default function Landing() {
           <div className="center">
             <span className="eyebrow">The founders</span>
             <h2 className="section-title">Kasim hired an assistant in 2018. That assistant became his CTO, then his business partner.</h2>
-            <p className="section-sub">Ivan Bunin answered Kasim Aslam's assistant job ad. Pareto Talent is the company they built from it.</p>
+            <p className="section-sub">The assistant was Ivan Bunin. Pareto Talent is the company they built from it.</p>
           </div>
           <img
             className="founders-photo"
