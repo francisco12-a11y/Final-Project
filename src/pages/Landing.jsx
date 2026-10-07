@@ -296,6 +296,11 @@ export default function Landing() {
               playsInline
               aria-label="Map animation: connection arcs from Buenos Aires across US cities"
             />
+            <img
+              src="/Final-Project/site-assets/team-ba.png"
+              alt="The Pareto Talent team in Buenos Aires"
+              loading="lazy"
+            />
             <figcaption>
               Matched in Buenos Aires. Working US hours, in your tools. One hire covers the map.
             </figcaption>
