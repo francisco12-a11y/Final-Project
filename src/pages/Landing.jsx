@@ -68,6 +68,27 @@ export default function Landing() {
   // qualified.html / thank-you.html); the result pages break out of the
   // embed iframe themselves. No client-side submit listener here.
 
+  // same-page anchor links: smooth-scroll instead of reload
+  // (nav links are full hrefs, and a reload fires before React renders the target)
+  useEffect(() => {
+    function onClick(e) {
+      const a = e.target.closest && e.target.closest('a[href*="#"]')
+      if (!a) return
+      let target
+      try { target = new URL(a.href) } catch (_) { return }
+      if (target.pathname !== window.location.pathname) return
+      const id = target.hash.slice(1)
+      if (!id) return
+      const el = document.getElementById(id)
+      if (!el) return
+      e.preventDefault()
+      el.scrollIntoView({ behavior: 'smooth' })
+      history.replaceState(null, '', '#' + id)
+    }
+    document.addEventListener('click', onClick)
+    return () => document.removeEventListener('click', onClick)
+  }, [])
+
   // GHL form embed: built imperatively so React never touches the node
   // (form_embed.js relocates iframes; removing a relocated node crashes React)
   const formContainerRef = useRef(null)
