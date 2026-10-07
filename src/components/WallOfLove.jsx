@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 // FABRICATED PLACEHOLDER QUOTES — invented for the demo funnel, paired with
-// stock mockup portraits (randomuser.me). Before this page runs real traffic
+// AI-generated portraits (not real people). Before this page runs real traffic
 // or ads, swap both for real client quotes and photos (Pareto's own
 // wall-of-love is the source to mine) and delete this comment.
 const QUOTES = [
