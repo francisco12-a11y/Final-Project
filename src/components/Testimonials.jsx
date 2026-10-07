@@ -63,7 +63,7 @@ export default function Testimonials() {
   const q = QUOTES[i]
 
   return (
-    <section className="section section-surface" id="founders">
+    <section className="section section-surface">
       <div className="container">
         <div className="center">
           <span className="eyebrow">Wall of love</span>

@@ -742,3 +742,36 @@ img.quote-avatar { display: block; width: 46px; height: 46px; object-fit: cover;
   font-size: 15px;
   color: var(--text-secondary);
 }
+
+/* ---------- talent pool ---------- */
+.pool-photo { margin-top: 44px; }
+.pool-photo img {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-glass-strong);
+  box-shadow: 0 12px 48px #00000066;
+  display: block;
+}
+.pool-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+.pool-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.pool-card .pool-num {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--green-bright);
+}
+.pool-card .pool-label { font-size: 13.5px; color: var(--text-secondary); }
+@media (max-width: 900px) { .pool-stats { grid-template-columns: 1fr; } }

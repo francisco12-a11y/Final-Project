@@ -3,7 +3,7 @@ import Nav from '../components/Nav.jsx'
 import Footer from '../components/Footer.jsx'
 import Quiz from '../components/Quiz.jsx'
 import Testimonials from '../components/Testimonials.jsx'
-import WallOfLove from '../components/WallOfLove.jsx'
+import TalentPool from '../components/TalentPool.jsx'
 import GlobeDispatch from '../components/GlobeDispatch.jsx'
 
 const HEROES = {
@@ -353,17 +353,8 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* WALL OF LOVE */}
-      <section className="section section-surface" id="wall-of-love">
-        <div className="container">
-          <div className="center">
-            <span className="eyebrow">Wall of love</span>
-            <h2 className="section-title">Founders who got their week back</h2>
-            <p className="section-sub">Ten founders on their first 30 days with a Right Hand.</p>
-          </div>
-          <WallOfLove />
-        </div>
-      </section>
+      {/* THE TALENT POOL */}
+      <TalentPool />
 
       {/* QUIZ */}
       <section className="section section-surface" id="quiz">

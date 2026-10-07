@@ -58,30 +58,31 @@ flowchart TD
 
 | Step | Asset | Link | Status |
 |------|-------|------|--------|
-| 1. Ad (5 personas, one argument each) | 5 static ads (feed + story) + 19s video ad + 5 CTA variants; each opens the landing on its persona hero (`?p=dan` `?p=vanessa` `?p=chris` `?p=sofia`, ad 5 default) | Drive folder FP_FranciscoBuiras_L13_Ads | LIVE |
+| 1. Ad (5 personas, one argument each) | 5 static ads (feed + story) + 19s video ad + 5 CTA variants; each opens the landing on its persona hero | Creatives: https://drive.google.com/drive/folders/1VC7xxIFSUqQrKcjcjqyKW8VmIyJY_gS5 · imagery system: https://drive.google.com/drive/folders/16gaOYgh8UZ1v5Gb-Hpum20sGWCeiN7Oy · destinations: https://francisco12-a11y.github.io/Final-Project/?p=dan · https://francisco12-a11y.github.io/Final-Project/?p=vanessa · https://francisco12-a11y.github.io/Final-Project/?p=chris · https://francisco12-a11y.github.io/Final-Project/?p=sofia · https://francisco12-a11y.github.io/Final-Project/ (default) | LIVE |
 | 2. Landing page (persona-matched hero) | React app on GitHub Pages, real Pareto branding | https://francisco12-a11y.github.io/Final-Project/ | LIVE |
 | 3. 2-minute test (8 questions) | Built into the landing, section #quiz, no email to see the number | https://francisco12-a11y.github.io/Final-Project/#quiz | LIVE |
-| 4. Test result (hours, dollars, Week 1) | Same page, instant; pre-fills the kit's Week 1 and the form | same URL as step 3 | LIVE |
-| 5. Qualifying form | GHL form **FP \| Francisco Buiras \| Qualifying Form**, embedded at #get-audit; conditional logic inside the form routes by revenue | Same URL as step 2, section #get-audit | LIVE |
+| 4. Test result (hours, dollars, Week 1) | Same page, instant; pre-fills the kit's Week 1 and the form | https://francisco12-a11y.github.io/Final-Project/#quiz | LIVE |
+| 5. Qualifying form | GHL form **FP \| Francisco Buiras \| Qualifying Form**, embedded at #get-audit; conditional logic inside the form routes by revenue | Public form: https://api.leadconnectorhq.com/widget/form/RLyDEDAtpk2Voju4RLa0 · builder (backend): https://app.gohighlevel.com/v2/location/Nh4vnB9j3LG3QfG2YHxx/form-builder-v2/RLyDEDAtpk2Voju4RLa0 | LIVE |
 | 6. Qualification gate | Revenue-only: Pre-revenue and Under $10K → thank-you; everything else → booking. Hours and hiring authority saved to the contact as data | set inside the form's conditional logic | LIVE |
 | 7a. Qualified → booking page | Booking page: the call, the 24h candidate promise, the guarantees | https://francisco12-a11y.github.io/Final-Project/qualified.html | LIVE |
 | 7b. Not qualified → thank-you page | Kit confirmed, "You didn't get a booking link. That's on purpose." | https://francisco12-a11y.github.io/Final-Project/thank-you.html | LIVE |
 | 8. Lead magnet | The Right Hand Starter Kit PDF (5 pages), hosted on the site, delivered by email | https://francisco12-a11y.github.io/Final-Project/lead-magnet/FP_FranciscoBuiras_L06_RightHandStarterKit.pdf | LIVE |
-| 9. Opt-in workflow | Workflow 1: opportunity in New Lead ($3,000) → tag qualified or nurture → E1 kit email with PDF attached (both arms) → internal notification | GHL, published | LIVE |
-| 10. Qualified follow-up | Workflow 2: day 1 check → E2, day 3 check → E3; booked leads are never chased | GHL, published | LIVE |
-| 11. Nurture | Workflow 3: E4, E5, E6 on days 2, 5, 8 — teach-only, each ends with the retake link | GHL, published | LIVE |
-| 12. Booking | Workflow 4: tag booked, opportunity to Call Booked, E7 confirmation, E8 reminder 24h before (calendar-filtered) | GHL, published | LIVE |
-| 13. Matching Call calendar | **FP \| Francisco Buiras \| Calendar** — 30 min, live embed on the booking page | calendar embed on step 7a | LIVE |
-| 14. Post-call + no-show | Workflow 5: 1 day after → Call Done + E9 next steps; No-show Handler → E10 reschedule + re-queue into the qualified follow-up | GHL, published | LIVE |
-| 15. Pipeline tracking | Lead Magnet Pipeline: New Lead → Qualified → Call Booked → Call Done → Won (Matched); unqualified leads sit in Nurture | GHL, published | LIVE |
+| 9. Opt-in workflow | Workflow 1: opportunity in New Lead ($3,000) → tag qualified or nurture → E1 kit email with PDF attached (both arms) → internal notification | https://app.gohighlevel.com/v2/location/Nh4vnB9j3LG3QfG2YHxx/automation/workflow/aa1d383c-bcda-48f0-9b2d-e67f205ba3b2 | LIVE |
+| 10. Qualified follow-up | Workflow 2: day 1 check → E2, day 3 check → E3; booked leads are never chased | https://app.gohighlevel.com/v2/location/Nh4vnB9j3LG3QfG2YHxx/automation/workflow/b9096b91-05f2-47d1-a2d6-5cf3151cdb68 | LIVE |
+| 11. Nurture | Workflow 3: E4, E5, E6 on days 2, 5, 8 — teach-only, each ends with the retake link | https://app.gohighlevel.com/v2/location/Nh4vnB9j3LG3QfG2YHxx/automation/workflow/ba07cec0-dfe8-4d79-9298-74ea113f2cfb | LIVE |
+| 12. Booking | Workflow 4: tag booked, opportunity to Call Booked, E7 confirmation, E8 reminder 24h before (calendar-filtered) | https://app.gohighlevel.com/v2/location/Nh4vnB9j3LG3QfG2YHxx/automation/workflow/bbfaa39f-5f84-46d3-b601-5c058c670542 | LIVE |
+| 13. Matching Call calendar | **FP \| Francisco Buiras \| Calendar** — 30 min, live embed on the booking page | Public calendar: https://api.leadconnectorhq.com/widget/booking/Nl5jVEH9F0pMSkjCDTas | LIVE |
+| 14. Post-call + no-show | Workflow 5: 1 day after → Call Done + E9 next steps; No-show Handler → E10 reschedule + re-queue into the qualified follow-up | https://app.gohighlevel.com/v2/location/Nh4vnB9j3LG3QfG2YHxx/automation/workflow/f4894661-b077-4a9e-9631-8b0b5b293673 · no-show: https://app.gohighlevel.com/v2/location/Nh4vnB9j3LG3QfG2YHxx/automation/workflow/e2f8717f-6c35-49d9-b541-40a0d7e748c0 | LIVE |
+| 15. Pipeline tracking | Lead Magnet Pipeline: New Lead → Qualified → Call Booked → Call Done → Won (Matched); unqualified leads sit in Nurture | Backend: GHL → Opportunities → FP \| Francisco Buiras \| Lead Magnet Pipeline | LIVE |
 | 16. Second Brain (research behind every step) | Public export of the vault, 67 notes | https://francisco12-a11y.github.io/Final-Project/second-brain/ | LIVE |
 
 ## Honest status, in one list
 
-- **L11/L12 evidence**: the end-to-end execution screenshots are being captured into the Drive folders (the builds themselves are live — the screenshots are the remaining work).
+- **Execution evidence** (Part 7): pipeline screenshots → https://drive.google.com/drive/folders/1FWhzhOgxKHkj24NLjucaV-WOk9pDWAbH · workflow screenshots → https://drive.google.com/drive/folders/1Z27_7Ty708nmoF-vgM8YqJ23ln_ARmLw — the builds are live; the execution screenshots are being added to these folders right now.
 - **L15 Loom**: not recorded yet; the script is done.
 - **Extra mile in progress**: the same funnel rebuilt natively in GHL (`FP | Francisco Buiras | Qualified Path Funnel`).
-- Everything marked LIVE above is clickable and opens without a login.
+- The GHL workflow links are real backend links: they open only inside the Pareto GHL account, which is why the judge-facing evidence for Part 7 is the L11/L12 screenshot folders above. The form and calendar links are public.
+- Everything else marked LIVE above is clickable and opens without a login.
 
 ## Source of truth
 
