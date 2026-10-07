@@ -571,6 +571,7 @@ h2.section-title { font-size: clamp(28px, 4vw, 42px); margin-bottom: 14px; }
 }
 .founders-note { max-width: 780px; margin: 26px auto 0; text-align: center; }
 .founders-note p { font-size: 16px; color: var(--text-secondary); line-height: 1.6; }
+.founders-note p + p { margin-top: 12px; }
 .founders-note p b { color: var(--text-primary); }
 .founders-names {
   margin-top: 20px; font-family: var(--font-head); font-size: 15px;

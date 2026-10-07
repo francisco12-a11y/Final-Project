@@ -362,14 +362,17 @@ export default function Landing() {
           />
           <div className="founders-note">
             <p>
-              Ivan asked for $1,000 a month. Kasim paid $1,200 and put him to work at
-              Solutions 8, the Google Ads agency that held the #1 search position worldwide
-              for its own keyword for years. Kasim never ran one of those campaigns himself;
-              hiring people who could was the whole point. Ivan went from inbox to CTO, built
-              the data room, and ran diligence on the eight-figure sale that closed with 80
-              employees on the payroll. Then the two turned the hiring system that found Ivan
-              into Pareto Talent. Year one brought $1M in revenue with zero paid ads and 100+
-              placements, and they wrote the playbook down: HIRE, the book this program runs on.
+              Kasim Aslam's agency, Solutions 8, ranked #1 on Google for "Google Ads agency"
+              for years and managed more than $100M in annual ad spend. Kasim never ran a
+              single campaign. His job was hiring the people who could and giving them real
+              ownership. Ivan started in the inbox and rose to Chief Technology Officer.
+            </p>
+            <p>
+              When a SoftBank-backed buyer acquired the agency for eight figures, Ivan built
+              the data room and ran the diligence. Their next company runs on the same
+              principle. Pareto Talent passed $1M in revenue in its first year with zero paid
+              ads and more than 100 founders matched, and they wrote the playbook down:
+              HIRE, the book this program runs on.
             </p>
             <div className="founders-names">
               <span><b>Kasim Aslam</b> · Co-founder</span>
