@@ -6,9 +6,10 @@ export default function TalentPool() {
           <span className="eyebrow">The talent pool</span>
           <h2 className="section-title">One in a thousand makes it in</h2>
           <p className="section-sub">
-            Every Right Hand comes from a pool with a 1-in-1,000 acceptance rate,
-            trains 40+ hours on the AI stack before they ever meet you, and works
-            your hours from Latin America. This is the team behind every match.
+            A Right Hand is a full-time operator on a career track. Pareto promotes from
+            within: Kasim's first assistant became a director, his second ran social media,
+            and his third co-founded the company. Your match starts with your task list and
+            grows into whatever your company needs next.
           </p>
         </div>
         <figure className="pool-photo">

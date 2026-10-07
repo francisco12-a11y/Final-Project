@@ -226,7 +226,7 @@ export default function Landing() {
             </div>
           </div>
           <div className="kit-preview">
-            <img src="/Final-Project/site-assets/kit-cover.png" alt="The Right Hand Starter Kit — cover page" loading="lazy" />
+            <img src="/Final-Project/site-assets/kit-cover.png" alt="The Right Hand Starter Kit cover page" loading="lazy" />
             <div>
               <h3>What lands in your inbox</h3>
               <ul>
@@ -362,10 +362,14 @@ export default function Landing() {
           />
           <div className="founders-note">
             <p>
-              The agency was Solutions 8, a Google Ads shop with six employees when Ivan joined and 80
-              when Kasim sold it for eight figures. Kasim never ran a Google Ads campaign himself; his
-              hires ran the ads and the operations. Ivan ran the diligence on the sale, then co-founded
-              Pareto with him.
+              Ivan asked for $1,000 a month. Kasim paid $1,200 and put him to work at
+              Solutions 8, the Google Ads agency that held the #1 search position worldwide
+              for its own keyword for years. Kasim never ran one of those campaigns himself;
+              hiring people who could was the whole point. Ivan went from inbox to CTO, built
+              the data room, and ran diligence on the eight-figure sale that closed with 80
+              employees on the payroll. Then the two turned the hiring system that found Ivan
+              into Pareto Talent. Year one brought $1M in revenue with zero paid ads and 100+
+              placements, and they wrote the playbook down: HIRE, the book this program runs on.
             </p>
             <div className="founders-names">
               <span><b>Kasim Aslam</b> · Co-founder</span>

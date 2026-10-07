@@ -12,7 +12,7 @@ const QUOTES = [
     photo: '/Final-Project/site-assets/avatar-t1.jpg',
   },
   {
-    q: 'Orders, tracking, returns — all of it disappeared from my plate in the first two weeks. I check one report now instead of forty messages.',
+    q: 'Orders, tracking, returns: all of it disappeared from my plate in the first two weeks. I check one report now instead of forty messages.',
     name: 'Dan Whitfield', role: 'E-commerce founder', initials: 'DW',
     photo: '/Final-Project/site-assets/avatar-t2.jpg',
   },
@@ -47,7 +47,7 @@ const QUOTES = [
     photo: '/Final-Project/site-assets/avatar-t8.jpg',
   },
   {
-    q: "I stopped training my third assistant from zero. She arrived trained, and the handoff script did the rest — it's in the free kit, take it.",
+    q: "I stopped training my third assistant from zero. She arrived trained, and the handoff script did the rest. It's in the free kit, take it.",
     name: 'Nathan Brooks', role: 'Studio owner', initials: 'NB',
     photo: '/Final-Project/site-assets/avatar-t9.jpg',
   },
