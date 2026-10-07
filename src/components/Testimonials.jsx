@@ -13,7 +13,7 @@ const QUOTES = [
   },
   {
     q: 'Orders, tracking, returns — all of it disappeared from my plate in the first two weeks. I check one report now instead of forty messages.',
-    name: 'Dana Whitfield', role: 'E-commerce founder', initials: 'DW',
+    name: 'Dan Whitfield', role: 'E-commerce founder', initials: 'DW',
     photo: '/Final-Project/site-assets/avatar-t2.jpg',
   },
   {
@@ -23,7 +23,7 @@ const QUOTES = [
   },
   {
     q: 'I stopped being the operations department. My Right Hand built the runbooks I never wrote and runs the week from them.',
-    name: 'Priya Nair', role: 'SaaS founder', initials: 'PN',
+    name: 'Elena Vasquez', role: 'SaaS founder', initials: 'EV',
     photo: '/Final-Project/site-assets/avatar-t4.jpg',
   },
   {
