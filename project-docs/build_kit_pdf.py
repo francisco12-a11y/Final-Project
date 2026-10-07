@@ -15,7 +15,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.platypus import (
     BaseDocTemplate, PageTemplate, Frame, Paragraph, Spacer, Table,
-    TableStyle, KeepTogether, NextPageTemplate,
+    TableStyle, KeepTogether, NextPageTemplate, PageBreak,
 )
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "lead-magnet",
@@ -115,42 +115,41 @@ def sparkle(c, cx, cy, r, color=BRAND):
     c.drawPath(p, stroke=0, fill=1)
 
 
-HEADER_H = 88 * mm
+HEADER_H = 88 * mm  # legacy: the old cover band height (unused, cover is full-page now)
 
 
 def on_first_page(c, doc):
     c.saveState()
+    # Full-page dark cover: everything is drawn on the canvas, nothing
+    # flows on this page. Solid fills only -- no transparency anywhere.
+    # The rect overshoots all four edges: a rect ending exactly at the page
+    # boundary leaves a white hairline at the bottom in some renderers.
     c.setFillColor(DARK)
-    c.rect(0, PAGE_H - HEADER_H, PAGE_W + 2, HEADER_H, stroke=0, fill=1)
-    c.setFillColor(BRAND)
-    c.rect(0, PAGE_H - HEADER_H, PAGE_W + 2, 2.2, stroke=0, fill=1)
-    # Decorative glow, pre-blended onto the band color: fill alpha renders
-    # as a hard-edged disc in some PDF viewers.
-    c.setFillColor(HexColor("#0A1D2A"))
-    c.circle(PAGE_W - 30 * mm, PAGE_H - 18 * mm, 42 * mm, stroke=0, fill=1)
-    c.setFillColor(HexColor("#0B222D"))
-    c.circle(PAGE_W - 30 * mm, PAGE_H - 18 * mm, 30 * mm, stroke=0, fill=1)
+    c.rect(0, -4, PAGE_W + 2, PAGE_H + 8, stroke=0, fill=1)
 
     c.drawImage(LOGO_FLAT, MARGIN, PAGE_H - 20 * mm,
-                width=22 * mm, height=9 * mm)
+                width=26 * mm, height=10.7 * mm)
     c.setFillColor(HexColor("#8FA3B8"))
     c.setFont("Lib-B", 9.5)
-    c.drawRightString(PAGE_W - MARGIN, PAGE_H - 18 * mm,
-                      "FREE SYSTEMS PACK")
+    c.drawRightString(PAGE_W - MARGIN, PAGE_H - 18 * mm, "FREE SYSTEMS PACK")
+
+    sparkle(c, PAGE_W - 34 * mm, PAGE_H - 47 * mm, 12 * mm, BRAND)
+    sparkle(c, PAGE_W - 18 * mm, PAGE_H - 31 * mm, 4.5 * mm, MINT)
 
     c.setFillColor(white)
-    c.setFont("Lib-B", 29)
-    c.drawString(MARGIN, PAGE_H - 38 * mm, "The Right Hand Starter Kit")
+    c.setFont("Lib-B", 34)
+    c.drawString(MARGIN, PAGE_H - 56 * mm, "The Right Hand")
+    c.drawString(MARGIN, PAGE_H - 68 * mm, "Starter Kit")
     c.setFillColor(MINT)
-    c.setFont("Lib-B", 14)
-    c.drawString(MARGIN, PAGE_H - 47 * mm,
+    c.setFont("Lib-B", 13.5)
+    c.drawString(MARGIN, PAGE_H - 77.5 * mm,
                  "The systems, scripts, 30-day plan, and real costs of your first hire")
 
     c.setFillColor(HexColor("#9FB3C8"))
     c.setFont("Lib", 10.5)
-    c.drawString(MARGIN, PAGE_H - 57 * mm,
+    c.drawString(MARGIN, PAGE_H - 87 * mm,
                  "Most delegation fails at the handoff. This kit fixes the handoff:")
-    c.drawString(MARGIN, PAGE_H - 62 * mm,
+    c.drawString(MARGIN, PAGE_H - 92.5 * mm,
                  "what to give away, the words to use, and the systems that keep it running.")
 
     chips = ["4 SYSTEMS", "30-DAY PLAN", "YOUR WEEK 1"]
@@ -158,14 +157,55 @@ def on_first_page(c, doc):
     c.setFont("Lib-B", 8.5)
     for label in chips:
         w = c.stringWidth(label, "Lib-B", 8.5) + 9 * mm
-        c.setStrokeColor(HexColor("#2A3B52"))
-        c.setLineWidth(0.8)
-        c.roundRect(x, PAGE_H - 73 * mm, w, 7.5 * mm, 3.75 * mm, stroke=1, fill=0)
-        c.setFillColor(MINT)
-        c.drawCentredString(x + w / 2, PAGE_H - 70.8 * mm, label)
+        c.setFillColor(BRAND)
+        c.roundRect(x, PAGE_H - 104 * mm, w, 7.5 * mm, 3.75 * mm, stroke=0, fill=1)
+        c.setFillColor(HexColor("#050A0E"))
+        c.drawCentredString(x + w / 2, PAGE_H - 101.8 * mm, label)
         x += w + 4 * mm
+
+    c.setFillColor(MINT)
+    c.setFont("Lib-B", 9)
+    c.drawString(MARGIN, PAGE_H - 124 * mm, "WHAT'S INSIDE")
+    rows = [
+        ("01", "Your Week 1", "the two handoffs to give away first"),
+        ("02", "The handoff script", "the words that make it stick"),
+        ("03", "Four systems", "inbox, calendar, follow-ups, the weekly check-in"),
+        ("04", "The 30-day plan", "one layer at a time"),
+        ("05", "What to budget", "DIY costs by region, and the job posting to run"),
+    ]
+    y = PAGE_H - 135 * mm
+    for num, title, desc in rows:
+        c.setFillColor(BRAND)
+        c.setFont("Lib-B", 10.5)
+        c.drawString(MARGIN, y, num)
+        c.setFillColor(white)
+        c.setFont("Lib-B", 11.5)
+        c.drawString(MARGIN + 13 * mm, y, title)
+        tw = c.stringWidth(title, "Lib-B", 11.5)
+        c.setFillColor(HexColor("#9FB3C8"))
+        c.setFont("Lib", 10.5)
+        c.drawString(MARGIN + 13 * mm + tw + 5 * mm, y, desc)
+        c.setStrokeColor(HexColor("#223146"))
+        c.setLineWidth(0.7)
+        c.line(MARGIN, y - 4 * mm, PAGE_W - MARGIN, y - 4 * mm)
+        y -= 14.5 * mm
+
+    c.setFillColor(MINT)
+    c.setFont("Lib-B", 11)
+    c.drawString(MARGIN, 31 * mm,
+                 "Take the test, bring your result, and book your Matching Call at paretotalent.com.")
+
+    c.setStrokeColor(HexColor("#2A3B52"))
+    c.setLineWidth(0.6)
+    c.line(MARGIN, 13 * mm, PAGE_W - MARGIN, 13 * mm)
+    c.setFillColor(HexColor("#8FA3B8"))
+    c.setFont("Lib", 8)
+    c.drawString(MARGIN, 8.5 * mm,
+                 "FP | Francisco Buiras | Right Hand Starter Kit · "
+                 "© 2026 Pareto Talent · paretotalent.com")
+    c.drawRightString(PAGE_W - MARGIN, 8.5 * mm,
+                      f"Page {c.getPageNumber()} of {TOTAL_PAGES}")
     c.restoreState()
-    _footer(c, doc)
 
 
 def on_later_pages(c, doc):
@@ -293,8 +333,12 @@ def make_doc(path):
 def make_story():
     story = [NextPageTemplate("later")]
 
-    # ---- intro, clears the cover band
-    story.append(Spacer(1, HEADER_H - 14 * mm))
+    # ---- page 1 is drawn entirely on the canvas (see on_first_page);
+    # nothing flows on it
+    story.append(Spacer(1, 1))
+    story.append(PageBreak())
+
+    # ---- intro opens page 2
     story.append(P(
         "Hiring fails at the handoff, not the search. Hand a person a job title "
         "and you get questions for a month. Hand them a system and they run. "
@@ -353,22 +397,22 @@ def make_story():
     story.append(KeepTogether(script))
     story.append(Spacer(1, 14))
 
-    # ---- Systems
-    story += [
-        P("<b>THE FOUR SYSTEMS</b>", "h2kick"),
-        Spacer(1, 2),
-        P("Hand these over whole. They are written to be run, not adapted.", "h2"),
-    ]
-    story.append(Spacer(1, 6))
-    story.append(KeepTogether(system_card(
-        "1", "Inbox: the zero rules",
-        "The founder sees decisions. The owner sees traffic. These rules split the two:",
-        ["Two response targets: anything needing your decision, same day; "
-         "everything else, 24 hours.",
-         "Triage three times a day, never continuously. Notifications off.",
-         "A living 'waiting on' list. Nothing sits unanswered without an owner and a date.",
-         "You get copied only on decisions, never on discussions.",
-         "Friday wipe: inbox at zero or every open thread has a next step and an owner."])))
+    # ---- Systems (kicker + heading + first card kept together: the heading
+    # pair must never sit at a page bottom without its content)
+    story.append(KeepTogether(
+        [P("<b>THE FOUR SYSTEMS</b>", "h2kick"),
+         Spacer(1, 2),
+         P("Hand these over whole. They are written to be run, not adapted.", "h2"),
+         Spacer(1, 6)]
+        + system_card(
+            "1", "Inbox: the zero rules",
+            "The founder sees decisions. The owner sees traffic. These rules split the two:",
+            ["Two response targets: anything needing your decision, same day; "
+             "everything else, 24 hours.",
+             "Triage three times a day, never continuously. Notifications off.",
+             "A living 'waiting on' list. Nothing sits unanswered without an owner and a date.",
+             "You get copied only on decisions, never on discussions.",
+             "Friday wipe: inbox at zero or every open thread has a next step and an owner."])))
     story.append(Spacer(1, 10))
     story.append(KeepTogether(system_card(
         "2", "Calendar: the defense rules",
@@ -589,8 +633,8 @@ def make_story():
         P("<b>BEFORE YOU GO</b>", "h2kick"),
         Spacer(1, 2),
         P("The three moves, in order", "h2"),
-        P("• <b>Fill in page 1.</b> Your two Week 1 handoffs and your recoverable "
-          "hours, written down while the test result is fresh.", "body"),
+        P("• <b>Fill in the Week 1 boxes.</b> Your two handoffs and your "
+          "recoverable hours, written down while the test result is fresh.", "body"),
         P("• <b>Run the script on handoff one this week.</b> Outcome, not method. "
           "One decision handed over with it.", "body"),
         P("• <b>When the test finds 10+ hours, book the Matching Call</b> and "
