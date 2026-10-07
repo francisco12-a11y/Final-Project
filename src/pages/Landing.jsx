@@ -108,7 +108,7 @@ export default function Landing() {
 
   return (
     <>
-      <Nav cta="#quiz" ctaLabel="Take the 2-minute quiz" />
+      <Nav cta="#get-audit" ctaLabel="Book a call" />
 
       {/* HERO */}
       <header className="hero">
@@ -124,7 +124,6 @@ export default function Landing() {
             </p>
             <div className="hero-cta-row">
               <a className="btn btn-primary btn-lg" href="#quiz">Take the 2-minute quiz →</a>
-              <a className="btn btn-secondary btn-lg" href="#get-audit">Book a call →</a>
             </div>
             <p className="hero-micro">Instant result · No email needed to see your number · Free kit delivered after</p>
             <div className="stat-chips">
@@ -288,6 +287,19 @@ export default function Landing() {
           <span className="eyebrow">The next-step offer</span>
           <h2 className="section-title">What a Right Hand actually is</h2>
           <p className="section-sub">Freelance marketplaces hand you a list. We hand-pick full-time operators in Latin America, fluent in English, and train them 40+ hours on the AI stack before you ever meet them. Then we match them to your task list within 24 hours, with guarantees in writing.</p>
+          <figure className="rh-media">
+            <video
+              src="/Final-Project/site-assets/ba-to-usa.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              aria-label="Map animation: connection arcs from Buenos Aires across US cities"
+            />
+            <figcaption>
+              Matched in Buenos Aires. Working US hours, in your tools. One hire covers the map.
+            </figcaption>
+          </figure>
           <div className="guarantee-grid">
             <div className="guarantee-card">
               <h3>Freedom 40</h3>

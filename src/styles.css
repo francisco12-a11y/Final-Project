@@ -102,13 +102,6 @@ h2.section-title { font-size: clamp(28px, 4vw, 42px); margin-bottom: 14px; }
     0 8px 24px #10b98126;
 }
 .btn-primary:hover { transform: translateY(-2px); filter: brightness(1.06); box-shadow: inset 0 1px #ffffff40, 0 0 0 1px #10b98199, 0 8px 28px #10b98159; }
-.btn-secondary {
-  background: transparent;
-  color: var(--green-light);
-  padding: 18px 36px;
-  box-shadow: inset 0 0 0 1px #10b98166;
-}
-.btn-secondary:hover { transform: translateY(-2px); background: #10b98114; box-shadow: inset 0 0 0 1px #10b98199, 0 8px 28px #050a0e80; }
 .btn-lg { padding: 20px 44px; font-size: 16.5px; }
 
 /* ---------- floating pill nav (Pareto style) ---------- */
@@ -700,4 +693,20 @@ img.quote-avatar { display: block; width: 46px; height: 46px; object-fit: cover;
   .tarrow.left { left: -6px; }
   .tarrow.right { right: -6px; }
   .tquote { font-size: 17px; }
+}
+
+/* ---------- Buenos Aires map media ---------- */
+.rh-media { margin-top: 44px; }
+.rh-media video {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid #10b98140;
+  box-shadow: 0 0 60px #10b9811a;
+  display: block;
+}
+.rh-media figcaption {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 15px;
+  color: var(--text-secondary);
 }
