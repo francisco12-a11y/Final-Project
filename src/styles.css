@@ -393,6 +393,7 @@ h2.section-title { font-size: clamp(28px, 4vw, 42px); margin-bottom: 14px; }
 .calendar-wrap h2 { font-size: 22px; margin-bottom: 6px; text-align: center; }
 .calendar-wrap .cal-sub { text-align: center; color: var(--text-muted); font-size: 15px; margin-bottom: 20px; }
 .iframe-holder { border-radius: var(--radius-md); overflow: hidden; background: #fff; }
+.calendar-wrap .iframe-holder iframe { width: 100%; min-height: 950px; display: block; }
 
 .check-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 44px auto 0; text-align: left; }
 .check-card { background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: var(--radius-lg); padding: 26px; }
@@ -508,6 +509,7 @@ h2.section-title { font-size: clamp(28px, 4vw, 42px); margin-bottom: 14px; }
 .calendar-wrap h2 { font-size: 22px; margin-bottom: 6px; text-align: center; }
 .calendar-wrap .cal-sub { text-align: center; color: var(--text-muted); font-size: 15px; margin-bottom: 20px; }
 .iframe-holder { border-radius: var(--radius-md); overflow: hidden; background: #fff; }
+.calendar-wrap .iframe-holder iframe { width: 100%; min-height: 950px; display: block; }
 
 .check-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 44px auto 0; text-align: left; }
 .check-card { background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: var(--radius-lg); padding: 26px; }
