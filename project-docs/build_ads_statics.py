@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Build the 5 static Facebook ads — layout v3.
-Full-bleed photo, text locked to the top clear zone (never over the person),
-CTA pill + landing URL bottom-left. Feed 1080x1080 + story 1080x1920.
-Also renders a CTA-label variant sheet on Ad 1 for Fran to pick from.
+"""Build the 5 static Facebook ads — layout v5.
+Photo-forward: full-bleed image, small text block in the top-left clear zone,
+each photo cropped (x_bias) so the person sits away from the text column.
+Feed 1080x1080 + story 1080x1920 + CTA-label variants on Ad 1.
 Output: /home/fran/Descargas/FP_FranciscoBuiras_L13_Ads/statics/
 """
 import os
@@ -19,24 +19,26 @@ os.makedirs(OUT, exist_ok=True)
 EMERALD = (16, 185, 129)
 MINT = (110, 231, 183)
 WHITE = (240, 244, 248)
-SUB = (195, 206, 218)
-URLCOL = (148, 163, 184)
+SUB = (205, 214, 224)
+URLCOL = (163, 177, 192)
 DARK = (5, 10, 14)
 
+# x_bias shifts the crop window: LOW = person moves RIGHT (away from the left
+# text column), HIGH = person moves LEFT.
 ADS = [
-    dict(key="ad1-dan", img=f"{BASE}/dan.jpg", bias=0.45,
-         headline=[("$10/hr work. ", "w"), ("$100/hr job.", "e")],
+    dict(key="ad1-dan", img=f"{BASE}/dan.jpg", x_bias=0.08,
+         headline=[("$10/hr work.", "w"), ("\n$100/hr job.", "e")],
          sub="A Right Hand takes those hours back."),
-    dict(key="ad2-vanessa", img=f"{BASE}/vanessa.jpg", bias=0.35,
+    dict(key="ad2-vanessa", img=f"{BASE}/vanessa.jpg", x_bias=0.0,
          headline=[("Burned by a VA? ", "w"), ("Try a Right Hand.", "e")],
-         sub="The 2-minute test tells you what to hand off first."),
-    dict(key="ad3-chris", img=f"{BASE}/chris.jpg", bias=0.3,
-         headline=[("If you took a week off, would ", "w"), ("the business stop?", "e")],
+         sub="The test tells you what to hand off first."),
+    dict(key="ad3-chris", img=f"{BASE}/chris.jpg", x_bias=0.05,
+         headline=[("If you took a week off, ", "w"), ("would the business stop?", "e")],
          sub="Hand the first process to a Right Hand."),
-    dict(key="ad4-sofia", img=f"{BASE}/sofia.jpg", bias=0.35,
-         headline=[("You didn\u2019t leave your job to be ", "w"), ("your own assistant.", "e")],
+    dict(key="ad4-sofia", img=f"{BASE}/sofia.jpg", x_bias=0.3,
+         headline=[("You didn\u2019t leave your job ", "w"), ("to be your own assistant.", "e")],
          sub="Find your recoverable hours in 2 minutes."),
-    dict(key="ad5-destination", img=OPW, bias=0.5,
+    dict(key="ad5-destination", img=OPW, x_bias=0.52,
          headline=[("15 hours is a sales channel. ", "w"), ("Or your life back.", "e")],
          sub="Free 2-minute founder test."),
 ]
@@ -68,39 +70,47 @@ def dmsans(size, weight=500):
     return font(f"{FONTS}/dmsans.ttf", size, axes=[14, weight])
 
 
-def cover(img, w, h, y_bias=0.5):
+def cover(img, w, h, x_bias=0.5):
     iw, ih = img.size
     s = max(w / iw, h / ih)
     nw, nh = int(iw * s + 0.5), int(ih * s + 0.5)
     img = img.resize((nw, nh), Image.LANCZOS)
-    return img.crop(((nw - w) // 2, int((nh - h) * y_bias), (nw - w) // 2 + w, int((nh - h) * y_bias) + h))
+    x = int((nw - w) * x_bias)
+    return img.crop((x, 0, x + w, min(h, nh)))
 
 
-def scrim(w, h):
-    """Dark band top (for headline), soft dark at bottom (for CTA/URL), clear middle."""
+def scrims(w, h):
+    """Soft top gradient for the headline, soft bottom for the CTA. Clear middle."""
     ov = Image.new("L", (1, h))
     px = ov.load()
     for y in range(h):
         t = y / h
-        if t < 0.42:
-            a = int(235 * (1 - t / 0.42) ** 1.1) + 40
-        elif t > 0.72:
-            a = int(210 * ((t - 0.72) / 0.28) ** 1.1) + 40
+        if t < 0.30:
+            a = int(185 * (1 - t / 0.30) ** 1.1) + 25
+        elif t > 0.74:
+            a = int(190 * ((t - 0.74) / 0.26) ** 1.1) + 25
         else:
-            a = 40
-        px[0, y] = min(245, a)
+            a = 25
+        px[0, y] = min(225, a)
     return Image.new("RGB", (w, h), DARK), ov.resize((w, h))
 
 
 def wrap_segments(draw, segments, fnt, maxw):
     words = []
     for t, c in segments:
-        for wd in t.split(" "):
-            if wd:
+        tokens = t.replace("\n", " \n ").split(" ")
+        for wd in tokens:
+            if wd == "\n":
+                words.append(("\n", c))
+            elif wd:
                 words.append((wd, c))
     lines, cur, curw = [], [], 0.0
     space = draw.textlength(" ", font=fnt)
     for wd, c in words:
+        if wd == "\n":
+            lines.append(cur)
+            cur, curw = [], 0.0
+            continue
         wl = draw.textlength(wd, font=fnt)
         add = wl if not cur else wl + space
         if cur and curw + add > maxw:
@@ -126,44 +136,44 @@ def cta_pill(label, fsize):
     f = jakarta(fsize, 800)
     tmp = ImageDraw.Draw(Image.new("RGB", (10, 10)))
     tw = tmp.textlength(label, font=f)
-    wp, hp = int(tw + 150), int(fsize * 2.6)
+    wp, hp = int(tw + 132), int(fsize * 2.45)
     pill = Image.new("RGBA", (wp, hp), (0, 0, 0, 0))
     d = ImageDraw.Draw(pill)
     d.rounded_rectangle([0, 0, wp - 1, hp - 1], radius=hp // 2, fill=EMERALD)
-    d.text((60, (hp - f.size) / 2 - 4), label, font=f, fill=DARK)
-    ax = 60 + tw + 32
+    d.text((52, (hp - f.size) / 2 - 4), label, font=f, fill=DARK)
+    ax = 52 + tw + 30
     ay = hp / 2
-    d.line([(ax, ay - 11), (ax + 20, ay), (ax, ay + 11)], fill=DARK, width=7, joint="curve")
+    d.line([(ax, ay - 10), (ax + 18, ay), (ax, ay + 10)], fill=DARK, width=6, joint="curve")
     return pill
 
 
 def build(ad, W, H, name, cta_label=CTA_LABEL):
-    canvas = cover(Image.open(ad["img"]).convert("RGB"), W, H, y_bias=ad["bias"])
-    canvas = Image.blend(canvas, Image.new("RGB", (W, H), DARK), 0.15)
-    dark, alpha = scrim(W, H)
+    canvas = cover(Image.open(ad["img"]).convert("RGB"), W, H, x_bias=ad["x_bias"])
+    canvas = Image.blend(canvas, Image.new("RGB", (W, H), DARK), 0.10)
+    dark, alpha = scrims(W, H)
     canvas.paste(dark, (0, 0), alpha)
     d = ImageDraw.Draw(canvas)
 
-    m = int(W * 0.078)
-    maxw = W - 2 * m
+    m = int(W * 0.068)
+    textw = int(W * 0.60)          # text column: left 60%, person lives in the right 40%
 
-    fe = jakarta(int(W * 0.024), 700)
-    draw_tracked(d, (m, int(H * 0.048)), "PARETO TALENT", fe, MINT, int(W * 0.006))
-    ew = sum(d.textlength(c, font=fe) + int(W * 0.006) for c in "PARETO TALENT")
-    draw_tracked(d, (m + ew + int(W * 0.012), int(H * 0.048)), "·  FREE TEST", fe, SUB, int(W * 0.006))
+    fe = jakarta(int(W * 0.020), 700)
+    draw_tracked(d, (m, int(H * 0.045)), "PARETO TALENT", fe, MINT, int(W * 0.005))
+    ew = sum(d.textlength(c, font=fe) + int(W * 0.005) for c in "PARETO TALENT")
+    draw_tracked(d, (m + ew + int(W * 0.010), int(H * 0.045)), "·  FREE TEST", fe, SUB, int(W * 0.005))
 
-    size = int(W * 0.088)
-    max_lines = 3
-    while size > int(W * 0.05):
+    size = int(W * 0.056)          # smaller headline
+    max_lines = 2
+    while size > int(W * 0.040):
         fh = jakarta(size, 800)
-        lines = wrap_segments(d, ad["headline"], fh, maxw)
+        lines = wrap_segments(d, ad["headline"], fh, textw)
         if len(lines) <= max_lines:
             break
-        size -= 4
+        size -= 3
     fh = jakarta(size, 800)
-    lines = wrap_segments(d, ad["headline"], fh, maxw)
-    lead = int(size * 1.14)
-    y = int(H * 0.105)
+    lines = wrap_segments(d, ad["headline"], fh, textw)
+    lead = int(size * 1.15)
+    y = int(H * 0.098)
     for line in lines:
         x = m
         for wd, c in line:
@@ -171,23 +181,23 @@ def build(ad, W, H, name, cta_label=CTA_LABEL):
             x += d.textlength(wd + " ", font=fh)
         y += lead
 
-    y += int(size * 0.3)
-    fs = dmsans(int(W * 0.034), 500)
-    for line in wrap_segments(d, [(ad["sub"], "s")], fs, maxw):
+    y += int(size * 0.28)
+    fs = dmsans(int(W * 0.026), 500)
+    for line in wrap_segments(d, [(ad["sub"], "s")], fs, textw):
         x = m
         for wd, c in line:
             d.text((x, y), wd, font=fs, fill=SUB)
             x += d.textlength(wd + " ", font=fs)
-        y += int(W * 0.048)
+        y += int(W * 0.04)
 
-    pill = cta_pill(cta_label, int(W * 0.033))
-    py = H - int(H * 0.075) - pill.size[1]
+    pill = cta_pill(cta_label, int(W * 0.028))
+    py = H - int(H * 0.052) - pill.size[1]
     canvas.paste(pill, (m, py), pill)
 
-    fsize = int(W * 0.0225)
-    while fsize > 14 and d.textlength(URL_TEXT, font=dmsans(fsize, 500)) > maxw:
+    fsize = int(W * 0.019)
+    while fsize > 13 and d.textlength(URL_TEXT, font=dmsans(fsize, 500)) > textw:
         fsize -= 1
-    d.text((m, py + pill.size[1] + int(H * 0.018)), URL_TEXT, font=dmsans(fsize, 500), fill=URLCOL)
+    d.text((m, py + pill.size[1] + int(H * 0.016)), URL_TEXT, font=dmsans(fsize, 500), fill=URLCOL)
 
     canvas.save(f"{OUT}/{name}", quality=92)
     print("saved", name)
@@ -197,10 +207,13 @@ for ad in ADS:
     build(ad, 1080, 1080, f"{ad['key']}-feed-1080x1080.png")
     build(ad, 1080, 1920, f"{ad['key']}-story-1080x1920.png")
 
-# CTA label variants on Ad 1 (feed) for Fran to pick
 os.makedirs(f"{OUT}/cta-variants", exist_ok=True)
+import glob
+for old in glob.glob(f"{OUT}/cta-variants/*.png"):
+    os.remove(old)
 for label in CTA_VARIANTS:
-    build(ADS[0], 1080, 1080, f"cta-variants/variant-{label.lower().replace(' ', '-').replace('—', '-').replace('--', '-')[:40]}.png", cta_label=label)
+    fn = "variant-" + label.lower().replace(" ", "-")[:40].replace("—", "-") + ".png"
+    build(ADS[0], 1080, 1080, f"cta-variants/{fn}", cta_label=label)
 
 sheet = Image.new("RGB", (540 * 5, 540), (11, 17, 25))
 for i, ad in enumerate(ADS):
@@ -210,8 +223,14 @@ sheet.save("/tmp/ads_review.png")
 
 vsheet = Image.new("RGB", (360 * 5, 360), (11, 17, 25))
 for i, label in enumerate(CTA_VARIANTS):
-    fn = f"variant-{label.lower().replace(' ', '-').replace('—', '-').replace('--', '-')[:40]}.png"
+    fn = "variant-" + label.lower().replace(" ", "-")[:40].replace("—", "-") + ".png"
     im = Image.open(f"{OUT}/cta-variants/{fn}").resize((360, 360))
     vsheet.paste(im, (360 * i, 0))
 vsheet.save("/tmp/cta_variants_review.png")
+
+ssheet = Image.new("RGB", (243 * 5, 432), (11, 17, 25))
+for i, ad in enumerate(ADS):
+    im = Image.open(f"{OUT}/{ad['key']}-story-1080x1920.png").resize((243, 432))
+    ssheet.paste(im, (243 * i, 0))
+ssheet.save("/tmp/ads_review_story.png")
 print("sheets ok")

@@ -118,7 +118,7 @@ def on_first_page(c, doc):
     c.setFillColor(MINT)
     c.setFont("Lib-B", 14)
     c.drawString(MARGIN, PAGE_H - 47 * mm,
-                 "The systems, scripts, and 30-day plan our operators run in week one")
+                 "The systems, scripts, 30-day plan, and real costs of your first hire")
 
     c.setFillColor(HexColor("#9FB3C8"))
     c.setFont("Lib", 10.5)
@@ -267,9 +267,11 @@ def make_story():
     story.append(P(
         "Hiring fails at the handoff, not the search. Hand a person a job title "
         "and you get questions for a month. Hand them a system and they run. "
-        "This kit is the system side: four tools our operators start with, plus "
-        "a 30-day plan that sequences your first handoffs. Your test result "
-        "told you how many hours are on the table. This kit is how you collect them."))
+        "This kit is the system side: four tools our operators start with, a 30-day "
+        "plan that sequences your first handoffs, what the hire should cost, the job "
+        "posting to run, and how to treat the person in their first 90 days. Your "
+        "test result told you how many hours are on the table. This kit is how you "
+        "collect them."))
     story.append(Spacer(1, 12))
 
     # ---- Week 1
@@ -407,6 +409,113 @@ def make_story():
         ("TOPPADDING", (0, 0), (-1, -1), 14),
         ("BOTTOMPADDING", (0, 0), (-1, -1), 16),
     ]))
+    story.append(Spacer(1, 10))
+
+    # ---- What to budget
+    budget = [
+        P("<b>WHAT TO BUDGET</b>", "h2kick"),
+        Spacer(1, 2),
+        P("What a Right Hand costs", "h2"),
+        P("Salary moves by region. These are the working norms the hiring world "
+          "runs on, from the hiring-regions chapter of The Hire book:", "body"),
+        Spacer(1, 6),
+    ]
+    rows = [
+        [P("<b>Region</b>", "cellB"), P("<b>The norm</b>", "cellB")],
+        [P("<b>Latin America</b>", "cellB"),
+         P("From about $1,000/month full-time, working your time zone. Strong "
+           "loyalty. Argentina adds a 13th salary (Aguinaldo), split between "
+           "July and December.", "cell")],
+        [P("<b>Southeast Asia</b>", "cellB"),
+         P("The classic outsourcing hub; availability tightening. Budget a "
+           "13th-month salary at year end.", "cell")],
+        [P("<b>South Asia</b>", "cellB"),
+         P("Scrappy problem-solvers who thrive with structure. Set explicit "
+           "deadlines and build in buffers.", "cell")],
+        [P("<b>Eastern Europe</b>", "cellB"),
+         P("Higher salaries, less arbitrage, deep ownership. Direct feedback "
+           "lands better than flattery.", "cell")],
+    ]
+    t = Table([rows[0]] + rows[1:], colWidths=[100, CONTENT_W - 100])
+    t.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, 0), TINT),
+        ("LINEBELOW", (0, 0), (-1, 0), 0.8, BRAND),
+        ("LINEBELOW", (0, 1), (-1, -1), 0.4, LINE),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("TOPPADDING", (0, 0), (-1, -1), 5),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+        ("LEFTPADDING", (0, 0), (-1, -1), 6),
+    ]))
+    budget.append(t)
+    budget.append(Spacer(1, 6))
+    budget.append(boxed([
+        P("<b>Wherever they're from:</b> 20 days of paid time off is the norm. "
+          "Pay on time or early through Wise, Payoneer, or PayPal, and cover the "
+          "transfer fees. Late payment is the fastest way to lose a great hire.", "cell"),
+    ]))
+    story.append(KeepTogether(budget))
+    story.append(Spacer(1, 10))
+
+    # ---- Job posting template
+    posting = [
+        P("<b>THE JOB POSTING TEMPLATE</b>", "h2kick"),
+        Spacer(1, 2),
+        P("Your Week 1 list, postable", "h2"),
+        P("Your shortlist is your first job description. To post it anywhere, "
+          "use this skeleton — it is built to filter while it attracts:", "body"),
+        Spacer(1, 4),
+        P("• <b>Title:</b> “WANTED! The World's Most [Adjective] Remote [Right "
+          "Hand]” — sets the bar and self-selects.", "body"),
+        P("• <b>First line, every posting:</b> “When you apply, make sure the "
+          "subject line is: 'I actually read the instructions.'” Wrong subject "
+          "line, auto-archived.", "body"),
+        P("• <b>Include:</b> who you are (personality-forward), five "
+          "responsibilities written as end results, the exact salary (never a "
+          "range), and the traits of people who thrive in the role.", "body"),
+        P("• <b>Always state the uncomfortable parts:</b> quiet workspace, "
+          "reliable internet, a 60-day trial period. The right people nod. The "
+          "wrong ones filter themselves.", "body"),
+        P("• <b>Auto-reject:</b> didn't follow the instructions, sloppy "
+          "formatting, sarcastic answers. Archive, never delete.", "body"),
+    ]
+    story.append(KeepTogether(posting))
+    story.append(Spacer(1, 10))
+
+    # ---- First 90 days
+    ninety = [
+        P("<b>THE FIRST 90 DAYS</b>", "h2kick"),
+        Spacer(1, 2),
+        P("Keep the person you hired", "h2"),
+        P("Onboarding is a launch sequence: habits, expectations, and momentum "
+          "are set here.", "body"),
+        Spacer(1, 4),
+        P("• <b>Paper them up.</b> A simple contractor agreement, walked through "
+          "section by section in a call. Transparency builds trust.", "body"),
+        P("• <b>Set the pace.</b> Assign slightly more work than fits an 8-hour "
+          "day, say so out loud, and hand over your real backlog — never "
+          "busywork.", "body"),
+        P("• <b>Pay on time or early</b> through Wise, Payoneer, or PayPal, and "
+          "cover the transfer fees.", "body"),
+        P("• <b>Daily short check-ins</b> until confidence is established, then "
+          "two weekly meetings.", "body"),
+        P("• <b>Celebrate the 60-day trial loudly.</b> It is nerve-wracking by "
+          "design; passing it deserves a moment.", "body"),
+    ]
+    story.extend(ninety)
+
+    recap = [
+        P("<b>BEFORE YOU GO</b>", "h2kick"),
+        Spacer(1, 2),
+        P("The three moves, in order", "h2"),
+        P("• <b>Fill in page 1.</b> Your two Week 1 handoffs and your recoverable "
+          "hours, written down while the test result is fresh.", "body"),
+        P("• <b>Run the script on handoff one this week.</b> Outcome, not method. "
+          "One decision handed over with it.", "body"),
+        P("• <b>When the test finds 10+ hours, book the Matching Call</b> and "
+          "bring this kit. Your Week 1 list is the interview.", "body"),
+    ]
+    story.append(KeepTogether(recap))
+    story.append(Spacer(1, 14))
     story.append(closing)
     return story
 
