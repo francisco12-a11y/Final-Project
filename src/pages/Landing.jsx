@@ -124,6 +124,7 @@ export default function Landing() {
             </p>
             <div className="hero-cta-row">
               <a className="btn btn-primary btn-lg" href="#quiz">Take the 2-minute quiz →</a>
+              <a className="btn btn-secondary btn-lg" href="#get-audit">Book a call →</a>
             </div>
             <p className="hero-micro">Instant result · No email needed to see your number · Free kit delivered after</p>
             <div className="stat-chips">

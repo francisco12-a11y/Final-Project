@@ -102,6 +102,13 @@ h2.section-title { font-size: clamp(28px, 4vw, 42px); margin-bottom: 14px; }
     0 8px 24px #10b98126;
 }
 .btn-primary:hover { transform: translateY(-2px); filter: brightness(1.06); box-shadow: inset 0 1px #ffffff40, 0 0 0 1px #10b98199, 0 8px 28px #10b98159; }
+.btn-secondary {
+  background: transparent;
+  color: var(--green-light);
+  padding: 18px 36px;
+  box-shadow: inset 0 0 0 1px #10b98166;
+}
+.btn-secondary:hover { transform: translateY(-2px); background: #10b98114; box-shadow: inset 0 0 0 1px #10b98199, 0 8px 28px #050a0e80; }
 .btn-lg { padding: 20px 44px; font-size: 16.5px; }
 
 /* ---------- floating pill nav (Pareto style) ---------- */
