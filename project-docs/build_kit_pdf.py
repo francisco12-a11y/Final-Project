@@ -46,6 +46,28 @@ pdfmetrics.registerFont(TTFont("Lib-B", f"{_FDIR}/LiberationSans-Bold.ttf"))
 pdfmetrics.registerFont(TTFont("Lib-I", f"{_FDIR}/LiberationSans-Italic.ttf"))
 
 
+def flat_logo(path, bg_hex="#0B1526", scale=2):
+    """Flatten the palettized brand PNG onto the band color.
+
+    The raw asset is P-mode with a binary transparency mask; ReportLab embeds
+    it as RGB + SMask, which some PDF viewers render as corrupted streaks.
+    A plain RGB image with no transparency renders identically everywhere.
+    """
+    from PIL import Image
+    im = Image.open(path).convert("RGBA")
+    im = im.resize((im.width * scale, im.height * scale), Image.LANCZOS)
+    bg = Image.new("RGB", im.size,
+                   tuple(int(bg_hex[i:i + 2], 16) for i in (1, 3, 5)))
+    bg.paste(im, (0, 0), im)
+    out = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                       "_kit_logo_flat.png")
+    bg.save(out)
+    return out
+
+
+LOGO_FLAT = flat_logo(LOGO)
+
+
 def st(name, **kw):
     base = dict(fontName="Lib", fontSize=10.5, leading=15.5, textColor=BODY)
     base.update(kw)
@@ -99,14 +121,16 @@ HEADER_H = 88 * mm
 def on_first_page(c, doc):
     c.saveState()
     c.setFillColor(DARK)
-    c.rect(0, PAGE_H - HEADER_H, PAGE_W, HEADER_H, stroke=0, fill=1)
+    c.rect(0, PAGE_H - HEADER_H, PAGE_W + 2, HEADER_H, stroke=0, fill=1)
+    c.setFillColor(BRAND)
+    c.rect(0, PAGE_H - HEADER_H, PAGE_W + 2, 2.2, stroke=0, fill=1)
     c.setFillColor(HexColor("#10B981"))
     c.setFillAlpha(0.08)
     c.circle(PAGE_W - 30 * mm, PAGE_H - 18 * mm, 42 * mm, stroke=0, fill=1)
     c.setFillAlpha(1)
 
-    c.drawImage(LOGO, MARGIN, PAGE_H - 20 * mm,
-                width=22 * mm, height=9 * mm, mask="auto")
+    c.drawImage(LOGO_FLAT, MARGIN, PAGE_H - 20 * mm,
+                width=22 * mm, height=9 * mm)
     c.setFillColor(HexColor("#8FA3B8"))
     c.setFont("Lib-B", 9.5)
     c.drawRightString(PAGE_W - MARGIN, PAGE_H - 18 * mm,
@@ -145,9 +169,11 @@ def on_first_page(c, doc):
 def on_later_pages(c, doc):
     c.saveState()
     c.setFillColor(DARK)
-    c.rect(0, PAGE_H - 12 * mm, PAGE_W, 12 * mm, stroke=0, fill=1)
-    c.drawImage(LOGO, MARGIN, PAGE_H - 8.4 * mm,
-                width=12 * mm, height=4.9 * mm, mask="auto")
+    c.rect(0, PAGE_H - 12 * mm, PAGE_W + 2, 12 * mm, stroke=0, fill=1)
+    c.setFillColor(BRAND)
+    c.rect(0, PAGE_H - 12 * mm, PAGE_W + 2, 2.2, stroke=0, fill=1)
+    c.drawImage(LOGO_FLAT, MARGIN, PAGE_H - 8.4 * mm,
+                width=12 * mm, height=4.9 * mm)
     c.setFillColor(HexColor("#9FB3C8"))
     c.setFont("Lib-B", 8)
     c.drawRightString(PAGE_W - MARGIN, PAGE_H - 7.8 * mm,
@@ -171,16 +197,19 @@ def _footer(c, doc):
     c.restoreState()
 
 
-def boxed(flows, bg=SOFT, border=LINE, pad=12):
+def boxed(flows, bg=SOFT, border=LINE, pad=12, accent=None):
     t = Table([[flows]], colWidths=[CONTENT_W])
-    t.setStyle(TableStyle([
+    style = [
         ("BACKGROUND", (0, 0), (-1, -1), bg),
         ("BOX", (0, 0), (-1, -1), 0.8, border),
         ("LEFTPADDING", (0, 0), (-1, -1), pad),
         ("RIGHTPADDING", (0, 0), (-1, -1), pad),
         ("TOPPADDING", (0, 0), (-1, -1), pad - 2),
         ("BOTTOMPADDING", (0, 0), (-1, -1), pad - 2),
-    ]))
+    ]
+    if accent:
+        style.append(("LINEBEFORE", (0, 0), (0, -1), 2.5, accent))
+    t.setStyle(TableStyle(style))
     return t
 
 
@@ -245,7 +274,7 @@ def make_doc(path):
         os.path.abspath(path), pagesize=A4,
         leftMargin=MARGIN, rightMargin=MARGIN,
         topMargin=MARGIN + 4 * mm, bottomMargin=18 * mm,
-        title="The Right Hand Starter Kit — Pareto Talent",
+        title="The Right Hand Starter Kit · Pareto Talent",
         author="Francisco Buiras",
         subject="The systems, scripts, and 30-day plan to hand off the assistant job",
         creator="FP | Francisco Buiras | Right Hand Starter Kit",
@@ -310,7 +339,7 @@ def make_story():
               "You own it end to end. The decision I'm handing you: "
               "<b>[E.G. REFUNDS UNDER $100]</b>. Friday, bring me one question: "
               "what did you decide?\u201D", "quote"),
-        ], bg=TINT, border=TINT_LINE),
+        ], bg=TINT, border=TINT_LINE, accent=BRAND),
         Spacer(1, 8),
         P("<b>Three rules that make it permanent</b>", "h3"),
         P("• Hand off the <b>outcome</b>, not the method. If you script their steps, "
@@ -384,7 +413,7 @@ def make_story():
           "30. Pareto prices a founder's hour at $200 when it goes to sales, "
           "product, and growth. Ten hours a week is about $8,600 a month of CEO "
           "work back on the calendar.", "cell"),
-    ]))
+    ], accent=BRAND))
     story.append(Spacer(1, 14))
 
     # ---- closing
@@ -452,7 +481,7 @@ def make_story():
         P("<b>Wherever they're from:</b> 20 days of paid time off is the norm. "
           "Pay on time or early through Wise, Payoneer, or PayPal, and cover the "
           "transfer fees. Late payment is the fastest way to lose a great hire.", "cell"),
-    ]))
+    ], accent=BRAND))
     budget.append(Spacer(1, 8))
     budget.append(boxed([
         P("<b>Or skip the DIY route:</b> a fully-trained Right Hand from Pareto "
@@ -462,7 +491,7 @@ def make_story():
           "the match. Check it against your own test: at $200 an hour, every 15 "
           "hours a week you get back is about $13,000 a month of founder work. "
           "The founder whose test said 37 hours is looking at $31,820.", "cell"),
-    ]))
+    ], accent=BRAND))
     story.append(KeepTogether(budget))
     story.append(Spacer(1, 10))
 
@@ -472,10 +501,10 @@ def make_story():
         Spacer(1, 2),
         P("Your Week 1 list, postable", "h2"),
         P("Your shortlist is your first job description. To post it anywhere, "
-          "use this skeleton — it is built to filter while it attracts:", "body"),
+          "use this skeleton; it is built to filter while it attracts:", "body"),
         Spacer(1, 4),
         P("• <b>Title:</b> “WANTED! The World's Most [Adjective] Remote [Right "
-          "Hand]” — sets the bar and self-selects.", "body"),
+          "Hand]” (sets the bar and self-selects).", "body"),
         P("• <b>First line, every posting:</b> “When you apply, make sure the "
           "subject line is: 'I actually read the instructions.'” Wrong subject "
           "line, auto-archived.", "body"),
@@ -507,18 +536,21 @@ def make_story():
     story.append(KeepTogether(deeper))
     story.append(Spacer(1, 10))
 
-    # ---- First 90 days
+    # ---- First 90 days (kicker + heading + lede kept together: an orphaned
+    # kicker at a page bottom reads as a rendering bug)
     ninety = [
-        P("<b>THE FIRST 90 DAYS</b>", "h2kick"),
-        Spacer(1, 2),
-        P("Keep the person you hired", "h2"),
-        P("Onboarding is a launch sequence: habits, expectations, and momentum "
-          "are set here.", "body"),
+        KeepTogether([
+            P("<b>THE FIRST 90 DAYS</b>", "h2kick"),
+            Spacer(1, 2),
+            P("Keep the person you hired", "h2"),
+            P("Onboarding is a launch sequence: habits, expectations, and momentum "
+              "are set here.", "body"),
+        ]),
         Spacer(1, 4),
         P("• <b>Paper them up.</b> A simple contractor agreement, walked through "
           "section by section in a call. Transparency builds trust.", "body"),
         P("• <b>Set the pace.</b> Assign slightly more work than fits an 8-hour "
-          "day, say so out loud, and hand over your real backlog — never "
+          "day, say so out loud, and hand over your real backlog, never "
           "busywork.", "body"),
         P("• <b>Pay on time or early</b> through Wise, Payoneer, or PayPal, and "
           "cover the transfer fees.", "body"),
