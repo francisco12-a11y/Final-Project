@@ -124,10 +124,12 @@ def on_first_page(c, doc):
     c.rect(0, PAGE_H - HEADER_H, PAGE_W + 2, HEADER_H, stroke=0, fill=1)
     c.setFillColor(BRAND)
     c.rect(0, PAGE_H - HEADER_H, PAGE_W + 2, 2.2, stroke=0, fill=1)
-    c.setFillColor(HexColor("#10B981"))
-    c.setFillAlpha(0.08)
+    # Decorative glow, pre-blended onto the band color: fill alpha renders
+    # as a hard-edged disc in some PDF viewers.
+    c.setFillColor(HexColor("#0A1D2A"))
     c.circle(PAGE_W - 30 * mm, PAGE_H - 18 * mm, 42 * mm, stroke=0, fill=1)
-    c.setFillAlpha(1)
+    c.setFillColor(HexColor("#0B222D"))
+    c.circle(PAGE_W - 30 * mm, PAGE_H - 18 * mm, 30 * mm, stroke=0, fill=1)
 
     c.drawImage(LOGO_FLAT, MARGIN, PAGE_H - 20 * mm,
                 width=22 * mm, height=9 * mm)
