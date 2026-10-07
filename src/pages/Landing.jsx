@@ -76,7 +76,8 @@ export default function Landing() {
       if (!a) return
       let target
       try { target = new URL(a.href) } catch (_) { return }
-      if (target.pathname !== window.location.pathname) return
+      const norm = (pp) => pp.replace(/index\.html$/, '').replace(/\/$/, '') || '/'
+      if (norm(target.pathname) !== norm(window.location.pathname)) return
       const id = target.hash.slice(1)
       if (!id) return
       const el = document.getElementById(id)
