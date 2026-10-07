@@ -696,12 +696,13 @@ img.quote-avatar { display: block; width: 46px; height: 46px; object-fit: cover;
 }
 
 /* ---------- Buenos Aires map media ---------- */
-.rh-media { margin-top: 44px; }
+.rh-media { margin-top: 44px; display: flex; justify-content: center; }
 .rh-media video {
   width: 100%;
+  max-width: 560px;
+  opacity: 0.5;
   border-radius: var(--radius-lg);
-  border: 1px solid #10b98140;
-  box-shadow: 0 0 60px #10b9811a;
+  border: 1px solid #10b9812e;
   display: block;
 }
 .rh-media figcaption {
