@@ -4,6 +4,7 @@ import Footer from '../components/Footer.jsx'
 import Quiz from '../components/Quiz.jsx'
 import Testimonials from '../components/Testimonials.jsx'
 import WallOfLove from '../components/WallOfLove.jsx'
+import GlobeDispatch from '../components/GlobeDispatch.jsx'
 
 const HEROES = {
   dan: {
@@ -282,24 +283,27 @@ export default function Landing() {
       </section>
 
       {/* THE PROGRAM */}
-      <section className="section section-surface">
+      <section className="section section-surface rh-section">
+        <GlobeDispatch
+          className="rh-bg"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', aspectRatio: 'auto' }}
+          cities={24}
+          tempo={0.075}
+          lift={0.24}
+          size={460}
+          distance={14}
+          offsetX={0.04}
+          offsetY={-0.08}
+          globe={{ spin: 12, tilt: -22, roll: 17 }}
+          camera={{ yaw: -22, pitch: 2, roll: 12 }}
+        />
         <div className="container">
           <span className="eyebrow">The next-step offer</span>
           <h2 className="section-title">What a Right Hand actually is</h2>
           <p className="section-sub">Freelance marketplaces hand you a list. We hand-pick full-time operators in Latin America, fluent in English, and train them 40+ hours on the AI stack before you ever meet them. Then we match them to your task list within 24 hours, with guarantees in writing.</p>
-          <figure className="rh-media">
-            <video
-              src="/Final-Project/site-assets/ba-to-usa.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              aria-label="Map animation: connection arcs from Buenos Aires across US cities"
-            />
-            <figcaption>
-              Matched in Buenos Aires. Working US hours, in your tools. One hire covers the map.
-            </figcaption>
-          </figure>
+          <p className="rh-caption">
+            Matched in Buenos Aires. Working US hours, in your tools. One hire covers the map.
+          </p>
           <div className="guarantee-grid">
             <div className="guarantee-card">
               <h3>Freedom 40</h3>

@@ -695,19 +695,44 @@ img.quote-avatar { display: block; width: 46px; height: 46px; object-fit: cover;
   .tquote { font-size: 17px; }
 }
 
-/* ---------- Buenos Aires map media ---------- */
-.rh-media { margin-top: 44px; display: flex; flex-direction: column; align-items: center; }
-.rh-media video {
-  width: 100%;
-  max-width: 560px;
-  opacity: 0.5;
-  border-radius: var(--radius-lg);
-  border: 1px solid #10b9812e;
-  display: block;
+/* ---------- Right Hand section: live globe backdrop (GlobeDispatch) ---------- */
+.rh-section {
+  position: relative;
+  overflow: hidden;
+  /* --bg-surface as raw channels, so the veil can carry an alpha */
+  --rh-veil: 11, 17, 25;
 }
-.rh-media figcaption {
-  margin-top: 14px;
-  text-align: center;
+.rh-section > .container { position: relative; z-index: 1; }
+
+.rh-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.5;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(125% 115% at 50% 42%, #000 52%, transparent 100%);
+  mask-image: radial-gradient(125% 115% at 50% 42%, #000 52%, transparent 100%);
+}
+
+/* the copy sits on the left, so the backdrop darkens under it and clears
+   toward the right where the arcs converge */
+.rh-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    95deg,
+    rgba(var(--rh-veil), 0.94) 0%,
+    rgba(var(--rh-veil), 0.86) 34%,
+    rgba(var(--rh-veil), 0.42) 62%,
+    rgba(var(--rh-veil), 0) 88%
+  );
+}
+
+.rh-caption {
+  margin-top: 18px;
   font-size: 15px;
   color: var(--text-secondary);
 }
