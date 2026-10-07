@@ -415,7 +415,7 @@ def make_story():
     budget = [
         P("<b>WHAT TO BUDGET</b>", "h2kick"),
         Spacer(1, 2),
-        P("What a Right Hand costs", "h2"),
+        P("What a DIY hire costs by region", "h2"),
         P("Salary moves by region. These are the working norms the hiring world "
           "runs on, from the hiring-regions chapter of The Hire book:", "body"),
         Spacer(1, 6),
@@ -453,6 +453,16 @@ def make_story():
           "Pay on time or early through Wise, Payoneer, or PayPal, and cover the "
           "transfer fees. Late payment is the fastest way to lose a great hire.", "cell"),
     ]))
+    budget.append(Spacer(1, 8))
+    budget.append(boxed([
+        P("<b>Or skip the DIY route:</b> a fully-trained Right Hand from Pareto "
+          "runs $3,000 a month on the annual plan plus a one-time $3,000 "
+          "placement fee, and there is no contract until you hire. The fee "
+          "covers 40+ hours of AI-stack training, the tool subscriptions, and "
+          "the match. Check it against your own test: at $200 an hour, every 15 "
+          "hours a week you get back is about $13,000 a month of founder work. "
+          "The founder whose test said 37 hours is looking at $31,820.", "cell"),
+    ]))
     story.append(KeepTogether(budget))
     story.append(Spacer(1, 10))
 
@@ -481,6 +491,22 @@ def make_story():
     story.append(KeepTogether(posting))
     story.append(Spacer(1, 10))
 
+    # ---- Go deeper: The Hire book
+    deeper = [
+        P("<b>GO DEEPER</b>", "h2kick"),
+        Spacer(1, 2),
+        P("Where this kit comes from", "h2"),
+        P("The hiring system in these pages is from <b>The Hire: How to "
+          "Attract, Hire, and Manage the Best Remote Talent in the World</b> by "
+          "Kasim Aslam and Ivan Bunin, the team behind Pareto Talent. The "
+          "book's site gives the templates away for free: the job posting, the "
+          "trial-project offer, the contractor agreement, the rejection letter, "
+          "and the one-page cheat sheet. Grab them at "
+          "<link href=\"https://thehirebook.com/\" color=\"#10b981\"><b>thehirebook.com</b></link>.", "body"),
+    ]
+    story.append(KeepTogether(deeper))
+    story.append(Spacer(1, 10))
+
     # ---- First 90 days
     ninety = [
         P("<b>THE FIRST 90 DAYS</b>", "h2kick"),
@@ -502,6 +528,28 @@ def make_story():
           "design; passing it deserves a moment.", "body"),
     ]
     story.extend(ninety)
+
+    # ---- The 2-6-2 rule
+    twosixtwo = [
+        P("<b>THE 2-6-2 RULE</b>", "h2kick"),
+        Spacer(1, 2),
+        P("How the assistant job becomes a Right Hand", "h2"),
+        P("Kasim Aslam's standard: hand your assistant ten tasks. Two they "
+          "will do worse than you. Six they will do just as well. Two they "
+          "will do better than you ever did. Management orthodoxy says fix the "
+          "bottom two. That is backwards: remove the bottom two and make the "
+          "top two their whole job.", "body"),
+        Spacer(1, 4),
+        P("His proof: one executive assistant became his social director, "
+          "another his automation director, and a third, Ivan Bunin, became "
+          "his CTO, then his business partner.", "body"),
+        Spacer(1, 4),
+        P("That trajectory is the idea behind a Right Hand: someone AI-trained "
+          "who starts on your Week 1 list and grows into the work only they "
+          "can do.", "body"),
+    ]
+    story.append(KeepTogether(twosixtwo))
+    story.append(Spacer(1, 10))
 
     recap = [
         P("<b>BEFORE YOU GO</b>", "h2kick"),
