@@ -158,12 +158,6 @@ export default function Landing() {
           <div>
             <AuditPreview />
             <div className="trust-row under-card">
-              <span className="avatar-stack" aria-hidden="true">
-                <img src="/Final-Project/site-assets/avatar-1.svg" alt="" />
-                <img src="/Final-Project/site-assets/avatar-2.svg" alt="" />
-                <img src="/Final-Project/site-assets/avatar-3.svg" alt="" />
-                <span className="avatar-more">+</span>
-              </span>
               <span className="stars">★★★★★</span>
               <span className="txt"><b>4.9</b> · Trusted by 100+ founders</span>
             </div>

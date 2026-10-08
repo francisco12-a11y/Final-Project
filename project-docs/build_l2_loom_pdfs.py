@@ -258,6 +258,8 @@ def build_loom():
         "• Close every tab except: the landing page, the GHL pipeline tab, and the GHL workflows tab (all logged in)."
         "<br/>• Set the browser to 100% zoom, hide bookmarks bar."
         "<br/>• Have the test-result page ready in a second window if you want to jump fast."
+        "<br/>• Clean the pipeline first: delete the test opportunities (Test test, Router Test, tst test) — the pipeline tab is on camera. "
+        "Then submit the form yourself once so the board and the execution log have something real to show."
         "<br/>• The script is ~300 words — it times out at 2:00 when read at a normal pace. Do not rush; cut ad-libs instead."
         "<br/>• Say the mouse moves out loud in your head, not on the recording. Silence while navigating is fine.", "body"))
     story.append(Spacer(1, 8))
@@ -274,9 +276,9 @@ def build_loom():
          "Then one short form decides what happens next — honestly. If you're doing ten thousand a month and drowning in fifteen hours of ops, "
          "you go straight to the calendar and book a Matching Call with Pareto. If it's not your time yet, you still keep everything, "
          "and the thank-you page tells you exactly when to come back. Same funnel, two honest paths."),
-        ("1:10 – 1:35", "THE MACHINE", "(GHL pipeline tab, then workflows tab, then one email)",
-         "Under the hood: a pipeline that tracks every founder from lead to match. Four workflows — the kit delivery, "
-         "the qualified follow-up, a nurture sequence for the not-yet-ready, and booking reminders. "
+        ("1:10 – 1:35", "THE MACHINE", "(GHL pipeline tab, then workflows tab, then one execution log)",
+         "Under the hood: a pipeline that tracks every founder from lead to match. Six workflows run this — kit delivery, "
+         "a qualified follow-up, nurture for the not-yet-ready, booking reminders, post-call, even a no-show rescue. "
          "Here's one firing in real time: contact created, tagged, opportunity moved, email out."),
         ("1:35 – 1:55", "THE PROOF IT'S ORGANIZED", "(Business Map in Notion, then the Second Brain)",
          "The whole journey is mapped — every step linked to its real asset. And every decision traces back to my Second Brain: "
@@ -298,6 +300,8 @@ def build_loom():
     story.append(P("Delivery notes", "h2"))
     story.append(P(
         "• The two page-jumps in the ROUTING beat are the ones to rehearse — do them slowly enough to follow."
+        "<br/>• If the execution log looks thin after the test-contact cleanup, open the Opt-in workflow canvas instead and say: "
+        "\u201CHere's the machine. Every step automated.\u201D Don't apologize for it."
         "<br/>• If the GHL form shows a styled dark form on screen, hover it for a second; it sells the 'matches the brand' point silently."
         "<br/>• Don't say 'um' battles with the timer — the CLOSE line can be cut to \u201CTake the test. Pareto has the Right Hand waiting.\u201D"
         "<br/>• Record at 2:05 max; Loom's trim handles the rest.", "body"))

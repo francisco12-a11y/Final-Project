@@ -67,7 +67,7 @@ def on_page(c, doc):
     c.setFillColor(HexColor("#9FB3C8"))
     c.setFont("Lib", 9)
     c.drawString(MARGIN, PAGE_H - 22.5 * mm,
-                 "FP | Francisco Buiras | SOP · version 1.0 · owner: Growth · review after every launch")
+                 "FP | Francisco Buiras | SOP · version 1.1 · owner: Growth · review after every launch")
     c.setStrokeColor(LINE); c.setLineWidth(0.6)
     c.line(MARGIN, 12 * mm, PAGE_W - MARGIN, 12 * mm)
     c.setFillColor(MUTED); c.setFont("Lib", 7.5)
@@ -194,14 +194,16 @@ story.append(phase(
 
 story.append(phase(
     "PHASE 4", "Automation (day 3–4)",
-    "Four workflows, eight emails, one pipeline. Every lead is touched by a system, not a person.",
-    ["Pipeline: New Lead, Qualified, Call Booked, Call Done, Won, Nurture. Tags: qualified, nurture, kit-sent, booked.",
-     "Workflow 1 Opt-in: deliver magnet as attachment, tag, create opportunity, notify the operator.",
-     "Workflow 2 Qualified follow-up: wait 1 day, check for booking, 2 touches max (day 1 and 3).",
+    "Six workflows, ten emails, one pipeline. Every lead is touched by a system, not a person.",
+    ["Pipeline: New Lead, Qualified, Call Booked, Call Done, Won (Matched), Nurture. Tags: qualified, nurture, kit-sent, booked, no-show.",
+     "Workflow 1 Opt-in: form submitted → opportunity created, qualification checked, kit delivered as attachment, tags set, operator notified.",
+     "Workflow 2 Qualified follow-up: wait 1 day, check for booking, chase day 1 and day 3, and re-check before the last touch so fresh bookings are never chased.",
      "Workflow 3 Nurture: 3 teach-only emails (days 2, 5, 8). Never pitch this list.",
      "Workflow 4 Booking: confirmation immediately (calendar default off), reminder 24h before.",
+     "Workflows 5 and 6 run off appointment status: Showed sends the next-steps email, No Show sends the rebook email with the calendar link.",
+     "Mark every call Showed or No-show in the calendar the same hour; the status pair fires off that.",
      "Write every email to one job, under 180 words, with the magnet doing the persuading."],
-    "Workflow 1 fires on a real submission: attachment received, tags set, opportunity created, notification sent."))
+    "Workflow 1 fires on a real submission: attachment received, tags set, opportunity created, notification sent. A no-show test produces the rebook email."))
 
 story.append(phase(
     "PHASE 5", "Launch materials (day 4)",
