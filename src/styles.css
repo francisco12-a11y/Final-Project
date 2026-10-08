@@ -778,3 +778,14 @@ img.quote-avatar { display: block; width: 46px; height: 46px; object-fit: cover;
 }
 .pool-card .pool-label { font-size: 13.5px; color: var(--text-secondary); }
 @media (max-width: 900px) { .pool-stats { grid-template-columns: 1fr; } }
+
+/* Qualified: two-column booking layout — pitch left, calendar right */
+.qual-grid { display: grid; grid-template-columns: 380px 1fr; gap: 28px; align-items: start; }
+.qual-info { display: grid; gap: 16px; }
+.qual-info .callout { margin: 10px 0 0; }
+.qual-cal { margin: 0; max-width: none; }
+.status-hero.qual-hero { padding: 56px 0 36px; }
+@media (max-width: 960px) {
+  .qual-grid { grid-template-columns: 1fr; }
+  .qual-cal { order: -1; }
+}
